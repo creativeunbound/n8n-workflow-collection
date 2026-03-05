@@ -1,0 +1,38 @@
+name: Discover n8n Repositories
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'  # Weekly on Mondays at 3 AM UTC
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Search GitHub for n8n workflow repos
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh search repos \
+            --topic=n8n-workflows \
+            --limit 100 \
+            --json name,url,stargazersCount,description,language,updatedAt,pushedAt \
+            > new-discoveries.json
+
+      - name: Merge with existing discoveries
+        run: |
+          python3 scripts/merge_discoveries.py \
+            new-discoveries.json \
+            discovered-repos.json \
+            > temp.json
+          mv temp.json discovered-repos.json
+
+      - name: Commit updates
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add discovered-repos.json
+          git commit -m "🔍 Repo discovery: $(date +%Y-%m-%d)" || exit 0
+          git push
