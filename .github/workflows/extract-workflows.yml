@@ -2,7 +2,7 @@ name: Extract Workflows from GitHub Repos
 
 on:
   schedule:
-    - cron: '0 19 * * 2'  # Weekly on Tuesdays at 7 PM UTC (3 AM Wednesday PHT/GMT+8)
+    - cron: '0 19 * * 2'  # Weekly on Tuesdays at 7 PM UTC (3 AM Wednesday GMT+8/SG Time)
   workflow_dispatch:  # Allow manual trigger
 
 jobs:

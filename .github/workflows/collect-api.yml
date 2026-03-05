@@ -2,7 +2,7 @@ name: Collect n8n API Workflows
 
 on:
   schedule:
-    - cron: '0 19 * * 1'  # Weekly on Mondays at 7 PM UTC (3 AM Tuesday PHT/GMT+8)
+    - cron: '0 19 * * 1'  # Weekly on Mondays at 7 PM UTC (3 AM Tuesday GMT+8/SG Time)
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
