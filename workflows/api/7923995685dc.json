@@ -1,0 +1,171 @@
+{
+  "id": 6270,
+  "name": "Build Your First AI Agent",
+  "totalViews": 99862,
+  "purchaseUrl": null,
+  "user": {
+    "id": 91332,
+    "name": "Lucas Peyrin",
+    "username": "lucaspeyrin",
+    "bio": "Innovative builder with a passion for crafting automation solutions that solve real-world challenges. From streamlining workflows to driving efficiency, my work empowers teams and individuals to achieve more with less effort. Experienced in developing scalable tools and strategies that deliver results with n8n, supabase and cline.\n\nGet your Free n8n PDF Audit:",
+    "verified": true,
+    "links": "[\"https://free.n8n.ac\"]",
+    "avatar": "https://gravatar.com/avatar/74234187cf4a650d53f6a86e7b03d1bcb8cfef4cbd0552eabd8d966cd808cc54?r=pg&d=retro&size=200"
+  },
+  "description": "How it works\n\nThis template launches your very first AI Agent \u2014an AI-powered chatbot that can do more than just talk\u2014 it can take action using tools.\n\nThink of an AI Agent as a smart assistant, and the tools are the apps on its phone. By connecting it to other nodes, you give your agent the ability to interact with real-world data and services, like checking the weather, fetching news, or even sending emails on your behalf.\n\nThis workflow is designed to be the perfect starting point:\nThe Chat Interface:** A Chat Trigger node provides a simple, clean interface for you to talk to your agent.\nThe Brains:** The AI Agent node receives your messages, intelligently decides which tool to use (if any), and formulates a helpful response. Its personality and instructions are fully customizable in the \"System Message\".\nThe Language Model:* It uses *Google Gemini** to power its reasoning and conversation skills.\nThe Tools:** It comes pre-equipped with two tools to demonstrate its capabilities:\n    Get Weather: Fetches real-time weather forecasts.\n    Get News: Reads any RSS feed to get the latest headlines.\nThe Memory:** A Conversation Memory node allows the agent to remember the last few messages, enabling natural, follow-up conversations.\n\nSet up steps\n\nSetup time: ~2 minutes\n\nYou only need one thing to get started: a free Google AI API key.\n\nGet Your Google AI API Key:\n    Visit Google AI Studio at aistudio.google.com/app/apikey.\n    Click \"Create API key in new project\" and copy the key that appears.\n\nAdd Your Credential in n8n:\n    On the workflow canvas, go to the Connect your model (Google Gemini) node.\n    Click the Credential dropdown and select + Create New Credential.\n    Paste your API key into the API Key field and click Save.\n\nStart Chatting!\n    Go to the Example Chat node.\n    Click the \"Open Chat\" button in its parameter panel.\n    Try asking it one of the example questions, like: \"What's the weather in Paris?\" or \"Get me the latest tech news.\"\n\nThat's it! You now have a fully functional AI Agent. Try adding more tools (like Gmail or Google Calendar) to make it even more powerful.",
+  "createdAt": "2025-07-22T12:14:21.343Z",
+  "nodes": [
+    {
+      "id": 1119,
+      "icon": "fa:robot",
+      "name": "@n8n/n8n-nodes-langchain.agent",
+      "codex": {
+        "data": {
+          "alias": [
+            "LangChain",
+            "Chat",
+            "Conversational",
+            "Plan and Execute",
+            "ReAct",
+            "Tools"
+          ],
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Agents",
+              "Root Nodes"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "AI Agent",
+        "color": "#404040"
+      },
+      "iconData": {
+        "icon": "robot",
+        "type": "icon"
+      },
+      "displayName": "AI Agent",
+      "typeVersion": 3,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1163,
+      "icon": "fa:database",
+      "name": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Memory"
+            ],
+            "Memory": [
+              "For beginners"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Simple Memory"
+      },
+      "iconData": {
+        "icon": "database",
+        "type": "icon"
+      },
+      "displayName": "Simple Memory",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    },
+    {
+      "id": 1262,
+      "icon": "file:google.svg",
+      "name": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "codex": {
+        "data": {
+          "resources": {
+            "primaryDocumentation": [
+              {
+                "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatgooglegemini/"
+              }
+            ]
+          },
+          "categories": [
+            "AI",
+            "Langchain"
+          ],
+          "subcategories": {
+            "AI": [
+              "Language Models",
+              "Root Nodes"
+            ],
+            "Language Models": [
+              "Chat Models (Recommended)"
+            ]
+          }
+        }
+      },
+      "group": "[\"transform\"]",
+      "defaults": {
+        "name": "Google Gemini Chat Model"
+      },
+      "iconData": {
+        "type": "file",
+        "fileBuffer": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNCIvPjwvZGVmcz48Y2xpcFBhdGggaWQ9ImIiPjx1c2UgeGxpbms6aHJlZj0iI2EiIG92ZXJmbG93PSJ2aXNpYmxlIi8+PC9jbGlwUGF0aD48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Im0wIDExIDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Im0wIDM3IDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiIGNsaXAtcGF0aD0idXJsKCNiKSIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OCAxNyAyNGwtNC0zIDM1LTEweiIgY2xpcC1wYXRoPSJ1cmwoI2IpIi8+PC9zdmc+"
+      },
+      "displayName": "Google Gemini Chat Model",
+      "typeVersion": 1,
+      "nodeCategories": [
+        {
+          "id": 25,
+          "name": "AI"
+        },
+        {
+          "id": 26,
+          "name": "Langchain"
+        }
+      ]
+    }
+  ]
+}

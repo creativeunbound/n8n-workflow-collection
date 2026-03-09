@@ -1,54 +1,37 @@
 # n8n Workflow Collection
 
-Automated collection of n8n workflows from the official API and community GitHub repositories.
+Automated collection of 10 n8n workflows from the official API and community GitHub repositories.
 
-**Status:** Initial setup complete. Automated collection will begin on first scheduled run.
+**Last Updated:** 2026-03-09 23:01 UTC
 
-## What This Is
+## Collection Stats
 
-This repository automatically discovers, collects, and organizes n8n workflow templates from:
-- **n8n Official API** - Templates from the official n8n marketplace
-- **GitHub Repositories** - Community-contributed workflows from public repos
+- **Total Workflows:** 10
+  - From n8n Official API: 10
+  - From GitHub Repos: 0
 
-## Automation Schedule
+- **By Complexity:**
+  - Beginner (1-5 nodes): 2
+  - Intermediate (6-15 nodes): 8
+  - Advanced (16+ nodes): 0
 
-Workflows are collected automatically via GitHub Actions:
-- **Mondays 3 AM UTC:** Discover new GitHub repositories with n8n workflows
-- **Tuesdays 3 AM UTC:** Collect workflows from n8n official API
-- **Wednesdays 3 AM UTC:** Extract workflows from discovered GitHub repos
+## Top Integrations
 
-## Repository Structure
 
-```
-workflows/
-├── api/       # Workflows from n8n official API
-└── github/    # Workflows from community GitHub repos
-
-index.json     # Searchable metadata for all workflows
-discovered-repos.json  # List of tracked GitHub repositories
-README.md      # This file (auto-updated with stats)
-```
 
 ## Browse Workflows
 
-Once collection begins, you can:
-- Browse `workflows/api/` and `workflows/github/` directories
-- Search `index.json` for workflows by integration, complexity, or keyword
-- View auto-generated statistics in this README
+See `index.json` for full searchable metadata, or browse:
+- `workflows/api/` - Workflows from n8n official marketplace
+- `workflows/github/` - Workflows from community GitHub repos
 
-## Collection Methods
+## Automation
 
-- **No cloning:** Workflows are downloaded directly via APIs (no disk bloat)
-- **Deduplicated:** Identical workflows are detected and removed
-- **Metadata extraction:** Node count, integrations, and complexity automatically calculated
-- **Legal compliance:** Proper attribution and licensing preserved
+This collection is automatically updated weekly via GitHub Actions:
+- **Mondays:** Discover new GitHub repos
+- **Tuesdays:** Collect from n8n API
+- **Wednesdays:** Extract from GitHub repos
 
 ## License
 
-This collection repository is MIT licensed. Individual workflows retain their original licenses.
-
----
-
-**Repository:** https://github.com/creativeunbound/n8n-workflow-collection
-**Automation:** GitHub Actions (free tier)
-**Update Frequency:** Weekly
+Individual workflows retain their original licenses. This collection repo is MIT licensed.
