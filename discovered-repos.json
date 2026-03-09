@@ -1,1 +1,902 @@
-[{"description":"N8N Workflows Catalog","language":"","name":"n8nworkflows.xyz","pushedAt":"2026-03-05T04:01:11Z","stargazersCount":2058,"updatedAt":"2026-03-05T08:37:08Z","url":"https://github.com/nusquama/n8nworkflows.xyz"},{"description":"Free n8n workflow templates. Copy, paste, automate.","language":"TypeScript","name":"FlowKit","pushedAt":"2025-12-16T17:22:25Z","stargazersCount":96,"updatedAt":"2026-01-31T13:31:26Z","url":"https://github.com/harshit-exe/FlowKit"},{"description":"🤖 Home Assistant integration for using webhook-based systems as conversation agents.","language":"Python","name":"webhook-conversation","pushedAt":"2026-03-02T20:17:01Z","stargazersCount":42,"updatedAt":"2026-02-25T21:19:55Z","url":"https://github.com/EuleMitKeule/webhook-conversation"},{"description":"Curated, production‑ready collection of 2,000+ n8n workflows across 350+ integrations—featuring a zero‑setup searchable web UI, local API, and turnkey Docker/Compose/Kubernetes deployment.","language":"Python","name":"n8n-workflows","pushedAt":"2025-11-04T19:07:32Z","stargazersCount":15,"updatedAt":"2026-02-28T04:13:14Z","url":"https://github.com/JustInCache/n8n-workflows"},{"description":"A reusable auditing tool for n8n that automatically analyses workflows for security issues, performance risks, error handling, readability, and AI usage. ","language":"","name":"n8n-Audit-Workflow","pushedAt":"2025-09-08T19:54:58Z","stargazersCount":14,"updatedAt":"2026-01-12T19:03:34Z","url":"https://github.com/christinec-dev/n8n-Audit-Workflow"},{"description":"End to end AI agent that generates cinematic ASMR style short videos using GPT-4, Seedance, Fal AI, and Blotato and uploads them automatically to TikTok, YouTube, Instagram, and more.","language":"","name":"Generate-AI-Viral-Videos-with-Seedance-and-Upload-to-TikTok-YouTube-Instagram","pushedAt":"2025-07-20T15:15:51Z","stargazersCount":9,"updatedAt":"2026-02-02T01:52:05Z","url":"https://github.com/hassanrauf1/Generate-AI-Viral-Videos-with-Seedance-and-Upload-to-TikTok-YouTube-Instagram"},{"description":"🚀 End-to-end AI automation system that generates production-ready Facebook ads in minutes. Replaces entire marketing teams with Claude AI, Gemini, and n8n workflows. Built for agencies, e-commerce, and small teams.","language":"","name":"FaceBook-Ad-Manager-System","pushedAt":"2025-09-30T18:20:15Z","stargazersCount":7,"updatedAt":"2026-03-01T09:10:48Z","url":"https://github.com/Awaisali36/FaceBook-Ad-Manager-System"},{"description":"World's Largest n8n Workflow Template Library + AI Generation","language":"","name":"largest-n8n-templates","pushedAt":"2025-09-10T17:44:05Z","stargazersCount":6,"updatedAt":"2026-01-26T21:53:09Z","url":"https://github.com/xiaobinji/largest-n8n-templates"},{"description":"📈 Telegram bot that delivers comprehensive US stock analysis combining real-time technical data, AI-powered news sentiment, and fundamental metrics. Get dual-timeframe recommendations for day trading and long-term investing.","language":"","name":"stock-analysis-telegram-bot","pushedAt":"2025-09-30T21:16:34Z","stargazersCount":6,"updatedAt":"2026-01-24T02:04:31Z","url":"https://github.com/Awaisali36/stock-analysis-telegram-bot"},{"description":"An automated system that transforms YouTube videos and web articles into engaging Twitter threads using AI. This project combines a Python script for content extraction with an n8n workflow for AI processing and automated posting to Twitter/X.","language":"Python","name":"TwitterThreadCreator","pushedAt":"2025-07-13T13:19:23Z","stargazersCount":5,"updatedAt":"2026-02-21T20:25:54Z","url":"https://github.com/SohamXYZDev/TwitterThreadCreator"},{"description":"Build  24/7 automation empire with production-ready Telegram bots, AI agents, and workflow integrations. Example of simple media downloading to complex business automation - complete blueprint with deployment guides, monetization strategies, and advanced integrations (N8N, MCP, analytics). Transform from manual worker to automation architect.","language":"Python","name":"telegram-automation-bot-framework","pushedAt":"2025-09-16T19:10:16Z","stargazersCount":4,"updatedAt":"2026-02-18T13:18:54Z","url":"https://github.com/yomazini/telegram-automation-bot-framework"},{"description":"An AI-powered personal assistant built with n8n that combines autonomous agents, vector memory, and real-time integrations. Manages your calendar, tasks, and personal knowledge through natural language via Telegram, with automated daily readiness reports based on recovery data. It contains a vast number of modular tools for implementation.","language":"","name":"n8n-workflows","pushedAt":"2025-12-25T06:59:50Z","stargazersCount":3,"updatedAt":"2026-01-05T20:42:01Z","url":"https://github.com/Jaisev-Sachdev/n8n-workflows"},{"description":"Comprehensive n8n v2.0 workflow development skill for Claude Code","language":"JavaScript","name":"n8n-v2-workflow-skill","pushedAt":"2025-12-18T18:56:46Z","stargazersCount":3,"updatedAt":"2026-01-29T13:11:02Z","url":"https://github.com/splinesreticulating/n8n-v2-workflow-skill"},{"description":"42 n8n workflows connecting Craft docs with AI, RAG, analytics, and more","language":"","name":"n8n-workflows-craft","pushedAt":"2026-02-21T08:42:18Z","stargazersCount":2,"updatedAt":"2026-02-21T08:42:21Z","url":"https://github.com/yigitkonur/n8n-workflows-craft"},{"description":"📲 Manage WhatsApp sessions, chats, and messaging directly within your n8n workflows using Wawp Nodes for seamless automation.","language":"TypeScript","name":"n8n-nodes-wawp","pushedAt":"2026-03-05T09:35:58Z","stargazersCount":2,"updatedAt":"2026-03-05T09:36:03Z","url":"https://github.com/Ankitg1850/n8n-nodes-wawp"},{"description":"Automate everything with AI and push smart notifications through Wawp.","language":"TypeScript","name":"n8n-nodes-wawp","pushedAt":"2025-09-13T05:52:47Z","stargazersCount":2,"updatedAt":"2025-09-13T06:44:01Z","url":"https://github.com/Whatsapp-Automation-web-platform/n8n-nodes-wawp"},{"description":"🐙 Integrate Home Assistant with n8n to run conversation agents, expose AI tasks via webhooks, and share context to n8n for smarter automations.","language":"Python","name":"n8n-conversation","pushedAt":"2026-03-05T09:25:23Z","stargazersCount":2,"updatedAt":"2026-03-05T09:25:27Z","url":"https://github.com/maigenlang/n8n-conversation"},{"description":"n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models","language":"TypeScript","name":"n8n-nodes-nvidia-nim","pushedAt":"2026-02-15T10:32:36Z","stargazersCount":1,"updatedAt":"2026-02-27T13:39:26Z","url":"https://github.com/Akash9078/n8n-nodes-nvidia-nim"},{"description":"🚀 Manage and automate your Facebook ad campaigns efficiently with our comprehensive ad management system powered by AI and seamless integrations.","language":"","name":"FaceBook-Ad-Manager-System","pushedAt":"2025-10-18T15:17:13Z","stargazersCount":1,"updatedAt":"2025-12-10T10:57:16Z","url":"https://github.com/alissonerai/FaceBook-Ad-Manager-System"},{"description":"Run repeatable APK security checks without juggling tools. This n8n workflow automation scans Android APKs with MobSF, uses AI to summarize risks into a readable PDF report and stores it in Google Drive for audits and sharing. A security-focused n8n workflow template for AppSec, compliance and release readiness.","language":"","name":"n8n-Automated-APK-security-scanning-PDF-reporting-with-MobSF-AI-Google-Drive","pushedAt":"2026-01-05T11:20:17Z","stargazersCount":1,"updatedAt":"2026-02-17T13:58:53Z","url":"https://github.com/weblineindia/n8n-Automated-APK-security-scanning-PDF-reporting-with-MobSF-AI-Google-Drive"}]
+[
+  {
+    "description": "N8N Workflows Catalog",
+    "language": "",
+    "name": "n8nworkflows.xyz",
+    "pushedAt": "2026-03-05T04:01:11Z",
+    "stargazersCount": 2058,
+    "updatedAt": "2026-03-05T08:37:08Z",
+    "url": "https://github.com/nusquama/n8nworkflows.xyz"
+  },
+  {
+    "description": "Free n8n workflow templates. Copy, paste, automate.",
+    "language": "TypeScript",
+    "name": "FlowKit",
+    "pushedAt": "2025-12-16T17:22:25Z",
+    "stargazersCount": 96,
+    "updatedAt": "2026-01-31T13:31:26Z",
+    "url": "https://github.com/harshit-exe/FlowKit"
+  },
+  {
+    "description": "\ud83e\udd16 Home Assistant integration for using webhook-based systems as conversation agents.",
+    "language": "Python",
+    "name": "webhook-conversation",
+    "pushedAt": "2026-03-02T20:17:01Z",
+    "stargazersCount": 42,
+    "updatedAt": "2026-02-25T21:19:55Z",
+    "url": "https://github.com/EuleMitKeule/webhook-conversation"
+  },
+  {
+    "description": "Curated, production\u2011ready collection of 2,000+ n8n workflows across 350+ integrations\u2014featuring a zero\u2011setup searchable web UI, local API, and turnkey Docker/Compose/Kubernetes deployment.",
+    "language": "Python",
+    "name": "n8n-workflows",
+    "pushedAt": "2025-11-04T19:07:32Z",
+    "stargazersCount": 15,
+    "updatedAt": "2026-02-28T04:13:14Z",
+    "url": "https://github.com/JustInCache/n8n-workflows"
+  },
+  {
+    "description": "A reusable auditing tool for n8n that automatically analyses workflows for security issues, performance risks, error handling, readability, and AI usage. ",
+    "language": "",
+    "name": "n8n-Audit-Workflow",
+    "pushedAt": "2025-09-08T19:54:58Z",
+    "stargazersCount": 14,
+    "updatedAt": "2026-01-12T19:03:34Z",
+    "url": "https://github.com/christinec-dev/n8n-Audit-Workflow"
+  },
+  {
+    "description": "End to end AI agent that generates cinematic ASMR style short videos using GPT-4, Seedance, Fal AI, and Blotato and uploads them automatically to TikTok, YouTube, Instagram, and more.",
+    "language": "",
+    "name": "Generate-AI-Viral-Videos-with-Seedance-and-Upload-to-TikTok-YouTube-Instagram",
+    "pushedAt": "2025-07-20T15:15:51Z",
+    "stargazersCount": 9,
+    "updatedAt": "2026-02-02T01:52:05Z",
+    "url": "https://github.com/hassanrauf1/Generate-AI-Viral-Videos-with-Seedance-and-Upload-to-TikTok-YouTube-Instagram"
+  },
+  {
+    "description": "\ud83d\ude80 End-to-end AI automation system that generates production-ready Facebook ads in minutes. Replaces entire marketing teams with Claude AI, Gemini, and n8n workflows. Built for agencies, e-commerce, and small teams.",
+    "language": "",
+    "name": "FaceBook-Ad-Manager-System",
+    "pushedAt": "2025-09-30T18:20:15Z",
+    "stargazersCount": 7,
+    "updatedAt": "2026-03-01T09:10:48Z",
+    "url": "https://github.com/Awaisali36/FaceBook-Ad-Manager-System"
+  },
+  {
+    "description": "World's Largest n8n Workflow Template Library + AI Generation",
+    "language": "",
+    "name": "largest-n8n-templates",
+    "pushedAt": "2025-09-10T17:44:05Z",
+    "stargazersCount": 6,
+    "updatedAt": "2026-01-26T21:53:09Z",
+    "url": "https://github.com/xiaobinji/largest-n8n-templates"
+  },
+  {
+    "description": "\ud83d\udcc8 Telegram bot that delivers comprehensive US stock analysis combining real-time technical data, AI-powered news sentiment, and fundamental metrics. Get dual-timeframe recommendations for day trading and long-term investing.",
+    "language": "",
+    "name": "stock-analysis-telegram-bot",
+    "pushedAt": "2025-09-30T21:16:34Z",
+    "stargazersCount": 6,
+    "updatedAt": "2026-01-24T02:04:31Z",
+    "url": "https://github.com/Awaisali36/stock-analysis-telegram-bot"
+  },
+  {
+    "description": "An automated system that transforms YouTube videos and web articles into engaging Twitter threads using AI. This project combines a Python script for content extraction with an n8n workflow for AI processing and automated posting to Twitter/X.",
+    "language": "Python",
+    "name": "TwitterThreadCreator",
+    "pushedAt": "2025-07-13T13:19:23Z",
+    "stargazersCount": 5,
+    "updatedAt": "2026-02-21T20:25:54Z",
+    "url": "https://github.com/SohamXYZDev/TwitterThreadCreator"
+  },
+  {
+    "description": "Build  24/7 automation empire with production-ready Telegram bots, AI agents, and workflow integrations. Example of simple media downloading to complex business automation - complete blueprint with deployment guides, monetization strategies, and advanced integrations (N8N, MCP, analytics). Transform from manual worker to automation architect.",
+    "language": "Python",
+    "name": "telegram-automation-bot-framework",
+    "pushedAt": "2025-09-16T19:10:16Z",
+    "stargazersCount": 4,
+    "updatedAt": "2026-02-18T13:18:54Z",
+    "url": "https://github.com/yomazini/telegram-automation-bot-framework"
+  },
+  {
+    "description": "An AI-powered personal assistant built with n8n that combines autonomous agents, vector memory, and real-time integrations. Manages your calendar, tasks, and personal knowledge through natural language via Telegram, with automated daily readiness reports based on recovery data. It contains a vast number of modular tools for implementation.",
+    "language": "",
+    "name": "n8n-workflows",
+    "pushedAt": "2025-12-25T06:59:50Z",
+    "stargazersCount": 3,
+    "updatedAt": "2026-01-05T20:42:01Z",
+    "url": "https://github.com/Jaisev-Sachdev/n8n-workflows"
+  },
+  {
+    "description": "Comprehensive n8n v2.0 workflow development skill for Claude Code",
+    "language": "JavaScript",
+    "name": "n8n-v2-workflow-skill",
+    "pushedAt": "2025-12-18T18:56:46Z",
+    "stargazersCount": 3,
+    "updatedAt": "2026-01-29T13:11:02Z",
+    "url": "https://github.com/splinesreticulating/n8n-v2-workflow-skill"
+  },
+  {
+    "description": "Enable AI assistants to design, explore, and automate n8n workflows using detailed node info and curated templates for efficient automation.",
+    "language": "TypeScript",
+    "name": "n8n-skills",
+    "pushedAt": "2026-03-09T00:17:30Z",
+    "stargazersCount": 3,
+    "updatedAt": "2026-03-09T00:17:33Z",
+    "url": "https://github.com/PentagonRBX/n8n-skills"
+  },
+  {
+    "description": "42 n8n workflows connecting Craft docs with AI, RAG, analytics, and more",
+    "language": "",
+    "name": "n8n-workflows-craft",
+    "pushedAt": "2026-02-21T08:42:18Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-02-21T08:42:21Z",
+    "url": "https://github.com/yigitkonur/n8n-workflows-craft"
+  },
+  {
+    "description": "\ud83d\udcf2 Manage WhatsApp sessions, chats, and messaging directly within your n8n workflows using Wawp Nodes for seamless automation.",
+    "language": "TypeScript",
+    "name": "n8n-nodes-wawp",
+    "pushedAt": "2026-03-05T09:35:58Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-03-05T09:36:03Z",
+    "url": "https://github.com/Ankitg1850/n8n-nodes-wawp"
+  },
+  {
+    "description": "Automate everything with AI and push smart notifications through Wawp.",
+    "language": "TypeScript",
+    "name": "n8n-nodes-wawp",
+    "pushedAt": "2025-09-13T05:52:47Z",
+    "stargazersCount": 2,
+    "updatedAt": "2025-09-13T06:44:01Z",
+    "url": "https://github.com/Whatsapp-Automation-web-platform/n8n-nodes-wawp"
+  },
+  {
+    "description": "\ud83d\udc19 Integrate Home Assistant with n8n to run conversation agents, expose AI tasks via webhooks, and share context to n8n for smarter automations.",
+    "language": "Python",
+    "name": "n8n-conversation",
+    "pushedAt": "2026-03-05T09:25:23Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-03-05T09:25:27Z",
+    "url": "https://github.com/maigenlang/n8n-conversation"
+  },
+  {
+    "description": "n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models",
+    "language": "TypeScript",
+    "name": "n8n-nodes-nvidia-nim",
+    "pushedAt": "2026-02-15T10:32:36Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-02-27T13:39:26Z",
+    "url": "https://github.com/Akash9078/n8n-nodes-nvidia-nim"
+  },
+  {
+    "description": "\ud83d\ude80 Manage and automate your Facebook ad campaigns efficiently with our comprehensive ad management system powered by AI and seamless integrations.",
+    "language": "",
+    "name": "FaceBook-Ad-Manager-System",
+    "pushedAt": "2025-10-18T15:17:13Z",
+    "stargazersCount": 1,
+    "updatedAt": "2025-12-10T10:57:16Z",
+    "url": "https://github.com/alissonerai/FaceBook-Ad-Manager-System"
+  },
+  {
+    "description": "Run repeatable APK security checks without juggling tools. This n8n workflow automation scans Android APKs with MobSF, uses AI to summarize risks into a readable PDF report and stores it in Google Drive for audits and sharing. A security-focused n8n workflow template for AppSec, compliance and release readiness.",
+    "language": "",
+    "name": "n8n-Automated-APK-security-scanning-PDF-reporting-with-MobSF-AI-Google-Drive",
+    "pushedAt": "2026-01-05T11:20:17Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-02-17T13:58:53Z",
+    "url": "https://github.com/weblineindia/n8n-Automated-APK-security-scanning-PDF-reporting-with-MobSF-AI-Google-Drive"
+  },
+  {
+    "description": "N8N Template Builder",
+    "language": "Python",
+    "name": "n8n-template-builder",
+    "pushedAt": "2025-07-30T21:38:49Z",
+    "stargazersCount": 1,
+    "updatedAt": "2025-09-09T23:13:46Z",
+    "url": "https://github.com/anikievev/n8n-template-builder"
+  },
+  {
+    "description": "\ud83d\udccd Automate business data extraction from Google Maps using n8n and the OpenWebNinja API for efficient lead generation and data enrichment.",
+    "language": "",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-03-09T01:50:20Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-03-09T01:50:23Z",
+    "url": "https://github.com/Renpapi/n8n-workflows"
+  },
+  {
+    "description": "Free n8n workflow library - automation, AI integrations, and productivity workflows. Open source alternative to paid workflow marketplaces.",
+    "language": "",
+    "name": "premium-n8n-library",
+    "pushedAt": "2025-11-22T22:06:51Z",
+    "stargazersCount": 1,
+    "updatedAt": "2025-12-10T10:53:15Z",
+    "url": "https://github.com/nicremo/premium-n8n-library"
+  },
+  {
+    "description": "\ud83d\ude80 Automate failed payment renewals using AI analysis, Jira tickets, and Slack alerts to streamline operations and improve response times.",
+    "language": "",
+    "name": "n8n-Handle-failed-payment-renewals-with-AI-analysis-Jira-tickets-Slack-alerts",
+    "pushedAt": "2026-03-09T01:56:33Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-03-09T01:56:36Z",
+    "url": "https://github.com/Davidbruno1/n8n-Handle-failed-payment-renewals-with-AI-analysis-Jira-tickets-Slack-alerts"
+  },
+  {
+    "description": "Streamline podcast production from idea to publish in one flow. This n8n workflow automation uses OpenAI to generate episode summaries and show notes, tracks content in Airtable and publishes episodes directly to Buzzsprout. A hands-off n8n workflow template for creators who want consistent output without manual overhead.",
+    "language": "",
+    "name": "n8n-Automated-podcast-production-publishing-with-OpenAI-Airtable-Buzzsprout",
+    "pushedAt": "2026-01-05T11:23:54Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-01-07T16:58:58Z",
+    "url": "https://github.com/weblineindia/n8n-Automated-podcast-production-publishing-with-OpenAI-Airtable-Buzzsprout"
+  },
+  {
+    "description": "Improve deal forecasting by blending CRM data with real-world market signals. This n8n workflow automation pulls open deals from Zoho CRM, enriches forecasts using AlphaVantage data and GPT-4 analysis, updates deal insights and sends a concise performance summary to Slack through a smart n8n workflow template.",
+    "language": "",
+    "name": "n8n-Forecast-Zoho-CRM-deals-with-AlphaVantage-market-data-GPT-4-Slack-alerts",
+    "pushedAt": "2026-01-12T09:24:13Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-02-19T09:22:52Z",
+    "url": "https://github.com/weblineindia/n8n-Forecast-Zoho-CRM-deals-with-AlphaVantage-market-data-GPT-4-Slack-alerts"
+  },
+  {
+    "description": "Python CLI tool for n8n workflow deployment and management. Uses local SQLite database, supports remote deployment of n8n workflows without web UI. Features minimalist setup, backup/restore, n8n API key management, and flexible configuration.",
+    "language": "Python",
+    "name": "n8n-deploy",
+    "pushedAt": "2026-01-10T19:20:09Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-01-10T19:20:12Z",
+    "url": "https://github.com/lehcode/n8n-deploy"
+  },
+  {
+    "description": "Help sales teams send the right content at the right moment. This n8n workflow automation analyzes deal context from Zoho CRM, uses GPT-4o-mini to recommend personalized content and delivers suggestions via Gmail. A smart n8n workflow template for improving deal relevance, follow-ups and close rates.",
+    "language": "",
+    "name": "n8n-Generate-personalized-deal-content-recommendations-with-Zoho-CRM-GPT-4o-mini-Gmail",
+    "pushedAt": "2026-01-05T08:40:47Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-01-29T09:17:01Z",
+    "url": "https://github.com/weblineindia/n8n-Generate-personalized-deal-content-recommendations-with-Zoho-CRM-GPT-4o-mini-Gmail"
+  },
+  {
+    "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
+    "language": "",
+    "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
+    "pushedAt": "2026-01-05T11:45:12Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T11:45:15Z",
+    "url": "https://github.com/weblineindia/n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration"
+  },
+  {
+    "description": "Automatically handle inbound leads the moment they submit a landing page form. This n8n workflow automation captures lead data, creates or updates records in Zoho CRM, opens Jira tasks for follow-ups and notifies teams in Slack \u2014 keeping sales, ops and marketing aligned with a flexible n8n workflow template.",
+    "language": "",
+    "name": "n8n-Automate-lead-processing-from-landing-pages-with-Zoho-CRM-Jira-Slack",
+    "pushedAt": "2026-01-05T08:35:47Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T08:35:52Z",
+    "url": "https://github.com/weblineindia/n8n-Automate-lead-processing-from-landing-pages-with-Zoho-CRM-Jira-Slack"
+  },
+  {
+    "description": "Answer customer product questions instantly on WhatsApp using a searchable PDF knowledge base. This n8n workflow automation uses GPT-4o to understand queries, extract accurate answers from documents and reply conversationally. A smart n8n workflow template for scalable support, sales enablement and self-serve automation.",
+    "language": "",
+    "name": "n8n-Answer-product-queries-via-WhatsApp-using-OpenAI-GPT-4o-PDF-knowledge-base",
+    "pushedAt": "2026-01-05T11:50:29Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T11:50:33Z",
+    "url": "https://github.com/weblineindia/n8n-Answer-product-queries-via-WhatsApp-using-OpenAI-GPT-4o-PDF-knowledge-base"
+  },
+  {
+    "description": "Create a clean, reliable customer intake layer using this n8n workflow automation. It exposes an API that validates and normalizes incoming data, prevents duplicates in Supabase, stores verified customers, and sends Slack, Telegram and email notifications. A robust n8n workflow template for backend data hygiene and integrations.",
+    "language": "",
+    "name": "n8n-Validate-deduplicate-store-customers-via-API-with-Supabase-Slack-Telegram-email",
+    "pushedAt": "2026-01-12T09:15:58Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-12T09:18:04Z",
+    "url": "https://github.com/weblineindia/n8n-Validate-deduplicate-store-customers-via-API-with-Supabase-Slack-Telegram-email"
+  },
+  {
+    "description": "Monitor iOS app size changes over time and catch regressions early. This n8n workflow automation logs build sizes into Google Sheets, analyzes trends and sends Gmail alerts when thresholds are crossed. A practical n8n workflow template for release teams focused on performance, stability and proactive size management.",
+    "language": "",
+    "name": "n8n-Track-iOS-app-sizes-with-trend-alerts-using-Google-Sheets-Gmail-notifications",
+    "pushedAt": "2026-01-05T09:05:32Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T09:05:36Z",
+    "url": "https://github.com/weblineindia/n8n-Track-iOS-app-sizes-with-trend-alerts-using-Google-Sheets-Gmail-notifications"
+  },
+  {
+    "description": "Turn raw energy data into clear monthly reports without manual work. This n8n workflow automation pulls usage data from PostgreSQL, generates polished PDFs via PDF.co, and emails them to stakeholders automatically. Ideal for recurring reporting, energy analytics, and reliable n8n workflow\u2013based delivery.",
+    "language": "",
+    "name": "n8n-Automated-monthly-energy-reports-with-PostgreSQL-PDF-email-delivery",
+    "pushedAt": "2026-01-05T06:24:35Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T06:24:39Z",
+    "url": "https://github.com/weblineindia/n8n-Automated-monthly-energy-reports-with-PostgreSQL-PDF-email-delivery"
+  },
+  {
+    "description": "Turn raw customer feedback into actionable signals without human triage. This n8n workflow automation analyzes feedback using GPT-4.1, detects sentiment and intent, creates Jira issues when needed, and alerts teams in Slack. A flexible n8n workflow built for faster response and smarter product decisions.",
+    "language": "",
+    "name": "n8n-Customer-feedback-automation-with-sentiment-analysis-using-GPT-4.1-Jira-Slack",
+    "pushedAt": "2026-01-05T09:34:13Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T09:34:17Z",
+    "url": "https://github.com/weblineindia/n8n-Customer-feedback-automation-with-sentiment-analysis-using-GPT-4.1-Jira-Slack"
+  },
+  {
+    "description": "An AI-powered n8n automation that intelligently prioritizes Gmail emails, applies labels, and drafts or sends professional responses automatically.",
+    "language": "",
+    "name": "n8n-Smart-Email-Assistant",
+    "pushedAt": "2026-01-31T15:12:59Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-31T15:13:02Z",
+    "url": "https://github.com/muqadasejaz/n8n-Smart-Email-Assistant"
+  },
+  {
+    "description": "A curated & production-ready collection of tools, frameworks, APIs, proxies, and n8n workflows for B2B web scraping, lead enrichment, data verification, and CRM automation. Built and maintained by Lead Orchestra.",
+    "language": "Makefile",
+    "name": "awesome-b2b-leads",
+    "pushedAt": "2025-12-05T03:43:14Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-12-05T03:42:37Z",
+    "url": "https://github.com/Lead-Orchestra/awesome-b2b-leads"
+  },
+  {
+    "description": "Keep a close watch on daily store performance without pulling reports by hand. This n8n workflow automation reviews WooCommerce revenue, top products and cancellations from the last 24 hours, then posts smart Slack updates or spike alerts when thresholds are crossed \u2014 making this n8n workflow ideal for fast-paced eCommerce teams.",
+    "language": "",
+    "name": "n8n-WooCommerce-Daily-Sales-Revenue-Spike-Monitor-Slack-Alert",
+    "pushedAt": "2026-01-16T08:31:47Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-16T08:35:00Z",
+    "url": "https://github.com/weblineindia/n8n-WooCommerce-Daily-Sales-Revenue-Spike-Monitor-Slack-Alert"
+  },
+  {
+    "description": "Keep Facebook conversations healthy without constant manual moderation. This n8n workflow automation reviews new comments using AI, flags spam or abusive content and sends clear moderation reports to Slack and Telegram. A practical n8n workflow template for community management and brand protection.",
+    "language": "",
+    "name": "n8n-Moderate-Facebook-comments-with-AI-and-send-reports-to-Slack-Telegram",
+    "pushedAt": "2026-01-05T10:09:20Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T10:09:25Z",
+    "url": "https://github.com/weblineindia/n8n-Moderate-Facebook-comments-with-AI-and-send-reports-to-Slack-Telegram"
+  },
+  {
+    "description": "Automate customer feedback classification with this n8n automation template. This n8n automation uses AI to analyze and categorize feedback, stores structured results in Google Sheets and sends real-time Slack alerts for critical insights. A ready-to-use n8n workflow template for CX, support and product teams.",
+    "language": "",
+    "name": "n8n-Automate-customer-feedback-classification-with-AI-Google-Sheets-and-Slack-alerts",
+    "pushedAt": "2026-01-05T05:50:48Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T05:50:52Z",
+    "url": "https://github.com/weblineindia/n8n-Automate-customer-feedback-classification-with-AI-Google-Sheets-and-Slack-alerts"
+  },
+  {
+    "description": "Understand what slows down or accelerates your sales cycle without manual analysis. This n8n workflow automation evaluates Zoho CRM deal timelines with AI, compares them to historical Google Sheets data, uncovers bottlenecks, predicts outcomes and sends clear improvement insights to Slack using a smart n8n workflow.",
+    "language": "",
+    "name": "n8n-Zoho-CRM-Sales-Cycle-Performance-Analyzer-Improver",
+    "pushedAt": "2026-01-16T08:42:05Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-16T08:43:40Z",
+    "url": "https://github.com/weblineindia/n8n-Zoho-CRM-Sales-Cycle-Performance-Analyzer-Improver"
+  },
+  {
+    "description": "Track large USDT movements on Ethereum automatically and react fast to suspicious activity. This n8n workflow automation monitors on-chain transfers, logs high-value transactions in Airtable and sends real-time Slack alerts. A focused n8n workflow template for crypto monitoring, compliance checks and treasury visibility.",
+    "language": "",
+    "name": "n8n-Monitor-high-value-USDT-transfers-on-Ethereum-with-Airtable-Slack-alerts",
+    "pushedAt": "2026-01-05T10:18:27Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T10:18:30Z",
+    "url": "https://github.com/weblineindia/n8n-Monitor-high-value-USDT-transfers-on-Ethereum-with-Airtable-Slack-alerts"
+  },
+  {
+    "description": "Understand how engaged your contacts really are by combining CRM data with real-world signals. This n8n workflow automation enriches Zoho CRM contacts using People Data Labs, scans News and Reddit activity, and assigns dynamic engagement scores to support smarter outreach with a scalable n8n workflow template.",
+    "language": "",
+    "name": "n8n-Track-score-contact-engagement-with-Zoho-CRM-PDL-News-Reddit",
+    "pushedAt": "2026-01-05T08:46:25Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T08:46:28Z",
+    "url": "https://github.com/weblineindia/n8n-Track-score-contact-engagement-with-Zoho-CRM-PDL-News-Reddit"
+  },
+  {
+    "description": "Protect your brand from misleading feedback by spotting fake product reviews automatically. This n8n workflow analyzes reviews with OpenAI, flags suspicious patterns, stores evidence in Airtable and sends instant Slack alerts. A practical n8n workflow template for review moderation, trust and quality control.",
+    "language": "",
+    "name": "n8n-Detect-fake-product-reviews-with-OpenAI-send-alerts-to-Slack-via-Airtable",
+    "pushedAt": "2026-01-05T06:58:20Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T06:58:24Z",
+    "url": "https://github.com/weblineindia/n8n-Detect-fake-product-reviews-with-OpenAI-send-alerts-to-Slack-via-Airtable"
+  },
+  {
+    "description": "Give hiring managers a clear weekly snapshot of recruitment progress without manual prep. This n8n workflow automation pulls candidate and pipeline data from BreezyHR, summarizes key updates and emails structured reports on schedule \u2014 making this n8n workflow template ideal for recruiting ops and stakeholder visibility.",
+    "language": "",
+    "name": "n8n-Send-weekly-hiring-manager-reports-with-BreezyHR-data-to-email",
+    "pushedAt": "2026-01-05T08:11:51Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T08:11:55Z",
+    "url": "https://github.com/weblineindia/n8n-Send-weekly-hiring-manager-reports-with-BreezyHR-data-to-email"
+  },
+  {
+    "description": "Generate and deliver weekly energy consumption reports using this n8n automation template. This n8n automation pulls data from EnergiDataService, creates structured reports, emails stakeholders and stores files in Google Drive. A practical n8n workflow template for energy monitoring, analytics and reporting automation.",
+    "language": "",
+    "name": "n8n-Generate-weekly-energy-consumption-reports-with-EnergiDataService-email-and-Google-Drive",
+    "pushedAt": "2026-01-02T15:26:22Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-02T15:26:26Z",
+    "url": "https://github.com/weblineindia/n8n-Generate-weekly-energy-consumption-reports-with-EnergiDataService-email-and-Google-Drive"
+  },
+  {
+    "description": "Keep Android UI assets in sync without manual exports. This n8n workflow template pulls multi-density drawable PNGs from Figma, structures them correctly for Android projects and opens a GitHub pull request for review. A practical n8n workflow automation for design-to-code handoff and asset version control.",
+    "language": "",
+    "name": "n8n-Sync-Android-drawable-assets-from-Figma-to-GitHub-via-PR",
+    "pushedAt": "2026-01-05T06:38:54Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T06:38:57Z",
+    "url": "https://github.com/weblineindia/n8n-Sync-Android-drawable-assets-from-Figma-to-GitHub-via-PR"
+  },
+  {
+    "description": "Detect duplicate job candidates automatically by cross-checking incoming Gmail applications against records stored in Google Sheets. This n8n workflow flags potential duplicates and notifies your team in Slack, helping recruiters avoid double processing and keep hiring pipelines clean with reliable n8n workflow automation.",
+    "language": "",
+    "name": "n8n-Detect-duplicate-candidates-from-Gmail-to-Slack-using-Google-Sheets",
+    "pushedAt": "2026-01-05T06:13:33Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T06:13:36Z",
+    "url": "https://github.com/weblineindia/n8n-Detect-duplicate-candidates-from-Gmail-to-Slack-using-Google-Sheets"
+  },
+  {
+    "description": "Handle IoT issues as they happen instead of after the damage is done. This n8n workflow automation listens to real-time device incidents, creates Jira tickets automatically and routes Slack alerts to the right technicians for fast response. A practical n8n workflow template for IoT operations, field support and incident control.",
+    "language": "",
+    "name": "n8n-Real-time-IoT-incident-management-with-Jira-Slack-technician-alerts",
+    "pushedAt": "2026-01-05T12:30:17Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T12:30:21Z",
+    "url": "https://github.com/weblineindia/n8n-Real-time-IoT-incident-management-with-Jira-Slack-technician-alerts"
+  },
+  {
+    "description": "AI-powered Twitter support assistant that routes, escalates, and responds with empathy - like a smart intern who knows when to ask for help. Built for Mudrex customer support automation.",
+    "language": "Python",
+    "name": "AI-Intern-for-twitter-support",
+    "pushedAt": "2025-11-27T04:58:12Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-11-27T04:58:15Z",
+    "url": "https://github.com/DecentralizedJM/AI-Intern-for-twitter-support"
+  },
+  {
+    "description": "The Data Analyst Agent is an AI-driven n8n automation that converts natural language queries into structured insights. It pulls data from Google Sheets, analyzes patterns, generates charts, and delivers a clear, executive-ready summary by email. Ideal for fast, no-code data analysis and reporting.",
+    "language": "",
+    "name": "n8n-Data-Analyst-Agent",
+    "pushedAt": "2026-01-30T10:09:24Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-30T10:11:08Z",
+    "url": "https://github.com/muqadasejaz/n8n-Data-Analyst-Agent"
+  },
+  {
+    "description": "n8n workflow generation with OpenAI Codex, based on exported examples and API-driven deployment.",
+    "language": "Python",
+    "name": "vibe-n8n",
+    "pushedAt": "2026-03-01T15:28:08Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-01T15:28:11Z",
+    "url": "https://github.com/WindoC/vibe-n8n"
+  },
+  {
+    "description": "Respond to outages the moment they happen with intelligent routing. This n8n workflow automation listens for real-time uptime failures, creates Jira incidents and sends smart Slack alerts to the right on-call engineers based on context. A resilient n8n workflow template for faster incident response and reduced downtime.",
+    "language": "",
+    "name": "n8n-Real-time-uptime-alerts-to-Jira-with-smart-Slack-on-call-routing",
+    "pushedAt": "2026-01-05T12:34:26Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T12:34:29Z",
+    "url": "https://github.com/weblineindia/n8n-Real-time-uptime-alerts-to-Jira-with-smart-Slack-on-call-routing"
+  },
+  {
+    "description": "18+ n8n AI automation workflows \u2014 Gmail sorting, WhatsApp AI agent, social media auto-posting, lead capture, customer feedback AI, calendar automation, document processing, and more. Saving businesses 30+ hours/week.",
+    "language": "",
+    "name": "n8n-automation-workflows",
+    "pushedAt": "2026-03-06T10:52:13Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-06T10:55:30Z",
+    "url": "https://github.com/MuhammadHussnain07/n8n-automation-workflows"
+  },
+  {
+    "description": "Catch data pipeline issues before they escalate. This n8n workflow automation monitors ETL failures, uses AI to classify errors by type and impact, logs incidents in Google Sheets and raises Jira alerts for action. A dependable n8n workflow template built for data teams managing complex, automated ETL systems.",
+    "language": "",
+    "name": "n8n-Automate-ETL-error-monitoring-with-AI-classification-Sheets-logging-Jira-alerts",
+    "pushedAt": "2026-01-05T08:56:20Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T08:56:23Z",
+    "url": "https://github.com/weblineindia/n8n-Automate-ETL-error-monitoring-with-AI-classification-Sheets-logging-Jira-alerts"
+  },
+  {
+    "description": "Identify suspicious login failures before they turn into incidents. This n8n workflow automation monitors failed login events, logs patterns in Notion, creates Jira tasks for investigation and sends real-time Slack alerts. A security-focused n8n workflow template that improves visibility, response time and audit readiness.",
+    "language": "",
+    "name": "n8n-Automated-failed-login-detection-with-Jira-tasks-Slack-alerts-Notion-logging",
+    "pushedAt": "2026-01-05T08:51:05Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T08:51:09Z",
+    "url": "https://github.com/weblineindia/n8n-Automated-failed-login-detection-with-Jira-tasks-Slack-alerts-Notion-logging"
+  },
+  {
+    "description": "Keep Android dependencies up to date without chasing version changes manually. This n8n workflow automation scans Gradle files for outdated libraries, detects available updates and notifies your app development team in Slack. A lightweight n8n workflow template that helps engineering teams reduce technical debt and stay release-ready.",
+    "language": "",
+    "name": "n8n-Automate-Gradle-dependency-updates-with-Slack-notifications",
+    "pushedAt": "2026-01-05T08:02:45Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T08:02:48Z",
+    "url": "https://github.com/weblineindia/n8n-Automate-Gradle-dependency-updates-with-Slack-notifications"
+  },
+  {
+    "description": "Stop broken releases caused by missing build artifacts. This n8n workflow automation runs on Git push, verifies Sentry release artifacts are present and correctly uploaded, and then commits the verification status back to the repo. A dependable n8n workflow template for CI gating, release hygiene and Sentry integrity checks.",
+    "language": "",
+    "name": "n8n-CI-artifact-completeness-gate-Git-push-Sentry-artifact-verification-commit-",
+    "pushedAt": "2026-01-05T12:18:26Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T12:18:30Z",
+    "url": "https://github.com/weblineindia/n8n-CI-artifact-completeness-gate-Git-push-Sentry-artifact-verification-commit-"
+  },
+  {
+    "description": "Catch unusual spikes in WooCommerce product returns as they happen. This n8n workflow automation monitors return activity in real time, logs patterns to Airtable and sends instant Slack alerts when volumes exceed normal thresholds. A proactive n8n workflow template for ops teams to spot issues early and protect revenue.",
+    "language": "",
+    "name": "n8n-Detect-WooCommerce-return-surges-in-real-time-with-Slack-alerts-Airtable-logging",
+    "pushedAt": "2026-01-05T12:28:04Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T12:28:08Z",
+    "url": "https://github.com/weblineindia/n8n-Detect-WooCommerce-return-surges-in-real-time-with-Slack-alerts-Airtable-logging"
+  },
+  {
+    "description": "Run fair, hands-free Facebook giveaways every day with this n8n workflow automation. It scans post comments, excludes past winners from Airtable, uses OpenAI to filter genuine positive entries, picks a random winner, saves results and announces them on Telegram using this reliable n8n workflow template.",
+    "language": "",
+    "name": "n8n-Pick-a-daily-Facebook-comment-contest-winner-with-OpenAI-Airtable-Telegram",
+    "pushedAt": "2026-01-12T09:03:52Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-12T09:05:54Z",
+    "url": "https://github.com/weblineindia/n8n-Pick-a-daily-Facebook-comment-contest-winner-with-OpenAI-Airtable-Telegram"
+  },
+  {
+    "description": "Pinpoint slowdowns in mobile app CI builds before they become blockers. This n8n workflow automation template analyzes Gradle and CocoaPods build times, compares them with historical Airtable data, uses AI to detect regressions and reports hotspots via GitHub PR comments and email alerts through a focused n8n workflow.",
+    "language": "",
+    "name": "n8n-Analyze-app-build-time-hotspots-with-Gradle-CocoaPods-Airtable-GitHub-Gmail-and-OpenAI",
+    "pushedAt": "2026-01-16T08:37:52Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-16T08:39:47Z",
+    "url": "https://github.com/weblineindia/n8n-Analyze-app-build-time-hotspots-with-Gradle-CocoaPods-Airtable-GitHub-Gmail-and-OpenAI"
+  },
+  {
+    "description": "Index of N8N workflows that I have shared on Github",
+    "language": "Python",
+    "name": "N8N-Workflows-Index",
+    "pushedAt": "2025-12-25T17:16:48Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-12-25T17:16:51Z",
+    "url": "https://github.com/danielrosehill/N8N-Workflows-Index"
+  },
+  {
+    "description": "A curated collection of production-ready n8n workflows for automation. Self-hosted with Docker & PostgreSQL. Easy setup with environment variables.",
+    "language": "",
+    "name": "n8n-workflows",
+    "pushedAt": "2025-11-03T05:25:20Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-11-03T05:30:42Z",
+    "url": "https://github.com/duthaho/n8n-workflows"
+  },
+  {
+    "description": "Keep your Android codebase clean by automatically spotting unused feature flags. This n8n workflow automation scans GitLab repos, compares flags with LaunchDarkly, creates Jira tickets for cleanup and alerts teams in Slack. A smart n8n workflow template for feature flag governance and technical debt reduction.",
+    "language": "",
+    "name": "n8n-Detect-unused-Android-feature-flags-with-GitLab-LaunchDarkly-Jira-Slack",
+    "pushedAt": "2026-01-05T06:51:34Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T06:51:38Z",
+    "url": "https://github.com/weblineindia/n8n-Detect-unused-Android-feature-flags-with-GitLab-LaunchDarkly-Jira-Slack"
+  },
+  {
+    "description": "Reduce delayed interview feedback by automatically tracking interview records in Google Sheets and nudging interviewers at the right time. This n8n workflow automation sends timely reminders via Slack and Gmail, helping hiring teams close feedback loops faster with a dependable n8n workflow template.",
+    "language": "",
+    "name": "n8n-Automate-post-interview-feedback-reminders-using-Google-Sheets-Slack-and-Gmail",
+    "pushedAt": "2026-01-05T06:47:00Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T06:47:03Z",
+    "url": "https://github.com/weblineindia/n8n-Automate-post-interview-feedback-reminders-using-Google-Sheets-Slack-and-Gmail"
+  },
+  {
+    "description": "A telegram personal assistant based on n8n AI automation.",
+    "language": "",
+    "name": "n8n-tg-personal-assistant-workflow-multi-agent",
+    "pushedAt": "2025-10-09T09:15:32Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-10-09T09:16:17Z",
+    "url": "https://github.com/akagamikaizoku/n8n-tg-personal-assistant-workflow-multi-agent"
+  },
+  {
+    "description": "Automate deep link validation in GitHub pull requests with this n8n workflow automation. This n8n automation runs automated tests to verify mobile app deep links, detects broken URLs early, and posts results back to PRs. A reusable n8n workflow template for CI/CD, mobile QA, and developer productivity.",
+    "language": "",
+    "name": "n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing",
+    "pushedAt": "2026-01-02T15:16:54Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-02T15:16:58Z",
+    "url": "https://github.com/weblineindia/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing"
+  },
+  {
+    "description": "Prevent missing translations from slipping into iOS releases by tracking localization gaps automatically. This n8n workflow automation compares iOS strings with Google Sheets, generates placeholder entries and opens GitHub pull requests for review. A practical n8n workflow template to keep localization accurate and release-ready.",
+    "language": "",
+    "name": "n8n-Syncing-iOS-localization-gaps-with-Google-Sheets-and-GitHub-PR-placeholders",
+    "pushedAt": "2026-01-05T04:54:48Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T04:54:52Z",
+    "url": "https://github.com/weblineindia/n8n-Syncing-iOS-localization-gaps-with-Google-Sheets-and-GitHub-PR-placeholders"
+  },
+  {
+    "description": "Analyze sales call recordings automatically with this n8n automation template. This n8n automation uses OpenAI to extract insights, summaries and sentiment from calls, then updates Zoho CRM leads with structured data. A powerful n8n workflow template for sales intelligence, CRM automation and AI-driven lead management.",
+    "language": "",
+    "name": "n8n-Analyze-call-recordings-with-OpenAI-and-update-Zoho-CRM-leads-automatically",
+    "pushedAt": "2026-01-05T06:02:35Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T06:02:38Z",
+    "url": "https://github.com/weblineindia/n8n-Analyze-call-recordings-with-OpenAI-and-update-Zoho-CRM-leads-automatically"
+  },
+  {
+    "description": "Open-source n8n workflows for automated SEO monitoring and optimization",
+    "language": "",
+    "name": "rampify-workflows",
+    "pushedAt": "2025-12-04T22:56:09Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-12-05T01:02:01Z",
+    "url": "https://github.com/rampify-dev/rampify-workflows"
+  },
+  {
+    "description": "Turn social media inquiries into structured, actionable leads automatically. This n8n workflow automation summarizes incoming messages with GPT-4.1, stores enriched lead data in Google Sheets, creates Jira tasks for follow-up and notifies teams in Slack \u2014 keeping lead handling fast, organized and searchable through a reusable n8n workflow template.",
+    "language": "",
+    "name": "n8n-Process-social-media-leads-with-GPT-4.1-summaries-Google-Sheets-Jira-Slack",
+    "pushedAt": "2026-01-05T08:30:41Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T08:30:44Z",
+    "url": "https://github.com/weblineindia/n8n-Process-social-media-leads-with-GPT-4.1-summaries-Google-Sheets-Jira-Slack"
+  },
+  {
+    "description": "My personal library of n8n automations for productivity, finance, and more",
+    "language": "",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-01-04T19:29:40Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-04T19:29:44Z",
+    "url": "https://github.com/oarslan/n8n-workflows"
+  },
+  {
+    "description": "Lightweight n8n workflow automation designed as a JSON data utility to extract key-value pairs by index. This n8n automation simplifies parsing complex API responses, transforming arrays and normalizing structured data. A reusable n8n workflow template for ETL tasks, backend integrations and data processing pipelines.",
+    "language": "",
+    "name": "n8n-JSON-data-utility-extract-key-value-pairs-by-index",
+    "pushedAt": "2026-01-02T15:34:11Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-02T15:34:15Z",
+    "url": "https://github.com/weblineindia/n8n-JSON-data-utility-extract-key-value-pairs-by-index"
+  },
+  {
+    "description": "Stay on top of customer mood without manual analysis. This n8n workflow automation evaluates Zoho CRM interactions using Google Gemini to detect sentiment trends and triggers Gmail alerts for negative or high-risk signals. A smart n8n workflow template for proactive customer success and relationship management.",
+    "language": "",
+    "name": "n8n-Analyze-customer-sentiment-with-Zoho-CRM-Google-Gemini-send-Gmail-alerts",
+    "pushedAt": "2026-01-05T09:39:50Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T09:39:54Z",
+    "url": "https://github.com/weblineindia/n8n-Analyze-customer-sentiment-with-Zoho-CRM-Google-Gemini-send-Gmail-alerts"
+  },
+  {
+    "description": "AI-powered n8n workflow that scrapes websites, summarizes companies, generates outreach emails, creates Outlook drafts via Microsoft Graph, and sends Teams notifications.",
+    "language": "",
+    "name": "website-outreach-automation-ai",
+    "pushedAt": "2025-11-14T05:30:58Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-11-14T05:31:02Z",
+    "url": "https://github.com/jemgeronimo-biz/website-outreach-automation-ai"
+  },
+  {
+    "description": "Keep an eye on unexpected CRM changes without constant manual checks. This n8n workflow automation monitors Zoho CRM updates, flags unusual or risky activity, and records events in Google Sheets for audit and review. A practical n8n workflow template for improving data integrity, security awareness and operational transparency.",
+    "language": "",
+    "name": "n8n-Monitor-Zoho-CRM-changes-alert-on-suspicious-activity-with-Google-Sheets",
+    "pushedAt": "2026-01-05T08:23:27Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T08:23:31Z",
+    "url": "https://github.com/weblineindia/n8n-Monitor-Zoho-CRM-changes-alert-on-suspicious-activity-with-Google-Sheets"
+  },
+  {
+    "description": "\u26a1 Automate uptime alerts into Jira incidents and notify active responders on Slack for swift incident management.",
+    "language": "",
+    "name": "n8n-Real-time-uptime-alerts-to-Jira-with-smart-Slack-on-call-routing",
+    "pushedAt": "2026-03-09T01:57:20Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-09T01:57:23Z",
+    "url": "https://github.com/Lucetrsn/n8n-Real-time-uptime-alerts-to-Jira-with-smart-Slack-on-call-routing"
+  },
+  {
+    "description": "Automate lead meeting scheduling with n8n using Zoho CRM, Google Calendar, and Gemini AI. This n8n workflow qualifies leads, extracts intent with AI, schedules meetings automatically, and syncs CRM records. Ideal for sales automation, CRM workflows, and AI-driven appointment scheduling.",
+    "language": "",
+    "name": "n8n-Automate-lead-meeting-scheduling-with-Zoho-CRM-Google-Calendar-Gemini-AI",
+    "pushedAt": "2026-01-02T14:11:48Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-02T14:11:52Z",
+    "url": "https://github.com/weblineindia/n8n-Automate-lead-meeting-scheduling-with-Zoho-CRM-Google-Calendar-Gemini-AI"
+  },
+  {
+    "description": "Automate hiring updates with n8n: this workflow creates a daily applicant digest grouped by job role, uses Gemini AI to extract key candidate insights from resumes, and delivers concise summaries to hiring managers. Ideal for recruitment automation, HR workflows, and AI-powered hiring pipelines.",
+    "language": "",
+    "name": "n8n-Daily-applicant-digest-by-role-with-Gemini-AI-extraction-for-hiring-managers",
+    "pushedAt": "2026-01-02T14:21:13Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-02T14:21:17Z",
+    "url": "https://github.com/weblineindia/n8n-Daily-applicant-digest-by-role-with-Gemini-AI-extraction-for-hiring-managers"
+  },
+  {
+    "description": "Eliminate manual iOS config updates by syncing .env values directly into Xcode project files. This n8n workflow automation creates GitHub pull requests for every change and sends email notifications to keep teams aligned. Ideal for secure config management using a reliable n8n workflow.",
+    "language": "",
+    "name": "n8n-Automate-iOS-config-sync-.env-to-Xcode-with-GitHub-PRs-and-email",
+    "pushedAt": "2026-01-05T06:42:56Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T06:42:59Z",
+    "url": "https://github.com/weblineindia/n8n-Automate-iOS-config-sync-.env-to-Xcode-with-GitHub-PRs-and-email"
+  },
+  {
+    "description": "Simplify medical rep visit tracking by capturing visit data in Google Sheets, generating clear OpenAI-powered summaries and sending follow-ups via Gmail. This n8n workflow automation reduces manual reporting, improves field visibility and standardizes updates using a flexible n8n workflow template setup.",
+    "language": "",
+    "name": "n8n-Automate-medical-rep-visit-workflow-with-Google-Sheets-Gmail-OpenAI-summaries",
+    "pushedAt": "2026-01-05T09:13:51Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T09:13:54Z",
+    "url": "https://github.com/weblineindia/n8n-Automate-medical-rep-visit-workflow-with-Google-Sheets-Gmail-OpenAI-summaries"
+  },
+  {
+    "description": "Keep background verification on track with a daily snapshot of BGV progress. This n8n workflow automation reads employment background verification statuses from Google Sheets and sends a clear Gmail digest highlighting pending, completed and delayed checks. A reliable n8n workflow template for HR ops and compliance visibility.",
+    "language": "",
+    "name": "n8n-Daily-BGV-status-digest-Track-verifications-with-Google-Sheets-to-Gmail-alerts",
+    "pushedAt": "2026-01-05T09:23:56Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T09:24:00Z",
+    "url": "https://github.com/weblineindia/n8n-Daily-BGV-status-digest-Track-verifications-with-Google-Sheets-to-Gmail-alerts"
+  },
+  {
+    "description": "\ud83d\udce6 Manage your product catalog effortlessly with CatalogHub API, a robust .NET 8 solution for CRUD operations and seamless integration with AWS.",
+    "language": "C#",
+    "name": "CatalogHub",
+    "pushedAt": "2026-03-09T01:44:21Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-09T01:44:24Z",
+    "url": "https://github.com/BIGBOIBILY/CatalogHub"
+  },
+  {
+    "description": "Automate interview reminders with n8n by monitoring Google Calendar interview events and sending Slack alerts 10 minutes before start time. This n8n workflow ensures candidates and interviewers never miss interviews, improving hiring coordination, recruitment automation, and real-time team notifications.",
+    "language": "",
+    "name": "n8n-Send-interview-reminders-10-minutes-from-Google-Calendar-to-Slack-DMs",
+    "pushedAt": "2026-01-02T13:31:02Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-02T13:31:06Z",
+    "url": "https://github.com/weblineindia/n8n-Send-interview-reminders-10-minutes-from-Google-Calendar-to-Slack-DMs"
+  },
+  {
+    "description": "Qualify leads faster by enriching and scoring them automatically. This n8n workflow automation pulls leads from Zoho CRM, enriches profiles with People Data Labs and uses Google Gemini to summarize fit and buying intent. A practical n8n workflow template for sales teams who want cleaner pipelines and better prioritization.",
+    "language": "",
+    "name": "n8n-AI-powered-lead-qualification-with-Zoho-CRM-People-Data-Labs-Google-Gemini",
+    "pushedAt": "2026-01-05T09:18:19Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T09:18:22Z",
+    "url": "https://github.com/weblineindia/n8n-AI-powered-lead-qualification-with-Zoho-CRM-People-Data-Labs-Google-Gemini"
+  },
+  {
+    "description": "Turn WooCommerce reviews into clear, actionable insights without manual reading. This n8n workflow automation analyzes customer reviews using GPT-4, stores structured feedback in Airtable and sends concise sentiment summaries to Slack \u2014 helping teams spot issues, trends and wins faster with a flexible n8n workflow template.",
+    "language": "",
+    "name": "n8n-Analyze-WooCommerce-product-reviews-with-GPT-4-Airtable-Slack-summaries",
+    "pushedAt": "2026-01-05T10:01:12Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T10:01:16Z",
+    "url": "https://github.com/weblineindia/n8n-Analyze-WooCommerce-product-reviews-with-GPT-4-Airtable-Slack-summaries"
+  },
+  {
+    "description": "n8n workflows",
+    "language": "",
+    "name": "n8n",
+    "pushedAt": "2025-10-31T12:04:18Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-11-20T05:04:34Z",
+    "url": "https://github.com/sapthesh/n8n"
+  },
+  {
+    "description": "\u26a1 Automate weekly energy consumption reports using an API, email, and Google Drive for efficient tracking and management.",
+    "language": "",
+    "name": "n8n-Generate-weekly-energy-consumption-reports-with-EnergiDataService-email-and-Google-Drive",
+    "pushedAt": "2026-03-09T01:55:44Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-09T01:55:47Z",
+    "url": "https://github.com/kimjutu1996/n8n-Generate-weekly-energy-consumption-reports-with-EnergiDataService-email-and-Google-Drive"
+  },
+  {
+    "description": "Automatically turn competitor websites into usable sales battle cards. This n8n workflow automation crawls key pages, uses Gemini AI to extract positioning, strengths and weaknesses, and attaches summaries to Zoho CRM records. A practical n8n workflow template for sales enablement and competitive intelligence.",
+    "language": "",
+    "name": "n8n-Auto-generate-competitive-battle-cards-from-websites-with-Zoho-CRM-Gemini-AI",
+    "pushedAt": "2026-01-05T09:01:16Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T09:01:20Z",
+    "url": "https://github.com/weblineindia/n8n-Auto-generate-competitive-battle-cards-from-websites-with-Zoho-CRM-Gemini-AI"
+  },
+  {
+    "description": "Stay on top of seasonal performance without manual analysis. This n8n workflow automation aggregates WooCommerce sales data, compares revenue and order trends across months and years, identifies top-selling SKUs, logs results in Google Sheets, and delivers clean, executive-ready summaries to Slack using a reliable n8n workflow template.",
+    "language": "",
+    "name": "n8n-Send-seasonal-WooCommerce-sales-trend-reports-to-Slack-Google-Sheets",
+    "pushedAt": "2026-01-12T09:08:58Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-12T09:11:09Z",
+    "url": "https://github.com/weblineindia/n8n-Send-seasonal-WooCommerce-sales-trend-reports-to-Slack-Google-Sheets"
+  },
+  {
+    "description": "Automated n8n workflow that intelligently categorizes incoming Gmail messages and generates AI-powered draft responses. Perfect for educational institutions or support teams handling course inquiries, student doubts, and sponsorship requests.",
+    "language": "",
+    "name": "n8n-gmail-automation-workflow",
+    "pushedAt": "2025-10-07T12:22:27Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-10-08T16:17:24Z",
+    "url": "https://github.com/akagamikaizoku/n8n-gmail-automation-workflow"
+  },
+  {
+    "description": "\ud83d\udd04 Sync missing iOS translations with Google Sheets and automate GitHub PR placeholders for smoother builds and enhanced localization management.",
+    "language": "",
+    "name": "n8n-Syncing-iOS-localization-gaps-with-Google-Sheets-and-GitHub-PR-placeholders",
+    "pushedAt": "2026-03-09T01:56:45Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-09T01:56:50Z",
+    "url": "https://github.com/papikimono/n8n-Syncing-iOS-localization-gaps-with-Google-Sheets-and-GitHub-PR-placeholders"
+  },
+  {
+    "description": "\ud83d\ude80 Production-ready n8n workflows for enterprise automation. Includes GitHub Backup, SEO tools, and System Ops. Battle-tested, documented, and ready to import. #n8n #automation",
+    "language": "",
+    "name": "n8n-production-workflows",
+    "pushedAt": "2026-01-07T03:37:45Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-07T03:37:48Z",
+    "url": "https://github.com/AmanSuryavanshi-1/n8n-production-workflows"
+  },
+  {
+    "description": "Stop bug backlogs from becoming bottlenecks. This n8n workflow automation reviews incoming bug reports, uses OpenAI to understand severity and context, auto-categorizes issues, creates Jira tickets and alerts teams in Slack. A focused n8n workflow template for faster triage and clearer engineering priorities.",
+    "language": "",
+    "name": "n8n-AI-powered-bug-triage-system-with-OpenAI-Jira-Slack-alerts",
+    "pushedAt": "2026-01-02T16:15:32Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-02T16:15:35Z",
+    "url": "https://github.com/weblineindia/n8n-AI-powered-bug-triage-system-with-OpenAI-Jira-Slack-alerts"
+  },
+  {
+    "description": "HTML validation node for n8n. Based on html-validate",
+    "language": "JavaScript",
+    "name": "n8n-nodes-html-validation",
+    "pushedAt": "2025-09-13T10:27:48Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-09-13T10:26:18Z",
+    "url": "https://github.com/SpeedyWebHub/n8n-nodes-html-validation"
+  },
+  {
+    "description": "N8N automation that uses TwitterAPI.io to rertieve real-time social media data about the source of rocket alerts in Israel",
+    "language": "HTML",
+    "name": "Oref-GPT",
+    "pushedAt": "2025-05-22T16:00:38Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-05-22T16:01:57Z",
+    "url": "https://github.com/danielrosehill/Oref-GPT"
+  },
+  {
+    "description": "n8n community nodes for Adobe Experience Manager (AEM) operations \u2014 health checks, content replication, package management, and cache purging with built-in safety guardrails.",
+    "language": "TypeScript",
+    "name": "n8n-nodes-aem-ops",
+    "pushedAt": "2026-02-15T07:03:02Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-02-15T07:03:05Z",
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-aem-ops"
+  },
+  {
+    "description": "Don\u2019t let renewal failures slip through the cracks. This n8n workflow automation analyzes failed payment renewals with AI, identifies likely causes, opens Jira tickets for follow-up and sends Slack alerts to the right team. A reliable n8n workflow template for reducing churn and speeding up recovery.",
+    "language": "",
+    "name": "n8n-Handle-failed-payment-renewals-with-AI-analysis-Jira-tickets-Slack-alerts",
+    "pushedAt": "2026-01-05T07:02:46Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T07:02:50Z",
+    "url": "https://github.com/weblineindia/n8n-Handle-failed-payment-renewals-with-AI-analysis-Jira-tickets-Slack-alerts"
+  },
+  {
+    "description": "Spot stalled deals before they quietly die. This n8n workflow automation reviews Zoho CRM deal activity, uses Gemini AI to assess inactivity risk and context, and sends targeted Gmail alerts to prompt follow-ups. A proactive n8n workflow template for healthier pipelines, better forecasting and timely sales action.",
+    "language": "",
+    "name": "n8n-Monitor-and-alert-stalled-deals-in-Zoho-CRM-with-Gemini-AI-Gmail",
+    "pushedAt": "2026-01-05T10:27:47Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-05T10:27:51Z",
+    "url": "https://github.com/weblineindia/n8n-Monitor-and-alert-stalled-deals-in-Zoho-CRM-with-Gemini-AI-Gmail"
+  }
+]
