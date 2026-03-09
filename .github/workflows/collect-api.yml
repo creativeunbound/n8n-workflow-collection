@@ -5,6 +5,9 @@ on:
     - cron: '0 19 * * 1'  # Weekly on Mondays at 7 PM UTC (3 AM Tuesday GMT+8/SG Time)
   workflow_dispatch:  # Allow manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   collect:
     runs-on: ubuntu-latest
