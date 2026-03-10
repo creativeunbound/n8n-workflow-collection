@@ -1,7 +1,279 @@
 {
-  "updated_at": "2026-03-09T23:01:27.476572",
-  "total_workflows": 10,
+  "updated_at": "2026-03-10T19:31:35.999957",
+  "total_workflows": 27,
   "workflows": [
+    {
+      "id": "8fc780eee787",
+      "source": "github",
+      "source_repo": "https://github.com/SohamXYZDev/TwitterThreadCreator",
+      "title": "Twitter Thread Creator",
+      "description": "",
+      "file": "workflows/github/8fc780eee787.json",
+      "node_count": 57,
+      "integrations": [
+        "splitInBatches",
+        "webhook",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "httpRequest",
+        "wait",
+        "if",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "stickyNote",
+        "splitOut",
+        "youTube",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "set",
+        "twitter",
+        "googleDocs"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "5c50be53f620",
+      "source": "github",
+      "source_repo": "https://github.com/Awaisali36/FaceBook-Ad-Manager-System",
+      "title": "Facebook Ad Manager",
+      "description": "",
+      "file": "workflows/github/5c50be53f620.json",
+      "node_count": 36,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "code",
+        "httpRequest",
+        "set",
+        "convertToFile",
+        "stickyNote",
+        "perplexity",
+        "airtable",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "webhook",
+        "@n8n/n8n-nodes-langchain.lmChatAnthropic"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "acd2faa4a1c9",
+      "source": "github",
+      "source_repo": "https://github.com/christinec-dev/n8n-Audit-Workflow",
+      "title": "n8n Workflow Auditor",
+      "description": "",
+      "file": "workflows/github/acd2faa4a1c9.json",
+      "node_count": 36,
+      "integrations": [
+        "code",
+        "httpRequest",
+        "aggregate",
+        "if",
+        "merge",
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "manualTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "set",
+        "n8n",
+        "noOp"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "5aecba0f6074",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "All in One Agent",
+      "description": "",
+      "file": "workflows/github/5aecba0f6074.json",
+      "node_count": 30,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.agent",
+        "gmailTool",
+        "telegramTrigger",
+        "googleSheetsTool",
+        "if",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "stickyNote",
+        "gmail",
+        "@n8n/n8n-nodes-langchain.textClassifier",
+        "googleCalendarTool",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "gmailTrigger",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "telegram",
+        "dateTimeTool",
+        "noOp"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "877449847863",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "SEO Audit",
+      "description": "",
+      "file": "workflows/github/877449847863.json",
+      "node_count": 25,
+      "integrations": [
+        "htmlExtract",
+        "emailSend",
+        "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+        "code",
+        "httpRequest",
+        "merge",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "webhook",
+        "html"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "d7afc016c10d",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/d7afc016c10d.json",
+      "node_count": 20,
+      "integrations": [
+        "googleSheets",
+        "code",
+        "httpRequest",
+        "set",
+        "if",
+        "stickyNote",
+        "scheduleTrigger",
+        "manualTrigger",
+        "filter",
+        "itemLists"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "4b6fba74da62",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "Telegram AI-bot",
+      "description": "",
+      "file": "workflows/github/4b6fba74da62.json",
+      "node_count": 16,
+      "integrations": [
+        "telegramTrigger",
+        "merge",
+        "stickyNote",
+        "openAi",
+        "switch",
+        "set",
+        "telegram"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "928cfdf755c6",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/928cfdf755c6.json",
+      "node_count": 16,
+      "integrations": [
+        "respondToWebhook",
+        "form",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "webhook",
+        "formTrigger"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "2498824e6f37",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "Job Applying Agent",
+      "description": "",
+      "file": "workflows/github/2498824e6f37.json",
+      "node_count": 15,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.agent",
+        "httpRequest",
+        "gmailTool",
+        "googleSheetsTool",
+        "markdown",
+        "@n8n/n8n-nodes-langchain.informationExtractor",
+        "if",
+        "noOp",
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "form",
+        "formTrigger"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "51dba04879b0",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/51dba04879b0.json",
+      "node_count": 14,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.embeddingsCohere",
+        "readWriteFile",
+        "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+        "stickyNote",
+        "manualTrigger",
+        "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+        "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "@n8n/n8n-nodes-langchain.vectorStoreInMemory"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "95f328a4516f",
+      "source": "github",
+      "source_repo": "https://github.com/EuleMitKeule/webhook-conversation",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/95f328a4516f.json",
+      "node_count": 14,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.agent",
+        "respondToWebhook",
+        "code",
+        "set",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "webhook"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "766ca99b4fd9",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "AI Invoice Agent",
+      "description": "",
+      "file": "workflows/github/766ca99b4fd9.json",
+      "node_count": 13,
+      "integrations": [
+        "splitInBatches",
+        "@n8n/n8n-nodes-langchain.agent",
+        "googleSheets",
+        "@n8n/n8n-nodes-langchain.informationExtractor",
+        "n8n-nodes-craftmypdf.craftMyPdf",
+        "stickyNote",
+        "gmail",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "manualTrigger",
+        "filter",
+        "set"
+      ],
+      "complexity": "intermediate"
+    },
     {
       "id": "fb1f7bf9f6e8",
       "source": "n8n_api",
@@ -36,6 +308,21 @@
       "file": "workflows/api/86b0d8337a35.json",
       "node_count": 8,
       "integrations": [],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "0fb2f998c3c7",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "Jira MCP Server",
+      "description": "",
+      "file": "workflows/github/0fb2f998c3c7.json",
+      "node_count": 8,
+      "integrations": [
+        "httpRequestTool",
+        "jiraTool",
+        "@n8n/n8n-nodes-langchain.mcpTrigger"
+      ],
       "complexity": "intermediate"
     },
     {
@@ -99,6 +386,38 @@
       "complexity": "intermediate"
     },
     {
+      "id": "20fe2af5682b",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/20fe2af5682b.json",
+      "node_count": 5,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.toolSerpApi",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.chatTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "b9733adca152",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "Upload a file and get a list of all the files in a bucket",
+      "description": "",
+      "file": "workflows/github/b9733adca152.json",
+      "node_count": 4,
+      "integrations": [
+        "manualTrigger",
+        "s3",
+        "httpRequest"
+      ],
+      "complexity": "beginner"
+    },
+    {
       "id": "1f573e3e06e1",
       "source": "n8n_api",
       "title": "Talk to Your Google Sheets Using ChatGPT-5",
@@ -120,6 +439,36 @@
       "file": "workflows/api/7923995685dc.json",
       "node_count": 3,
       "integrations": [],
+      "complexity": "beginner"
+    },
+    {
+      "id": "07331fa10396",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/07331fa10396.json",
+      "node_count": 3,
+      "integrations": [
+        "manualTrigger",
+        "renameKeys",
+        "set"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "be73bbdc52f0",
+      "source": "github",
+      "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
+      "title": "XML Conversion",
+      "description": "",
+      "file": "workflows/github/be73bbdc52f0.json",
+      "node_count": 3,
+      "integrations": [
+        "manualTrigger",
+        "set",
+        "xml"
+      ],
       "complexity": "beginner"
     }
   ]

@@ -1,0 +1,1080 @@
+{
+  "name": "n8n Workflow Auditor",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        1088
+      ],
+      "id": "67446c1a-843f-4af2-9d0a-c88b817a8547",
+      "name": "When clicking \u2018Test workflow\u2019"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Input 0 = config, Input 1+ = executions (main + subflows)\nconst config = $item(0).$node[\"Configuration\"].json;\nconst executions = items.slice(1).map(i => i.json);\n\n// === Secret & sensitive patterns ===\nconst secretRegexes = [\n  { regex: /\\bBearer\\s+[A-Za-z0-9\\.\\-_]+/, severity: \"high\", desc: \"Bearer token\" },\n  { regex: /\\bsk-[A-Za-z0-9]{20,64}/, severity: \"high\", desc: \"OpenAI API key\" },\n  { regex: /\\bAKIA[0-9A-Z]{16}\\b/, severity: \"high\", desc: \"AWS Access Key\" },\n  { regex: /AIza[0-9A-Za-z\\-_]{35}/, severity: \"high\", desc: \"Google API key\" },\n  { regex: /xox[baprs]-[0-9A-Za-z-]{10,}/, severity: \"high\", desc: \"Slack token\" },\n  { regex: /sk_live_[0-9a-zA-Z]{24}/, severity: \"high\", desc: \"Stripe live key\" },\n  { regex: /eyJ[a-zA-Z0-9\\-_]{10,}\\.[a-zA-Z0-9\\-_]{10,}\\.[a-zA-Z0-9\\-_]{10,}/, severity: \"high\", desc: \"JWT token\" },\n  { regex: /([A-Za-z0-9+\\/]{40,}={0,2})/, severity: \"medium\", desc: \"Base64-like secret\" },\n  { regex: /(api[_-]?key)/i, severity: \"high\", desc: \"API Key keyword\" },\n  { regex: /(access[_-]?token)/i, severity: \"high\", desc: \"Access token keyword\" },\n  { regex: /(secret|password)/i, severity: \"high\", desc: \"Secret/password keyword\" },\n  { regex: /\\b(admin|root|test(user)?\\d*)\\b/i, severity: \"high\", desc: \"Common username\" },\n  { regex: /\\b(password|123456|qwerty|letmein|admin123|password123)\\b/i, severity: \"high\", desc: \"Weak password\" },\n  { regex: /\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b/i, severity: \"medium\", desc: \"Hardcoded email address\" },\n  { regex: /(auth(entication)?|authorization)/i, severity: \"low\", desc: \"Auth keyword\" },\n  { regex: /\\b[0-9a-zA-Z_-]{20,64}\\b/, severity: \"medium\", desc: \"Suspicious long string\" },\n];\n\n// === Company identifiers from config ===\nlet companyPatterns = [];\nif (config.companyIdentifiers) {\n  const companies = Array.isArray(config.companyIdentifiers)\n    ? config.companyIdentifiers\n    : String(config.companyIdentifiers).split(\",\").map(s => s.trim());\n  companyPatterns = companies.map(c => ({\n    regex: new RegExp(`\\\\b${c}\\\\b`, \"i\"),\n    severity: \"low\",\n    desc: \"Company identifier\"\n  }));\n}\n\n// === Whitelist patterns ===\nconst whitelistPatterns = [\n  /^app[a-zA-Z0-9]{14}$/i,\n  /^tbl[a-zA-Z0-9]{14}$/i,\n  /^[a-zA-Z0-9_-]{25,}$/i,\n  /^asst_[a-zA-Z0-9]{20,}$/i,\n  /^oAuth2$/i,\n  /^predefinedCredentialType$/i,\n];\n\nfunction isWhitelisted(val) {\n  return whitelistPatterns.some(p => p.test(val));\n}\n\nfunction flattenParams(obj, prefix = \"\") {\n  let results = [];\n  for (const [key, val] of Object.entries(obj || {})) {\n    const fullKey = prefix ? `${prefix}.${key}` : key;\n    if (val && typeof val === \"object\") {\n      results = results.concat(flattenParams(val, fullKey));\n    } else if (val !== undefined && val !== null) {\n      results.push({ key: fullKey, value: String(val) });\n    }\n  }\n  return results;\n}\n\nfunction classifyCredential(node) {\n  if (!node.credentials || Object.keys(node.credentials).length === 0) return \"hardcoded\";\n  if (node.parameters?.authentication) {\n    const auth = node.parameters.authentication.toLowerCase();\n    if (auth.includes(\"oauth\")) return \"external\";\n    if (auth.includes(\"generic\")) return \"generic\";\n    if (auth.includes(\"predefined\")) return \"predefined\";\n  }\n  return \"predefined\";\n}\n\n// === Security audit per workflow ===\nfunction auditWorkflow(exec, label) {\n  const wf = exec.workflowData || exec.data?.resultData?.workflowData;\n  const wfName = wf?.name || label || \"Unnamed Workflow\";\n  const wfId = exec.workflowId || \"unknown\";\n\n  const nodes = wf?.nodes || [];\n  const flagged = [];\n  const apiNodes = [];\n\n  nodes.forEach(node => {\n    const nodeInfo = { node: node.name, type: node.type };\n    const params = flattenParams(node.parameters);\n\n    if (/httpRequest|api|google|slack|airtable|openAi/i.test(node.type)) {\n      apiNodes.push({\n        node: node.name,\n        type: node.type,\n        credentialType: classifyCredential(node),\n      });\n    }\n\n    for (const { key, value } of params) {\n      if (value.length > 5000) continue;\n      for (const { regex, severity, desc } of [...secretRegexes, ...companyPatterns]) {\n        if (regex.test(value) && !isWhitelisted(value)) {\n          flagged.push({\n            ...nodeInfo,\n            key,\n            value: value.slice(0, 100),\n            issue: desc,\n            severity,\n          });\n        }\n      }\n    }\n  });\n\n  return {\n    workflowLabel: label + ` (${wfName})`,\n    workflowId: wfId,\n    workflowName: wfName,\n    issuesFound: flagged.length,\n    severityCount: {\n      high: flagged.filter(f => f.severity === \"high\").length,\n      medium: flagged.filter(f => f.severity === \"medium\").length,\n      low: flagged.filter(f => f.severity === \"low\").length,\n    },\n    apiNodes,\n    flagged,\n  };\n}\n\n// === Group executions by workflowId ===\nconst grouped = executions.reduce((acc, exec) => {\n  const wfid = exec.workflowId || \"unknown\";\n  if (!acc[wfid]) acc[wfid] = [];\n  acc[wfid].push(exec);\n  return acc;\n}, {});\n\n// Grab mainId explicitly from \"Get Latest Successful Executions of Workflow\"\nlet mainId;\ntry {\n  const mainNode = $('Get Latest Successful Executions of Workflow').first();\n  mainId = mainNode?.json?.workflowId;\n} catch (e) {\n  mainId = executions[0]?.workflowId || \"unknown\";\n}\n\nconst audits = [];\nfor (const [wfid, execs] of Object.entries(grouped)) {\n  const label = wfid === mainId ? \"Main Workflow\" : \"Subflow\";\n  audits.push(auditWorkflow(execs[0], label));\n}\n\n// === Always put main workflow first ===\nconst ordered = audits.sort((a, b) => {\n  if (a.workflowId === mainId) return -1;\n  if (b.workflowId === mainId) return 1;\n  return 0;\n});\n\nreturn ordered.map(a => ({ json: a }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1616,
+        880
+      ],
+      "id": "da6eae14-5471-4af5-bd8b-24c9649d3cc0",
+      "name": "Security Audit"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Input 0 = config, Input 1+ = executions (main + subflows)\nconst config = $item(0).$node[\"Configuration\"].json;\nconst executions = items.map(i => i.json);\n\nfunction stats(values) {\n  if (!values.length) return { mean: 0, variance: 0, stdev: 0 };\n  const mean = values.reduce((a, b) => a + b, 0) / values.length;\n  const variance = values.reduce((a, b) => a + (b - mean) ** 2, 0) / values.length;\n  const stdev = Math.sqrt(variance);\n  return { mean: Math.round(mean), variance: Math.round(variance), stdev: Math.round(stdev) };\n}\n\nfunction grade(avg, stdev, globalAvg, samples) {\n  if (avg < 50) return \"\u2705 stable (ignored <50ms)\";\n  if (samples < 3) return \"\u2705 stable (low sample)\";\n  if (avg > globalAvg * Number(config.bottleneckThreshold)) return \"\ud83d\udd34 bottleneck\";\n  if (stdev > avg * Number(config.unstableThreshold)) return \"\u26a0\ufe0f unstable\";\n  return \"\u2705 stable\";\n}\n\n// === Audit function ===\nfunction auditWorkflow(execs, label, workflowId, workflowName) {\n  let totalWorkflowTime = 0;\n  let workflowCount = 0;\n  const nodeTimes = {};\n  const seenNodes = new Set();\n\n  // Pull nodes from either exec.workflowData or exec.data.resultData.workflowData\n  const wfNodes =\n    execs[0]?.workflowData?.nodes ||\n    execs[0]?.data?.resultData?.workflowData?.nodes ||\n    [];\n\n  const wfNodeNames = wfNodes.map(n => n.name);\n\n  // Track disabled nodes explicitly\n  const disabledNodes = wfNodes\n    .filter(n => n.disabled === true)\n    .map(n => n.name);\n\n  execs.slice(0, Number(config.maxExecutions)).forEach(exec => {\n    const runData = exec.data?.resultData?.runData || {};\n    const subExecs = exec.data?.resultData?.subExecutions || [];\n    \n    subExecs.forEach(sub => {\n      const subRunData = sub.data?.resultData?.runData || {};\n      for (const [nodeName, nodeRuns] of Object.entries(subRunData)) {\n        nodeRuns.forEach(e => {\n          const t = e.executionTime || 0;\n          thisWorkflowTime += t;\n    \n          if (!nodeTimes[nodeName]) nodeTimes[nodeName] = [];\n          nodeTimes[nodeName].push(t);\n          seenNodes.add(nodeName);\n        });\n      }\n    });\n\n    \n    let thisWorkflowTime = 0;\n\n    for (const [nodeName, nodeRuns] of Object.entries(runData)) {\n      nodeRuns.forEach(e => {\n        const t = e.executionTime || 0;\n        thisWorkflowTime += t;\n\n        if (!nodeTimes[nodeName]) nodeTimes[nodeName] = [];\n        nodeTimes[nodeName].push(t);\n        seenNodes.add(nodeName);\n      });\n    }\n\n    totalWorkflowTime += thisWorkflowTime;\n    workflowCount++;\n  });\n\n  const avgWorkflowTime =\n    workflowCount > 0 ? Math.round(totalWorkflowTime / workflowCount) : 0;\n\n  const nodeStats = Object.entries(nodeTimes).map(([node, times]) => {\n    const { mean, variance, stdev } = stats(times);\n    return {\n      node,\n      avgExecutionTime: mean,\n      variance,\n      stdev,\n      samples: times.length,\n      performanceGrade: grade(mean, stdev, avgWorkflowTime, times.length),\n      dominantShare:\n        avgWorkflowTime > 0\n          ? ((mean / avgWorkflowTime) * 100).toFixed(1) + \"%\"\n          : \"0%\",\n    };\n  });\n\n  const slowestNodes = [...nodeStats]\n    .sort((a, b) => b.avgExecutionTime - a.avgExecutionTime)\n    .slice(0, 3);\n\n  const mostUnstableNodes = [...nodeStats]\n    .filter(n => n.avgExecutionTime >= 50)\n    .sort((a, b) => b.stdev - a.stdev)\n    .slice(0, 3);\n\n  // Nodes that are not disabled but also never executed\n  const neverExecutedNodes = wfNodeNames.filter(\n    n => !seenNodes.has(n) && !disabledNodes.includes(n)\n  );\n\n  return {\n    workflowLabel: label,\n    workflowName,\n    workflowId,\n    executionsAnalysed: workflowCount,\n    avgWorkflowTime,\n    slowestNodes,\n    mostUnstableNodes,\n    disabledNodes,\n    disabledNodesCount: disabledNodes.length,\n    neverExecutedNodes,\n    neverExecutedNodesCount: neverExecutedNodes.length,\n    nodeStats,\n  };\n}\n\n// === Grab workflowIds and names from upstream nodes safely ===\nlet mainId, mainName, subId, subName;\n\ntry {\n  const mainNode = $('Get Latest Successful Executions of Workflow').first();\n  mainId = mainNode?.json?.workflowId;\n  mainName = mainNode?.json?.workflowData?.name || \"Unnamed Main Workflow\";\n} catch (e) {\n  mainId = \"unknown\";\n  mainName = \"Unnamed Main Workflow\";\n}\n\ntry {\n  const subNode = $('Get Latest Successful Executions of Subworkflows').first();\n  subId = subNode?.json?.workflowId;\n  subName = subNode?.json?.workflowData?.name || \"Unnamed Subflow\";\n} catch (e) {\n  subId = null;\n  subName = null;\n}\n\n// === Group executions by workflowId ===\nconst grouped = executions.reduce((acc, exec) => {\n  const wfid = exec.workflowId || \"unknown\";\n  if (!acc[wfid]) acc[wfid] = [];\n  acc[wfid].push(exec);\n  return acc;\n}, {});\n\nconst audits = [];\n\nfor (const [wfid, execs] of Object.entries(grouped)) {\n  let wfName = \"Unnamed Workflow\";\n\n  if (wfid === mainId) {\n    wfName = mainName;\n  } else if (subId && wfid === subId) {\n    wfName = subName;\n  }\n\n  const label =\n    wfid === mainId ? `Main Workflow (${wfName})` : `Subflow (${wfName})`;\n\n  audits.push(auditWorkflow(execs, label, wfid, wfName));\n}\n\n// === Put main workflow first ===\nconst ordered = audits.sort((a, b) => {\n  if (a.workflowId === mainId) return -1;\n  if (b.workflowId === mainId) return 1;\n  return 0;\n});\n\n// Return\nreturn ordered.map(a => ({ json: a }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1616,
+        1024
+      ],
+      "id": "1fc9c43c-2581-47f9-9bdf-3a40a33776e2",
+      "name": "Workflow Execution Audit"
+    },
+    {
+      "parameters": {
+        "content": "## \ud83d\udee1\ufe0f About the Workflow Auditor\n\nThe **n8n Workflow Auditor** is a reusable audit workflow that automatically analyses other n8n workflows for:\n\n- \ud83d\udd10 **Security issues** \u2192 Identifiers, credentials, and misconfigurations  \n- \u26a1 **Performance risks** \u2192 Slow or unstable nodes, bottlenecks, disabled/never-used nodes  \n- \ud83e\udd16 **AI usage** \u2192 Tracks AI/LLM nodes, token estimates, execution times, and model metadata\n- \ud83d\udea6 **Error Handling** \u2192 Flags nodes with potential runtime failures (APIs, DB queries, LLM calls, custom code)\n\n\nThe auditor produces a **Markdown report** that can be consumed directly or enriched by an LLM for narrative summarization. Reports are easily shared via GitHub Gists, Slack, Confluence, or other integrations.  \n\n\n### \ud83d\udccc Legend\n- **avgExecutionTime** \u2192 average runtime (ms)\n\n- **variance / stdev** \u2192 how much runtimes fluctuate (bigger = less stable)\n\n- **samples** \u2192 number of times node executed\n\n- **performanceGrade** \u2192 \u2705 stable \u00b7 \u26a0\ufe0f unstable (high variance) \u00b7 \ud83d\udd34 bottleneck (slow vs workflow avg)\n\n- **dominantShare** \u2192 % of workflow runtime spent in this node\n\n- **issuesFound / severityCount** \u2192 number of flagged findings, grouped by severity (\ud83d\udd34 high, \ud83d\udfe0 medium, \ud83d\udfe2 low)\n\n- **apiNodes** \u2192 nodes that perform HTTP/API requests, with credential classification (hardcoded, predefined, generic, OAuth)\n\n- **aiNodes** \u2192 details of all AI nodes (model, disabled, preview prompt, token estimate, average execution time)\nError Handling Analysis \ud83d\udea6 ntifie pl",
+        "height": 816,
+        "width": 790,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "4a14be4a-e795-414a-b378-0c89acd5dbf7",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## \u2699\ufe0f Setup Checklist for the Workflow Auditor\n\nHere\u2019s a short step-by-step guide for teammates who want to deploy and run the workflow auditor.\n\n### 1. Import Workflow JSON\n- Load the provided workflow `.json` file into your n8n instance.\n\n### 2. Configure Settings (Configuration node)\nSet the following options in the **Configuration** node:\n- **maxExecutions** \u2192 Number of past runs to analyse (default: `20`)  \n- **bottleneckThreshold** \u2192 Factor over workflow average to flag bottlenecks (default: `1.5\u00d7`)  \n- **unstableThreshold** \u2192 Ratio of stdev/avg runtime to mark instability (default: `0.5 = 50%`)  \n- **shouldAuditSubflows** \u2192 `true` / `false`, whether to include subflows in the analysis  \n- **companyIdentifiers** \u2192 Comma-separated list of sensitive names/brands to flag if hardcoded  \n- **shouldUseAIReporting** \u2192 `true` = use LLM summarisation \u00b7 `false` = generate scripted Markdown\n\n### 3. Connect Credentials\nEnsure the following credentials are set up in n8n:\n- **n8nApi** \u2192 For accessing your own instance (used by `Get Executions` nodes).  \n- **openAiApi** (or another LLM provider) \u2192 For AI-based summarisation (used by `AI Writer` and `LLM Judge` nodes).  \n- **httpCustomAuth** + **githubApi** \u2192 Used to publish reports as GitHub Gists.  \n  _(These can be swapped for Slack, Confluence, ConvertAPI, or another destination of your choice.)_\n\n### 4. Select the Workflow to Audit\n- In the **Get Latest Successful Executions of Workflow** node, adjust the filter to select the workflow you want to audit.  \n- Optionally, configure the **Get Latest Successful Executions of Subworkflows** node if subflows should be analysed.\n\n### 5. Run the Audit\n- Manually trigger the workflow with **\u201cTest workflow\u201d**.  \n- The auditor will:  \n  1. Fetch the last *N* executions  \n  2. Run **security, performance, and AI audits**  \n  3. Merge results into a single Markdown report\n\n---\n\n### 6. Consume the Report\n- If `shouldUseAIReporting = false` \u2192 Output is a structured Markdown report (scripted).  \n- If `shouldUseAIReporting = true` \u2192 Results are passed to OpenAI for narrative summarisation.  \n- By default, the report is published as a **GitHub Gist** (`audit_report.md`).  \n  _(You can redirect this step to Slack, Confluence, or other integrations.)_\n",
+        "height": 816,
+        "width": 880,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        832,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "be1bd701-5a71-4522-985f-abe580ad8114",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "resource": "execution",
+        "limit": "=20",
+        "filters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "={{ $json.workflowId }}",
+            "mode": "id"
+          },
+          "status": "=success"
+        },
+        "options": {
+          "activeWorkflows": true
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        1008,
+        880
+      ],
+      "id": "33e05469-044f-4235-a78c-ca4379bbc6ae",
+      "name": "Get Latest Successful Executions of Subworkflows",
+      "notesInFlow": true,
+      "credentials": {
+        "n8nApi": {
+          "id": "xwUYhDd4AcRFpYfL",
+          "name": "n8n account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const subflows = [];\n\nitems.forEach(item => {\n  const runData = item.json.data?.resultData?.runData || {};\n  for (const [nodeName, nodeRuns] of Object.entries(runData)) {\n    nodeRuns.forEach(e => {\n      const subExec = e?.metadata?.subExecution;\n      if (subExec?.workflowId) {\n        subflows.push({\n          json: {\n            workflowId: subExec.workflowId,\n            executionId: subExec.executionId, // you can use this if you want that exact run\n            parentWorkflowId: item.json.workflowId,\n            parentNode: nodeName\n          }\n        });\n      }\n    });\n  }\n});\n\nreturn subflows;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        880
+      ],
+      "id": "fd870e77-37ad-4c9b-b805-36b57139c5a9",
+      "name": "Get Subflows",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1200,
+        896
+      ],
+      "id": "524590b5-d14c-4083-ae12-be8ae9db32eb",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Input = aggregated results from performance + security + AI audits\nconst config = $item(0).$node[\"Configuration\"].json;\n\n// Aggregate packs everything under one item -> .json.data\nconst audits = items[0].json.data;\n\nfunction buildScriptedReport(audits) {\n  let lines = [];\n  lines.push(\"# Workflow Audit Report\");\n  lines.push(\"\");\n  lines.push(\"## Glossary\");\n  lines.push(\"- **Identifiers**: Sensitive company-specific data (flagged if present).\");\n  lines.push(\"- **Disabled nodes**: Nodes that exist in the workflow but are not executed.\");\n  lines.push(\"- **Never-executed nodes**: Nodes that are present but never triggered in analysed runs.\");\n  lines.push(\"- **Potential bottleneck**: A node with significantly higher average execution time than others.\");\n  lines.push(\"- **AI nodes**: Any workflow nodes calling an LLM or AI model.\");\n  lines.push(\"- **Error handling** \u2192 Potentially risky nodes and how to mitigate failures.\");\n  lines.push(\"- **Unclear node names**: Nodes left with defaults like `Node1` or very short names.\");\n  lines.push(\"\");\n\n  // === Global stats ===\n  const totalIssues = audits.reduce(\n    (acc, a) => {\n      acc.high += a.severityCount?.high ?? 0;\n      acc.medium += a.severityCount?.medium ?? 0;\n      acc.low += a.severityCount?.low ?? 0;\n      return acc;\n    },\n    { high: 0, medium: 0, low: 0 }\n  );\n\n  const uniqueWfs = [\n    ...new Set(audits.map(a => a.workflowId).filter(id => id !== \"ALL\"))\n  ];\n\n  lines.push(\"## Global Summary\");\n  lines.push(`- **Total workflows analysed:** ${uniqueWfs.length}`);\n  lines.push(`- **Total issues by severity:** \ud83d\udd34 High: ${totalIssues.high} / \ud83d\udfe0 Medium: ${totalIssues.medium} / \ud83d\udfe2 Low: ${totalIssues.low}`);\n  lines.push(\"\");\n\n  // === Group audits by workflowId ===\n  const grouped = {};\n  for (const a of audits) {\n    if (!grouped[a.workflowId]) {\n      grouped[a.workflowId] = {\n        workflowLabel: a.workflowLabel,\n        workflowId: a.workflowId,\n        executionsAnalysed: null,\n        avgWorkflowTime: null,\n        issuesFound: 0,\n        severityCount: { high: 0, medium: 0, low: 0 },\n        flagged: [],\n        slowestNodes: [],\n        disabledNodes: [],\n        neverExecutedNodes: [],\n        apiNodes: [],\n        aiNodes: [],\n        errorNodes: [],\n        unclearNodeNames: [],      // NEW\n        recommendations: []\n      };\n    }\n\n    if (a.executionsAnalysed && a.executionsAnalysed !== \"n/a\") {\n      grouped[a.workflowId].executionsAnalysed = a.executionsAnalysed;\n    }\n    if (a.avgWorkflowTime && a.avgWorkflowTime !== \"n/a\") {\n      grouped[a.workflowId].avgWorkflowTime = a.avgWorkflowTime;\n    }\n\n    grouped[a.workflowId].issuesFound += a.issuesFound ?? 0;\n    grouped[a.workflowId].severityCount.high += a.severityCount?.high ?? 0;\n    grouped[a.workflowId].severityCount.medium += a.severityCount?.medium ?? 0;\n    grouped[a.workflowId].severityCount.low += a.severityCount?.low ?? 0;\n\n    if (a.flagged?.length) grouped[a.workflowId].flagged.push(...a.flagged);\n    if (a.slowestNodes?.length) grouped[a.workflowId].slowestNodes.push(...a.slowestNodes);\n    if (a.disabledNodes?.length) grouped[a.workflowId].disabledNodes.push(...a.disabledNodes);\n    if (a.neverExecutedNodes?.length) grouped[a.workflowId].neverExecutedNodes.push(...a.neverExecutedNodes);\n    if (a.apiNodes?.length) grouped[a.workflowId].apiNodes.push(...a.apiNodes);\n    if (a.aiNodes?.length) grouped[a.workflowId].aiNodes.push(...a.aiNodes);\n    if (a.errorNodes?.length) grouped[a.workflowId].errorNodes.push(...a.errorNodes);\n    if (a.unclearNodeNames?.length) grouped[a.workflowId].unclearNodeNames.push(...a.unclearNodeNames); // NEW\n    if (a.recommendations?.length) grouped[a.workflowId].recommendations.push(...a.recommendations);\n  }\n\n  // === Per-workflow breakdown ===\n  for (const wf of Object.values(grouped)) {\n    lines.push(`## ${wf.workflowLabel}`);\n    lines.push(\"\");\n    lines.push(\"### Workflow Overview\");\n    lines.push(`- Workflow ID: ${wf.workflowId}`);\n    lines.push(`- Executions analysed: ${wf.executionsAnalysed ?? \"n/a\"}`);\n    lines.push(`- Average runtime: ${wf.avgWorkflowTime ?? \"n/a\"} ms`);\n    lines.push(\"\");\n\n    // === Issue summary\n    lines.push(\"### Issue Summary\");\n    lines.push(\"| Severity | Count |\");\n    lines.push(\"|----------|-------|\");\n    lines.push(`| \ud83d\udd34 High  | ${wf.severityCount.high} |`);\n    lines.push(`| \ud83d\udfe0 Medium| ${wf.severityCount.medium} |`);\n    lines.push(`| \ud83d\udfe2 Low   | ${wf.severityCount.low} |`);\n    lines.push(\"\");\n\n    // === Security Findings\n    lines.push(\"### Security Findings\");\n    if (wf.flagged.length) {\n      lines.push(\"| Node | Issue | Severity |\");\n      lines.push(\"|------|-------|----------|\");\n      wf.flagged.forEach(f => {\n        lines.push(`| ${f.node} | ${f.issue} | ${f.severity} |`);\n      });\n    } else {\n      lines.push(\"*No security issues detected.*\");\n    }\n    lines.push(\"\");\n\n    // === Performance Findings\n    lines.push(\"### Performance Findings\");\n    if (wf.slowestNodes.length) {\n      lines.push(\"#### Slowest Nodes\");\n      lines.push(\"| Node | Avg Execution Time (ms) |\");\n      lines.push(\"|------|--------------------------|\");\n      wf.slowestNodes.forEach(n =>\n        lines.push(`| ${n.node} | ${n.avgExecutionTime} |`)\n      );\n    } else {\n      lines.push(\"*No performance findings.*\");\n    }\n    lines.push(\"\");\n\n    if (wf.disabledNodes.length || wf.neverExecutedNodes.length) {\n      lines.push(\"#### Disabled & Never Executed Nodes\");\n      lines.push(\"| Node | Status |\");\n      lines.push(\"|------|--------|\");\n      wf.disabledNodes.forEach(n => lines.push(`| ${n} | Disabled |`));\n      wf.neverExecutedNodes.forEach(n => lines.push(`| ${n} | Never Executed |`));\n    } else {\n      lines.push(\"*No disabled or never-executed nodes.*\");\n    }\n    lines.push(\"\");\n\n    // === API & Credential Usage\n    lines.push(\"### API & Credential Usage\");\n    if (wf.apiNodes.length) {\n      lines.push(\"| Node | Type | Credential Type |\");\n      lines.push(\"|------|------|-----------------|\");\n      wf.apiNodes.forEach(api =>\n        lines.push(`| ${api.node} | ${api.type} | ${api.credentialType} |`)\n      );\n    } else {\n      lines.push(\"*No API nodes detected.*\");\n    }\n    lines.push(\"\");\n\n    // === AI Audit Findings\n    lines.push(\"### AI Audit Findings\");\n    if (wf.aiNodes.length) {\n      lines.push(\"| Node Name | Node Type | Model | Disabled | Preview | Token Estimate | Avg Execution Time (ms) |\");\n      lines.push(\"|-----------|-----------|-------|----------|---------|----------------|--------------------------|\");\n      wf.aiNodes.forEach(ai =>\n        lines.push(`| ${ai.nodeName} | ${ai.nodeType} | ${ai.model ?? \"unknown-model\"} | ${ai.disabled} | ${ai.preview || \"\"} | ${ai.tokenEstimate} | ${ai.avgExecutionTime ?? 0} |`)\n      );\n      lines.push(\"\");\n      lines.push(`- Total AI nodes: ${wf.aiNodes.length}`);\n      lines.push(`- Active AI nodes: ${wf.aiNodes.filter(n => !n.disabled).length}`);\n      lines.push(`- Disabled AI nodes: ${wf.aiNodes.filter(n => n.disabled).length}`);\n      lines.push(`- Estimated total tokens: ${wf.aiNodes.reduce((sum, n) => sum + (n.tokenEstimate ?? 0), 0)}`);\n    } else {\n      lines.push(\"*No AI usage detected.*\");\n    }\n    lines.push(\"\");\n\n    // === Node Naming\n    lines.push(\"### Node Naming\");\n    if (wf.unclearNodeNames.length) {\n      lines.push(\"| Node | Issue |\");\n      lines.push(\"|------|-------|\");\n      wf.unclearNodeNames.forEach(n =>\n        lines.push(`| ${n} | Unclear or generic name \u2014 consider renaming for clarity |`)\n      );\n    } else {\n      lines.push(\"*All nodes have clear, descriptive names.*\");\n    }\n    lines.push(\"\");\n\n    // === Error Handling\n    lines.push(\"### Error Handling Findings\");\n    if (wf.errorNodes?.length) {\n      const uniqueErrors = [];\n      const seen = new Set();\n      wf.errorNodes.forEach(e => {\n        const key = `${e.node}|${e.errorType}`;\n        if (!seen.has(key)) {\n          seen.add(key);\n          uniqueErrors.push(e);\n        }\n      });\n      if (uniqueErrors.length) {\n        lines.push(\"| Node | Potential Risk | Type | Recommendation |\");\n        lines.push(\"|------|----------------|------|----------------|\");\n        uniqueErrors.forEach(e =>\n          lines.push(`| ${e.node} | ${e.error} | ${e.errorType} | ${e.recommendation} |`)\n        );\n        lines.push(\"\");\n      }\n    } else {\n      lines.push(\"*No risky nodes detected.*\");\n    }\n\n    // Always show golden rules\n    if (wf.globalRecommendations?.length) {\n      lines.push(\"#### Global Best Practices\");\n      wf.globalRecommendations.forEach(r => lines.push(`- ${r}`));\n    }\n\n    // === Recommendations\n    lines.push(\"### Recommendations\");\n    if (wf.flagged.length) lines.push(\"- Review flagged nodes for potential security risks and apply hardening where needed.\");\n    if (wf.slowestNodes.length) lines.push(\"- Optimise or refactor slow nodes to reduce execution time.\");\n    if (wf.disabledNodes.length) lines.push(\"- Validate whether disabled nodes are still required; remove unused ones.\");\n    if (wf.neverExecutedNodes.length) lines.push(\"- Investigate why certain nodes never execute and confirm they are correctly configured.\");\n    if (wf.aiNodes.length) lines.push(\"- Monitor AI node usage, token consumption, and prompt length to prevent excessive costs or instability.\");\n    if (wf.unclearNodeNames.length) lines.push(\"- Rename unclear or default nodes for better maintainability.\");\n    if (\n      !wf.flagged.length &&\n      !wf.slowestNodes.length &&\n      !wf.disabledNodes.length &&\n      !wf.neverExecutedNodes.length &&\n      !wf.aiNodes.length &&\n      !wf.unclearNodeNames.length\n    ) {\n      lines.push(\"- No major issues detected. Workflow appears stable.\");\n    }\n    lines.push(\"\");\n  }\n\n  // === Quick Checklist\n  lines.push(\"## Quick Checklist\");\n  const check = (cond, label) => cond ? `\u2705 ${label}` : `\u26a0\ufe0f ${label}`;\n  lines.push(\"- \" + check(!audits.some(a => a.flagged?.length), \"No security issues\"));\n  lines.push(\"- \" + check(!audits.some(a => a.slowestNodes?.length), \"No performance bottlenecks\"));\n  lines.push(\"- \" + check(!audits.some(a => a.disabledNodes?.length || a.neverExecutedNodes?.length), \"No disabled or never-executed nodes\"));\n  lines.push(\"- \" + check(!audits.some(a => a.apiNodes?.some(api => api.credentialType === \"hardcoded\")), \"Credentials properly configured\"));\n  lines.push(\"- \" + check(!audits.some(a => a.aiNodes?.length), \"AI usage monitored & controlled\"));\n  lines.push(\"- \" + check(!audits.some(a => a.unclearNodeNames?.length), \"Nodes have clear names\"));\n  lines.push(\"\");\n\n  // === Overall Recommendations\n  lines.push(\"## Overall Recommendations\");\n  if (audits.some(a => a.flagged?.length)) lines.push(\"- Address security issues across workflows with priority.\");\n  if (audits.some(a => a.slowestNodes?.length)) lines.push(\"- Focus on performance bottlenecks to improve efficiency.\");\n  if (audits.some(a => a.disabledNodes?.length)) lines.push(\"- Review disabled nodes for potential cleanup.\");\n  if (audits.some(a => a.neverExecutedNodes?.length)) lines.push(\"- Investigate never-executed nodes for misconfiguration or redundancy.\");\n  if (audits.some(a => a.aiNodes?.length)) lines.push(\"- Track AI node usage across workflows and review prompt/token design for cost-effectiveness.\");\n  if (audits.some(a => a.unclearNodeNames?.length)) lines.push(\"- Improve workflow maintainability by renaming unclear node labels.\");\n  if (\n    !audits.some(a => a.flagged?.length || a.slowestNodes?.length || a.disabledNodes?.length ||\n                      a.neverExecutedNodes?.length || a.aiNodes?.length || a.unclearNodeNames?.length)\n  ) {\n    lines.push(\"- No significant risks identified. Current workflows are operating as expected.\");\n  }\n\n  return lines.join(\"\\n\");\n}\n\n// === Output correctly for n8n ===\nif (config.shouldUseAIReporting) {\n  return [\n    {\n      json: {\n        mode: \"ai\",\n        input: audits,\n        prompt: \"Summarize these workflow audit results, highlight key risks, and provide recommendations.\"\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        mode: \"scripted\",\n        report: buildScriptedReport(audits)\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2528,
+        1264
+      ],
+      "id": "e8c37bdf-7be4-4d3a-956b-37f54659aee1",
+      "name": "Manual Report"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3",
+          "mode": "list",
+          "cachedResultName": "o3"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2512,
+        1088
+      ],
+      "id": "9dcf9d21-149b-46fb-97f8-0f8956614f4d",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "vwBtjX8GzxUd7JqD",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2672,
+        1088
+      ],
+      "id": "4596662b-4f75-41e3-ac96-dbcc8c957e38",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "vwBtjX8GzxUd7JqD",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/gists",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpCustomAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"description\": \"n8n Workflow Audit Report\",\n  \"public\": false,\n  \"files\": {\n    \"audit_report_workflow.md\": {\n      \"content\": {{ JSON.stringify($json.report) }}\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3552,
+        1264
+      ],
+      "id": "4d909976-ba03-4d1e-98c3-f3d9b035cd81",
+      "name": "HTTP Request",
+      "credentials": {
+        "githubApi": {
+          "id": "WGAP10U2gyMqplSq",
+          "name": "GitHub account"
+        },
+        "httpCustomAuth": {
+          "id": "TQ2z47eRRKHX5Hng",
+          "name": "Custom Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9bfb5625-e8bd-4ffb-9199-653bac814adf",
+              "name": "gistURL",
+              "value": "={{$json.html_url}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3744,
+        1264
+      ],
+      "id": "ffd8e98b-30a1-4758-a5a8-72a6ad48958f",
+      "name": "Report URL"
+    },
+    {
+      "parameters": {
+        "content": "## Test Output (Disable if not needed)\nCurrently it sends the report as a GitHub Gist. I did this so that I can test, for free, without having to pay for or set up additional APIs. \n\nReplace these nodes with either a Slack message, Confluence doc, Google Docs, or ConvertAPI document\n\nPrime AI Output: \n - https://github.com/christinec-dev/n8n-Audit-Workflow/blob/main/audit_report_using_ai.md\n\nPrime Manual (NO AI) Output: \n- https://github.com/christinec-dev/n8n-Audit-Workflow/blob/main/audit_report_no_ai.md",
+        "height": 512,
+        "width": 464,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3488,
+        912
+      ],
+      "id": "7f574f96-a8d8-4852-bc48-73248ff9c415",
+      "name": "Sticky Note2",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2032,
+        1136
+      ],
+      "id": "572c4444-261a-4699-8d50-dd3653d94f57",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1840,
+        1088
+      ],
+      "id": "b618dc92-1247-4d82-b5bd-949448101a12",
+      "name": "Merge Results"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a **security, performance, error-handling, naming, and AI auditor** for n8n workflows.  \n\nYou will receive JSON audit data for one or more workflows.  \nThe JSON may contain multiple audit records per workflow (e.g., security, performance, AI, error handling, naming).  \n\ud83d\udc49 Always group audits by **workflowId** so each workflow appears only once in the final report.  \n\n\u26a0\ufe0f Absolute rules:  \n- **List every row of data from JSON.**  \n- **Do not truncate. Do not replace rows with `...`.**  \n- **Do not summarize tables. Show them in full.**  \n- **If no data exists, write \u201cNone\u201d or \u201cNo issues detected.\u201d**  \n- **Always use the exact values from JSON for all node fields (`nodeType`, `model`, `disabled`, etc.). Never substitute or normalise values.**  \n- Always group audits by **workflowId**. The Global Summary count for workflows must be the number of unique workflowIds, not the number of audit sections.  \n\nGenerate a **professional Markdown report** with clear narrative paragraphs, structured sections, and well-formatted tables.  \n\u26a0\ufe0f Output only the report \u2014 never include these instructions, formatting rules, or raw JSON.  \n\n---\n\n# Workflow Audit Report  \n\n## Glossary\n- **Identifiers** \u2192 Sensitive company-specific data (flagged if present).  \n- **Disabled nodes** \u2192 Nodes that exist in the workflow but are not executed.  \n- **Never-executed nodes** \u2192 Nodes that are present but never triggered in analysed runs.  \n- **Potential bottleneck** \u2192 A node with significantly higher average execution time than others.  \n- **AI nodes** \u2192 Any workflow nodes calling an LLM or AI model.  \n- **Error handling** \u2192 Potentially risky nodes and how to mitigate failures.  \n- **Node naming** \u2192 Nodes left with default or unclear labels (e.g., \u201cNode1\u201d, \u201cNode2\u201d) that reduce maintainability.  \n\n---\n\n## Global Summary\n- **Total workflows analysed:** (count unique `workflowId`s)  \n- **Total issues by severity:** \ud83d\udd34 High / \ud83d\udfe0 Medium / \ud83d\udfe2 Low  \n- **Overall observations:** Provide 3\u20135 bullet points summarising systemic risks, credential usage, identifier handling, performance, AI, naming clarity, and error handling trends.  \n\n---\n\n# Workflows Audited\nFor each unique workflow:\n\n## {Workflow number, i.e 1., 2., n.} {Workflow Name} (Example: 1. My Workflow)\nProvide a short **introductory paragraph** describing the workflow. Then list:\n- Workflow ID  \n- Executions analysed  \n- Average runtime  \n\n---\n\n### Security Findings\nProvide:  \n1. A **short summary paragraph**.  \n2. A **severity summary table**:  \n\n| Severity | Count |\n|----------|-------|\n| \ud83d\udd34 High  | X     |\n| \ud83d\udfe0 Medium| X     |\n| \ud83d\udfe2 Low   | X     |\n\n3. A **detailed findings table** (\u26a0\ufe0f must include *all rows from JSON exactly*):  \n\n| Node | Issue | Severity |\n|------|-------|----------|\n| Node1 | Description | \ud83d\udd34 / \ud83d\udfe0 / \ud83d\udfe2 |\n\nIf no findings: *No security issues detected.*  \n\n---\n\n### Performance Findings\nProvide:  \n- A short **paragraph** describing performance trends.  \n\n#### Slowest Nodes\n\u26a0\ufe0f Must include every row from JSON. In addition, add a **Recommendation** column where you give reasoning for the slowdown and a potential fix.\n\n| Node | Avg Execution Time (ms) | Recommendation |\n|------|--------------------------|----------------|\n| Node1 | 1234 | Likely due to large dataset processing. Consider batching or adding filters. |\n\n#### Potential Bottlenecks\n\u26a0\ufe0f Must include every row from JSON. In addition, add a **Recommendation** column where you explain the bottleneck and propose a fix.\n\n| Node | Reason | Recommendation |\n|------|---------|----------------|\n| Node1 | Disproportionately high runtime | Optimise queries, refactor logic, or split into sub-workflows. |\n\n#### Disabled & Never-Executed Nodes\n\u26a0\ufe0f Must include every row from JSON.  \n| Node  | Status          |\n|-------|-----------------|\n| Node1 | Disabled        |\n| Node2 | Never Executed  |\n\nIf none exist: *None*.  \n\n---\n\n### API & Credential Usage\n- If `apiNodes` exist, \u26a0\ufe0f include **all rows from JSON** in a table:  \n\n| Node | Type | Credential Type |\n|------|------|-----------------|\n| Node1 | n8n-nodes-base.httpRequest | Inline |\n\n- If none: *No API nodes detected.*  \n- Explicitly flag any `inline`, `hardcoded`, or `custom` credentials.  \n\n---\n\n### AI Audit Findings\nProvide a **short summary paragraph** of AI usage and risk considerations.  \n\u26a0\ufe0f Must include all rows from JSON exactly as they are. Never substitute values.\n\n| Node Name | Node Type | Model | Disabled | Preview | Token Estimate | Avg Execution Time (ms) |\n|-----------|-----------|-------|----------|---------|----------------|--------------------------|\n| (fill all rows from JSON) |\n\nAt the workflow level, also list:  \n- Total AI nodes  \n- Active AI nodes  \n- Disabled AI nodes  \n- Estimated total tokens  \n\nIf none exist: *No AI usage detected.*  \n\n---\n\n### Node Naming Findings\nProvide a **short summary paragraph** about naming clarity.  \n\u26a0\ufe0f Must include all rows from JSON exactly as they are.  \n\n| Node | Issue |\n|------|-------|\n| Node1 | Unclear or generic name \u2014 consider renaming |\n\nIf none exist: *All nodes have clear, descriptive names.*  \n\n---\n\n### Error Handling Findings\nProvide a **short summary paragraph** about error-handling posture.  \n\n\u26a0\ufe0f Must include all rows from JSON exactly as they are.  \n\n| Node | Potential Risk | Type | Recommendation |\n|------|----------------|------|----------------|\n| Node1 | Potential failure | nodeType | actionable recommendation |\n\nIf no error handling data exists: *No risky nodes detected or error handling recommendations.*  \n\n---\n\n### Recommendations\nWrite **2\u20133 tailored, actionable recommendations** in **paragraph form**, including security, performance, naming, AI, and error-handling considerations.  \n\n---\n\n## Quick Checklist\nSummarise workflow health with a compact list of \u2705 (pass) or \u26a0\ufe0f (needs work):  \n- Security hardening  \n- Performance bottlenecks  \n- Disabled/never-executed nodes  \n- Credential hygiene  \n- AI usage monitoring  \n- Node naming clarity  \n\n---\n\n## Overall Recommendations\nWrite **3\u20135 high-level recommendations** in **paragraph form**, covering:  \n- Identifier exposure  \n- Performance bottlenecks  \n- Credential hygiene  \n- AI usage risks (token consumption, model sprawl, prompt quality)  \n- Error-handling practices (use of retries, error workflows, continue on error, fallback models)  \n- Node naming clarity for long-term maintainability  \n- Monitoring and workflow health  \n\n---\n\n### Input JSON (don't add this section in report)\n{{ JSON.stringify($json.data) }}\n",
+        "needsFallback": true,
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        2512,
+        912
+      ],
+      "id": "ccaec151-f093-439b-9a69-00c66393ea1a",
+      "name": "AI Writer"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1008,
+        1072
+      ],
+      "id": "8e729086-8369-44e7-bed8-ecdb90420dca",
+      "name": "Reroute Node"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        1104
+      ],
+      "id": "0e7c4276-0486-47ba-82c7-a76b4b11d228",
+      "name": "Reroute"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a **reviewer and formatter** for workflow audit reports.  \nYou will receive a Markdown report generated by another system.  \n\nYour job is to check it against this rubric:  \n\n- \u2705 Does it start with a **Glossary**?  \n- \u2705 Is there a **Global Summary** with:  \n  - Total workflows analysed  \n  - Issues by severity (\ud83d\udd34, \ud83d\udfe0, \ud83d\udfe2)  \n  - Observations in **bullet points**  \n- \u2705 For each workflow:  \n  - **Workflow Overview** (ID, executions, runtime)  \n  - **Security Findings** (severity table + full findings table, or *No security issues detected*)  \n  - **Performance Findings**:  \n    - **Slowest Nodes**:  \n      - Must show all rows from JSON  \n      - Table must have columns:  \n        `Node | Avg Execution Time (ms) | Recommendation`  \n      - Recommendation column must include reasoning for why the node is slow and a possible fix  \n    - **Potential Bottlenecks**:  \n      - Must show all rows from JSON  \n      - Table must have columns:  \n        `Node | Reason | Recommendation`  \n      - Recommendation column must include reasoning for the bottleneck and a possible fix  \n    - **Disabled & Never-Executed Nodes**:  \n      - Must show all rows from JSON or *None*  \n  - **API & Credential Usage** (all rows if `apiNodes` exist, else *No API nodes detected*)  \n  - **AI Audit Findings**:  \n    - Short summary paragraph  \n    - Full AI table with columns:  \n      `Node Name | Node Type | Model | Disabled | Preview | Token Estimate | Avg Execution Time (ms)`  \n      \u26a0\ufe0f Must include *all rows from JSON exactly*  \n    - Totals per workflow: total AI nodes, active AI nodes, disabled AI nodes, estimated total tokens  \n    - Or *No AI usage detected*  \n  - **Node Naming Findings**:  \n    - Short summary paragraph  \n    - Full table with columns:  \n      `Node | Issue`  \n      \u26a0\ufe0f Must include *all rows from JSON exactly*  \n    - Or *All nodes have clear, descriptive names*  \n  - **Error Handling Findings**:  \n    - Short summary paragraph  \n    - Full table with columns:  \n      `Node | Potential Risk | Type | Recommendation`  \n      \u26a0\ufe0f Must include *all rows from JSON exactly* (no truncation, no omissions)  \n    - Or *No risky nodes detected or error handling recommendations*  \n  - **Recommendations** in **paragraph form** (must mention AI risks if AI nodes exist, error-handling practices if risky nodes exist, and node naming if unclear names exist)  \n- \u2705 Is there a **Quick Checklist** section summarising workflow health with \u2705 (pass) or \u26a0\ufe0f (needs work) across:  \n  - Security hardening  \n  - Performance bottlenecks  \n  - Disabled/never-executed nodes  \n  - Credential hygiene  \n  - AI usage monitoring  \n  - Node naming clarity  \n- \u2705 Is there an **Overall Recommendations** section with systemic insights, including AI usage, error handling, and naming clarity?  \n- \u2705 Are nodes, identifiers, bottlenecks, AI risks, error-handling practices, and naming clarity explicitly highlighted?  \n- \u2705 Are **tables complete** and correctly formatted (no `...`, no truncation)?  \n- \u2705 Are **bullet points properly formatted** (`-` or `1.`)?  \n- \u2705 Are all sections clearly separated with Markdown headers (`##`, `###`)?  \n- \u2705 Are paragraphs present where required (not only bullets/tables)?  \n- \u2705 Is the report professional, clear, and free from leftover instructions or prompts?  \n- \u2705 There is no section called ### Input JSON  \n\n---\n\n### Instructions\n- If the report passes all checks \u2192 output unchanged.  \n- If it fails \u2192 **rewrite it to match the rubric**, ensuring:  \n  - All rows from JSON are shown (\u26a0\ufe0f no truncation, no ellipses).  \n  - Tables use proper Markdown with headers and alignment.  \n  - Required sections and paragraphs are present.  \n  - **Slowest Nodes** and **Potential Bottlenecks** tables *must* include a `Recommendation` column with reasoning and a fix.  \n  - Error Handling Findings, Node Naming Findings, Quick Checklist, and Global Best Practices are included where relevant.  \n- Always enforce:  \n  - Headers (`#`, `##`, `###`)  \n  - Bullet points (`-` or numbered lists)  \n  - Full tables (no `...`)  \n  - Paragraphs where required  \n\n---\n\n### Input\n{{ $json.draft }}\n",
+        "needsFallback": true,
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        2960,
+        912
+      ],
+      "id": "4c9d4ef8-a589-4c67-a32d-01219b90bd2c",
+      "name": "LLM Judge"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ba4c8b7e-34f5-4e8f-aaf7-c8cdf0292d79",
+              "name": "report",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3248,
+        912
+      ],
+      "id": "352b6be8-cb2e-45e2-8f27-0200712fada0",
+      "name": "Set Final Data"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3",
+          "mode": "list",
+          "cachedResultName": "o3"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2960,
+        1088
+      ],
+      "id": "990a9839-f19f-4e58-b530-15620793ee9c",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "vwBtjX8GzxUd7JqD",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        3136,
+        1088
+      ],
+      "id": "29009b72-77ec-4aa4-887d-db8c0eb62371",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "vwBtjX8GzxUd7JqD",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ba4c8b7e-34f5-4e8f-aaf7-c8cdf0292d79",
+              "name": "draft",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2800,
+        912
+      ],
+      "id": "81795aa3-e90d-409d-ac3a-5b55eacd5ecb",
+      "name": "Set Draft Data"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Input 0 = config, Input 1+ = executions (main + subflows)\nconst config = $item(0).$node[\"Configuration\"].json;\nconst executions = items.map(i => i.json);\n\n// crude token estimator: 1 token \u2248 4 chars\nfunction countTokens(text) {\n  return Math.ceil((text?.length ?? 0) / 4);\n}\n\nfunction auditWorkflow(execs, label, workflowId, workflowName) {\n  const wfNodes =\n    execs[0]?.workflowData?.nodes ||\n    execs[0]?.data?.resultData?.workflowData?.nodes ||\n    [];\n\n  // collect execution times per node\n  const nodeTimes = {};\n  execs.forEach(exec => {\n    const runData = exec.data?.resultData?.runData || {};\n    for (const [nodeName, nodeRuns] of Object.entries(runData)) {\n      nodeRuns.forEach(run => {\n        const t = run.executionTime || 0;\n        if (!nodeTimes[nodeName]) nodeTimes[nodeName] = [];\n        nodeTimes[nodeName].push(t);\n      });\n    }\n  });\n\n  const aiNodes = wfNodes\n    .filter(n => n.type?.startsWith(\"@n8n/n8n-nodes-langchain\"))\n    .map(node => {\n      const params = node.parameters || {};\n      let promptText = \"\";\n\n      if (params.text) {\n        promptText = params.text;\n      } else if (params.messages) {\n        try {\n          promptText = JSON.stringify(params.messages);\n        } catch {\n          promptText = \"[unserializable messages]\";\n        }\n      } else if (params.notice) {\n        promptText = params.notice;\n      }\n\n      // Extract model name (from either modelId or model)\n      const modelName =\n        params.modelId?.value ||\n        params.model?.value ||\n        params.model ||\n        \"unknown-model\";\n\n      // Execution time\n      const times = nodeTimes[node.name] || [];\n      const avgExecutionTime =\n        times.length > 0\n          ? Math.round(times.reduce((a, b) => a + b, 0) / times.length)\n          : 0;\n\n      return {\n        workflowId,\n        workflowLabel: label,\n        nodeName: node.name || \"AI node\",\n        nodeType: node.type,\n        model: modelName,\n        disabled: !!node.disabled,\n        preview:\n          (promptText || \"\")\n            .slice(0, 120)\n            .replace(/\\n/g, \" \") + (promptText?.length > 120 ? \"...\" : \"\"),\n        tokenEstimate: countTokens(promptText || \"\"),\n        avgExecutionTime\n      };\n    });\n\n  return {\n    workflowId,\n    workflowLabel: label,\n    workflowName,\n    aiNodeCount: aiNodes.length,\n    aiNodes\n  };\n}\n\n// === Grab workflowIds and names from upstream nodes ===\nlet mainId, mainName, subId, subName;\n\ntry {\n  const mainNode = $('Get Latest Successful Executions of Workflow').first();\n  mainId = mainNode?.json?.workflowId;\n  mainName = mainNode?.json?.workflowData?.name || \"Unnamed Main Workflow\";\n} catch {\n  mainId = \"unknown\";\n  mainName = \"Unnamed Main Workflow\";\n}\n\ntry {\n  const subNode = $('Get Latest Successful Executions of Subworkflows').first();\n  subId = subNode?.json?.workflowId;\n  subName = subNode?.json?.workflowData?.name || \"Unnamed Subflow\";\n} catch {\n  subId = null;\n  subName = null;\n}\n\n// === Group executions by workflowId ===\nconst grouped = executions.reduce((acc, exec) => {\n  const wfid = exec.workflowId || \"unknown\";\n  if (!acc[wfid]) acc[wfid] = [];\n  acc[wfid].push(exec);\n  return acc;\n}, {});\n\n// === Run audit per workflow ===\nconst audits = [];\n\nfor (const [wfid, execs] of Object.entries(grouped)) {\n  let wfName = \"Unnamed Workflow\";\n\n  if (wfid === mainId) wfName = mainName;\n  else if (subId && wfid === subId) wfName = subName;\n\n  const label =\n    wfid === mainId ? `Main Workflow (${wfName})` : `Subflow (${wfName})`;\n\n  audits.push(auditWorkflow(execs, label, wfid, wfName));\n}\n\n// === Put main workflow first ===\nconst ordered = audits.sort((a, b) => {\n  if (a.workflowId === mainId) return -1;\n  if (b.workflowId === mainId) return 1;\n  return 0;\n});\n\n// === Per-workflow results\nconst results = ordered.map(a => ({\n  json: {\n    workflowId: a.workflowId,\n    workflowLabel: a.workflowLabel,\n    aiNodeCount: a.aiNodeCount,\n    activeAiNodes: a.aiNodes.filter(n => !n.disabled).length,\n    disabledAiNodes: a.aiNodes.filter(n => n.disabled).length,\n    estimatedTotalTokens: a.aiNodes.reduce((sum, n) => sum + n.tokenEstimate, 0),\n    aiNodes: a.aiNodes\n  }\n}));\n\n// === Return everything\nreturn results;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1616,
+        1184
+      ],
+      "id": "b8d65d2c-8612-4a34-a7c1-bcbb439312cc",
+      "name": "AI Audit",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "content": "## Alternative Download\nDon't set up GitHub and instead quickly view output. It's not going to have the best styling in PDF, but is still useful.",
+        "height": 288,
+        "width": 464,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3488,
+        1456
+      ],
+      "id": "d8ee0a18-e438-45ed-a88b-90512d791902",
+      "name": "Sticky Note3",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import base64\nimport re\n\nreport_md = _input.item.json.get(\"report\") or \"# Empty Report\"\nlines = report_md.splitlines()\n\n# --- PDF constants ---\nPAGE_W, PAGE_H = 595, 842\nMARGIN_L, MARGIN_T = 50, 50\nLINE_SPACING = 14\nMAX_TEXT_WIDTH = PAGE_W - 2 * MARGIN_L\n\ndef escape_text(s: str) -> str:\n    return (s or \"\").replace(\"\\\\\", \"\\\\\\\\\").replace(\"(\", \"\\\\(\").replace(\")\", \"\\\\)\")\n\n# crude word wrap (approximate width per char = 0.5*font_size)\ndef wrap_text(text, size, max_width=MAX_TEXT_WIDTH):\n    max_chars = int(max_width / (size * 0.5))\n    words = text.split()\n    lines, cur = [], \"\"\n    for w in words:\n        if len(cur) + len(w) + 1 <= max_chars:\n            cur = (cur + \" \" + w).strip()\n        else:\n            lines.append(cur)\n            cur = w\n    if cur:\n        lines.append(cur)\n    return lines\n\n# --- Parse Markdown-ish input ---\nstyled = []\nfor ln in lines:\n    if ln.startswith(\"### \"):\n        styled.append((\"h3\", 12, ln[4:]))\n    elif ln.startswith(\"## \"):\n        styled.append((\"h2\", 14, ln[3:]))\n    elif ln.startswith(\"# \"):\n        styled.append((\"h1\", 18, ln[2:]))\n    elif ln.startswith(\"- \"):\n        styled.append((\"bullet\", 11, ln[2:]))  # keep bullet text\n    elif \"|\" in ln:  # ASCII table\n        styled.append((\"table\", 10, ln))\n    else:\n        styled.append((\"text\", 11, ln))\n\n# paginate\nlines_per_page = int((PAGE_H - 2*MARGIN_T) // LINE_SPACING)\npages = [styled[i:i+lines_per_page] for i in range(0, len(styled), lines_per_page)] or [[]]\n\nobjects = []\ndef add_object(content: str) -> int:\n    objects.append(content)\n    return len(objects)\n\n# Fonts\nfont_regular = add_object(\"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\")\nfont_bold    = add_object(\"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>\")\nfont_mono    = add_object(\"<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>\")\n\n# Helper: render inline text with **bold**\ndef render_inline(text, font_alias_regular, font_alias_bold, size):\n    parts = re.split(r\"(\\*\\*.*?\\*\\*)\", text)\n    cmds = []\n    for part in parts:\n        if part.startswith(\"**\") and part.endswith(\"**\"):\n            inner = part[2:-2]\n            cmds.append(f\"/{font_alias_bold} {size} Tf ({escape_text(inner)}) Tj\")\n        elif part:\n            cmds.append(f\"/{font_alias_regular} {size} Tf ({escape_text(part)}) Tj\")\n    return cmds\n\n# Pages\npage_obj_nums = []\nfor page in pages:\n    y = PAGE_H - MARGIN_T\n    content = [\"BT\", f\"1 0 0 1 {MARGIN_L} {y} Tm\"]\n    first_line = True\n\n    for kind, size, text in page:\n        font = font_regular\n        rgb = \"0 0 0 RG\"\n\n        if kind == \"h1\":\n            font = font_bold; size = 18; rgb = \"0 0 0.8 RG\"\n        elif kind == \"h2\":\n            font = font_bold; size = 14; rgb = \"0.2 0.2 0.2 RG\"\n        elif kind == \"h3\":\n            font = font_bold; size = 12\n        elif kind == \"bullet\":\n            font = font_regular\n        elif kind == \"table\":\n            font = font_mono; size = 10\n\n        font_alias = \"F1\" if font == font_regular else (\"F2\" if font == font_bold else \"F3\")\n\n        # spacing\n        if not first_line:\n            if kind.startswith(\"h\"):\n                content.append(f\"0 -{LINE_SPACING*1.6} Td\")\n            else:\n                content.append(f\"0 -{LINE_SPACING} Td\")\n        first_line = False\n\n        # wrap long lines\n        wrapped_lines = wrap_text(text, size, MAX_TEXT_WIDTH)\n\n        if kind == \"bullet\":\n            for i, line in enumerate(wrapped_lines):\n                if i > 0:\n                    content.append(f\"0 -{LINE_SPACING} Td\")\n                content.append(\"20 0 Td\")  # indent\n                content.append(f\"{rgb}\")\n                content += render_inline(\"- \" + line, \"F1\", \"F2\", size)  # ASCII-safe dash\n                content.append(\"-20 0 Td\")  # reset indent\n        elif kind == \"table\":\n            for i, line in enumerate(wrapped_lines):\n                if i > 0:\n                    content.append(f\"0 -{LINE_SPACING} Td\")\n                content.append(f\"{rgb} /F3 {size} Tf ({escape_text(line)}) Tj\")\n        else:\n            for i, line in enumerate(wrapped_lines):\n                if i > 0:\n                    content.append(f\"0 -{LINE_SPACING} Td\")\n                content.append(f\"{rgb}\")\n                content += render_inline(line, \"F1\", \"F2\", size)\n\n    content.append(\"ET\")\n\n    stream_data = \"\\n\".join(content).encode(\"latin-1\", \"replace\")\n    stream = f\"<< /Length {len(stream_data)} >>\\nstream\\n\".encode(\"latin-1\") + stream_data + b\"\\nendstream\"\n    contents_obj_num = add_object(stream.decode(\"latin-1\", \"ignore\"))\n    page_obj = (\n        f\"<< /Type /Page /Parent 0 0 R /MediaBox [0 0 {PAGE_W} {PAGE_H}] \"\n        f\"/Resources << /Font << /F1 {font_regular} 0 R /F2 {font_bold} 0 R /F3 {font_mono} 0 R >> >> \"\n        f\"/Contents {contents_obj_num} 0 R >>\"\n    )\n    page_obj_num = add_object(page_obj)\n    page_obj_nums.append(page_obj_num)\n\n# Pages tree\nkids_ref = \" \".join(f\"{n} 0 R\" for n in page_obj_nums)\npages_obj_num = add_object(f\"<< /Type /Pages /Kids [ {kids_ref} ] /Count {len(page_obj_nums)} >>\")\n\n# Fix parent refs\npatched = []\nfor i, obj in enumerate(objects, start=1):\n    if i in page_obj_nums:\n        obj = obj.replace(\"/Parent 0 0 R\", f\"/Parent {pages_obj_num} 0 R\")\n    patched.append(obj)\nobjects = patched\n\n# Catalog\ncatalog_obj_num = add_object(f\"<< /Type /Catalog /Pages {pages_obj_num} 0 R >>\")\n\n# Assemble PDF\nentries = [f\"{i} 0 obj\\n{obj}\\nendobj\\n\" for i, obj in enumerate(objects, start=1)]\nbody = \"%PDF-1.4\\n\" + \"\".join(entries)\ncursor = len(\"%PDF-1.4\\n\".encode(\"latin-1\"))\noffsets = []\nfor i, obj in enumerate(objects, start=1):\n    offsets.append(cursor)\n    ent = f\"{i} 0 obj\\n{objects[i-1]}\\nendobj\\n\"\n    cursor += len(ent.encode(\"latin-1\"))\n\nxref_start = len(body.encode(\"latin-1\"))\nxref = [\"xref\", f\"0 {len(objects)+1}\", \"0000000000 65535 f \"]\nfor off in offsets:\n    xref.append(f\"{off:010d} 00000 n \")\n\ntrailer = f\"\"\"trailer\n<< /Size {len(objects)+1} /Root {catalog_obj_num} 0 R >>\nstartxref\n{xref_start}\n%%EOF\n\"\"\"\n\npdf_bytes = (body + \"\\n\".join(xref) + \"\\n\" + trailer).encode(\"latin-1\", \"replace\")\npdf_b64 = base64.b64encode(pdf_bytes).decode(\"ascii\")\n\n# Markdown file too\nmd_b64 = base64.b64encode(report_md.encode(\"utf-8\")).decode(\"ascii\")\n\nreturn [{\n  \"json\": {},\n  \"binary\": {\n    \"pdf (very ugly)\": {\n      \"data\": pdf_b64,\n      \"fileName\": \"audit_report.pdf\",\n      \"mimeType\": \"application/pdf\"\n    },\n    \"markdown\": {\n      \"data\": md_b64,\n      \"fileName\": \"audit_report.md\",\n      \"mimeType\": \"text/markdown\"\n    }\n  }\n}]\n"
+      },
+      "id": "b0b51c6f-ad0f-4738-8db7-2393cb37b485",
+      "name": "Download PDF/Markdown",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3552,
+        1584
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "20aa2b3f-175a-4fc3-a8aa-38fbc1474a2c",
+              "leftValue": "={{ $('Configuration').item.json['shouldAuditSubflows '] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        608,
+        1088
+      ],
+      "id": "3b68d145-1568-4564-8e34-1385479941cf",
+      "name": "Should Audit Subflows?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3b7ff420-8607-4e4c-8e92-b0c6ca612932",
+              "leftValue": "={{ $(\"Configuration\").first().json.shouldUseAIReporting }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2224,
+        1136
+      ],
+      "id": "b122802d-b190-4e4d-a0e1-7cfbbb62e323",
+      "name": "Use AI For Reporting?"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Input 0 = config, Input 1+ = executions\nconst config = $item(0).$node[\"Configuration\"].json;\nconst executions = items.map(i => i.json);\n\n// === Risk patterns with actionable tips\nconst riskPatterns = [\n  { match: /httpRequest/i, rec: \"Enable `Retry on Fail` and set a reasonable timeout. Use `Continue On Error` so the workflow doesn\u2019t stop when the API fails.\" },\n  { match: /airtable|googleDocs/i, rec: \"Validate record/document IDs before execution. Add an Error Workflow trigger to capture failures and notify you.\" },\n  { match: /slack|google|openAi/i, rec: \"External APIs can rate-limit or return errors. Add Error Workflows for alerts and configure a fallback (e.g. switch to another model/service).\" },\n  { match: /database|postgres|mysql|mongodb/i, rec: \"Check database credentials and wrap queries in try/catch. Use `Continue On Error` to skip problematic records.\" },\n  { match: /langchain|llm|ai/i, rec: \"LLM calls may timeout or exhaust quota. Configure retries, add fallback models, and use polling for long tasks.\" },\n  { match: /function/i, rec: \"Custom code may throw runtime errors. Wrap logic in try/catch and use `Continue On Error` where safe.\" },\n];\n\n// === Global golden rules\nconst goldenRules = [\n  \"1\ufe0f\u20e3 **Error Workflows** \u2013 Use an Error Trigger workflow to log + notify on errors.\",\n  \"2\ufe0f\u20e3 **Retry on Failure** \u2013 Enable retries with delay for flaky APIs.\",\n  \"3\ufe0f\u20e3 **Fallback Models** \u2013 Switch to backup LLM/API if the main one fails.\",\n  \"4\ufe0f\u20e3 **Continue on Error** \u2013 Let the flow continue, log failed items separately.\",\n  \"5\ufe0f\u20e3 **Polling** \u2013 For long external tasks, poll until ready instead of guessing delays.\",\n];\n\n// === Workflow audit\nfunction auditWorkflow(execs, label, workflowId, workflowName) {\n  const wfNodes =\n    execs[0]?.workflowData?.nodes ||\n    execs[0]?.data?.resultData?.workflowData?.nodes ||\n    [];\n\n  const riskyNodes = [];\n\n  wfNodes.forEach(node => {\n    for (const { match, rec } of riskPatterns) {\n      if (match.test(node.type)) {\n        riskyNodes.push({\n          node: node.name,\n          error: \"Potential failure\",\n          errorType: node.type,\n          recommendation: rec,   // attach actionable rec\n        });\n        break; // stop at first match\n      }\n    }\n  });\n\n  return {\n    workflowId,\n    workflowLabel: label,\n    workflowName,\n    errorNodes: riskyNodes,\n    globalRecommendations: goldenRules,\n  };\n}\n\n// === Grab workflowIds and names from upstream nodes\nlet mainId, mainName, subId, subName;\n\ntry {\n  const mainNode = $('Get Latest Successful Executions of Workflow').first();\n  mainId = mainNode?.json?.workflowId;\n  mainName = mainNode?.json?.workflowData?.name || \"Unnamed Main Workflow\";\n} catch {\n  mainId = \"unknown\";\n  mainName = \"Unnamed Main Workflow\";\n}\n\ntry {\n  const subNode = $('Get Latest Successful Executions of Subworkflows').first();\n  subId = subNode?.json?.workflowId;\n  subName = subNode?.json?.workflowData?.name || \"Unnamed Subflow\";\n} catch {\n  subId = null;\n  subName = null;\n}\n\n// === Group executions by workflowId\nconst grouped = executions.reduce((acc, exec) => {\n  const wfid = exec.workflowId || \"unknown\";\n  if (!acc[wfid]) acc[wfid] = [];\n  acc[wfid].push(exec);\n  return acc;\n}, {});\n\n// === Run audit per workflow\nconst audits = [];\n\nfor (const [wfid, execs] of Object.entries(grouped)) {\n  let wfName = \"Unnamed Workflow\";\n\n  if (wfid === mainId) wfName = mainName;\n  else if (subId && wfid === subId) wfName = subName;\n\n  const label =\n    wfid === mainId ? `Main Workflow (${wfName})` : `Subflow (${wfName})`;\n\n  audits.push(auditWorkflow(execs, label, wfid, wfName));\n}\n\n// === Put main workflow first\nconst ordered = audits.sort((a, b) => {\n  if (a.workflowId === mainId) return -1;\n  if (b.workflowId === mainId) return 1;\n  return 0;\n});\n\n// === Per-workflow results\nconst results = ordered.map(a => ({\n  json: {\n    workflowId: a.workflowId,\n    workflowLabel: a.workflowLabel,\n    workflowName: a.workflowName,\n    errorNodes: a.errorNodes,\n    globalRecommendations: a.globalRecommendations,\n  }\n}));\n\n// === Return everything\nreturn results;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1616,
+        1328
+      ],
+      "id": "731fbd91-e4aa-4064-9c20-55ca999bfaab",
+      "name": "Error Handling Audit",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// === Node Naming Audit ===\n// Input 0 = config, Input 1+ = executions\nconst config = $item(0).$node[\"Configuration\"].json;\nconst executions = items.map(i => i.json);\n\n// === Rules for unclear names\nfunction findUnclearNodeNames(nodes) {\n  return nodes\n    .filter(n => !n.name || /^Node\\d+$/.test(n.name) || n.name.length < 3)\n    .map(n => n.name || \"(unnamed)\");\n}\n\n// === Global naming best practice\nconst namingBestPractice = [\n  \"\u2705 Use descriptive node names (e.g., 'Fetch Customers from API' instead of 'Node1').\",\n  \"\u2705 Avoid generic defaults like Node1/Node2.\",\n  \"\u2705 Keep names concise but clear \u2014 aim for 3+ characters.\",\n  \"\u2705 Consistent naming makes workflows easier to debug and maintain.\"\n];\n\n// === Workflow audit\nfunction auditWorkflow(execs, label, workflowId, workflowName) {\n  const wfNodes =\n    execs[0]?.workflowData?.nodes ||\n    execs[0]?.data?.resultData?.workflowData?.nodes ||\n    [];\n\n  const unclearNodeNames = findUnclearNodeNames(wfNodes);\n\n  return {\n    workflowId,\n    workflowLabel: label,\n    workflowName,\n    unclearNodeNames,\n    namingRecommendations: namingBestPractice,\n  };\n}\n\n// === Grab workflowIds and names from upstream nodes\nlet mainId, mainName, subId, subName;\n\ntry {\n  const mainNode = $('Get Latest Successful Executions of Workflow').first();\n  mainId = mainNode?.json?.workflowId;\n  mainName = mainNode?.json?.workflowData?.name || \"Unnamed Main Workflow\";\n} catch {\n  mainId = \"unknown\";\n  mainName = \"Unnamed Main Workflow\";\n}\n\ntry {\n  const subNode = $('Get Latest Successful Executions of Subworkflows').first();\n  subId = subNode?.json?.workflowId;\n  subName = subNode?.json?.workflowData?.name || \"Unnamed Subflow\";\n} catch {\n  subId = null;\n  subName = null;\n}\n\n// === Group executions by workflowId\nconst grouped = executions.reduce((acc, exec) => {\n  const wfid = exec.workflowId || \"unknown\";\n  if (!acc[wfid]) acc[wfid] = [];\n  acc[wfid].push(exec);\n  return acc;\n}, {});\n\n// === Run audit per workflow\nconst audits = [];\n\nfor (const [wfid, execs] of Object.entries(grouped)) {\n  let wfName = \"Unnamed Workflow\";\n\n  if (wfid === mainId) wfName = mainName;\n  else if (subId && wfid === subId) wfName = subName;\n\n  const label =\n    wfid === mainId ? `Main Workflow (${wfName})` : `Subflow (${wfName})`;\n\n  audits.push(auditWorkflow(execs, label, wfid, wfName));\n}\n\n// === Put main workflow first\nconst ordered = audits.sort((a, b) => {\n  if (a.workflowId === mainId) return -1;\n  if (b.workflowId === mainId) return 1;\n  return 0;\n});\n\n// === Per-workflow results\nconst results = ordered.map(a => ({\n  json: {\n    workflowId: a.workflowId,\n    workflowLabel: a.workflowLabel,\n    workflowName: a.workflowName,\n    unclearNodeNames: a.unclearNodeNames,\n    namingRecommendations: a.namingRecommendations,\n  }\n}));\n\n// === Return everything\nreturn results;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1616,
+        1488
+      ],
+      "id": "dfab4011-cdc6-4947-adb7-c32cdbdb3f92",
+      "name": "Readability Audit"
+    },
+    {
+      "parameters": {
+        "content": "## Configure This\n- maxExecutions, \n- shouldAuditSubflows , \n- companyIdentifiers, \n- shouldUseAIReporting",
+        "height": 336,
+        "width": 224
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        112,
+        928
+      ],
+      "id": "2e15b9a7-830d-4fa4-bdc1-cecb8a22ae35",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "68506356-d6c9-4200-ad97-3cf63a0f6aaf",
+              "name": "maxExecutions",
+              "value": 20,
+              "type": "number"
+            },
+            {
+              "id": "3a89c1ef-f08a-4c58-bf1f-e6a09fb354e7",
+              "name": "bottleneckThreshold",
+              "value": 1.5,
+              "type": "number"
+            },
+            {
+              "id": "c1d01d6f-19ce-4c18-8c2e-0cceef1a3573",
+              "name": "unstableThreshold",
+              "value": 0.5,
+              "type": "number"
+            },
+            {
+              "id": "2b7b8c98-463c-47cb-b133-1da7459bc431",
+              "name": "shouldAuditSubflows ",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "dcd3d1e3-f035-4d96-9bee-ca4494365606",
+              "name": "companyIdentifiers",
+              "value": "FlagThisTerm,FlagThisAlso",
+              "type": "string"
+            },
+            {
+              "id": "a6025992-1b74-4f0d-b29e-5a8dc621be35",
+              "name": "shouldUseAIReporting",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        192,
+        1088
+      ],
+      "id": "83c7cc44-265a-4c3c-96b4-43510e5c5be9",
+      "name": "Configuration",
+      "notesInFlow": true,
+      "notes": "For Workflow"
+    },
+    {
+      "parameters": {
+        "content": "## Configure This\n- Add n8n API key\n- Select workflow to audit",
+        "height": 336,
+        "width": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        352,
+        928
+      ],
+      "id": "f1f08f40-ce44-4478-afb9-cedf3eb032d0",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "resource": "execution",
+        "limit": "={{ $json.maxExecutions }}",
+        "filters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "DhMNlbRuxzTMROkZ",
+            "mode": "list",
+            "cachedResultName": "My workflow (#DhMNlbRuxzTMROkZ)"
+          },
+          "status": "success"
+        },
+        "options": {
+          "activeWorkflows": true
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        400,
+        1088
+      ],
+      "id": "4502b8ec-d5d8-4b0d-8eaa-443b0e6a27cf",
+      "name": "Get Latest Successful Executions of Workflow",
+      "notesInFlow": true,
+      "credentials": {
+        "n8nApi": {
+          "id": "xwUYhDd4AcRFpYfL",
+          "name": "n8n account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Configure This\n- In configuration, select which one in `shouldUseAIReporting`\n- If using AI, add API to models on right",
+        "height": 336,
+        "width": 224
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2176,
+        960
+      ],
+      "id": "82e3d4a0-1b49-4f0d-b62a-859c4fef4e02",
+      "name": "Sticky Note6"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking \u2018Test workflow\u2019": {
+      "main": [
+        [
+          {
+            "node": "Configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Security Audit": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Execution Audit": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get Latest Successful Executions of Subworkflows": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Subflows": {
+      "main": [
+        [
+          {
+            "node": "Get Latest Successful Executions of Subworkflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Reroute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Report": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Download PDF/Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Writer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Writer",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Report URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Use AI For Reporting?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Results": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Writer": {
+      "main": [
+        [
+          {
+            "node": "Set Draft Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reroute Node": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Reroute": {
+      "main": [
+        [
+          {
+            "node": "Workflow Execution Audit",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Security Audit",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AI Audit",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Error Handling Audit",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Readability Audit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Judge": {
+      "main": [
+        [
+          {
+            "node": "Set Final Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Final Data": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Download PDF/Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM Judge",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM Judge",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set Draft Data": {
+      "main": [
+        [
+          {
+            "node": "LLM Judge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Audit": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Should Audit Subflows?": {
+      "main": [
+        [
+          {
+            "node": "Get Subflows",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Reroute Node",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reroute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Use AI For Reporting?": {
+      "main": [
+        [
+          {
+            "node": "AI Writer",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Manual Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Handling Audit": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Readability Audit": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "Configuration": {
+      "main": [
+        [
+          {
+            "node": "Get Latest Successful Executions of Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Latest Successful Executions of Workflow": {
+      "main": [
+        [
+          {
+            "node": "Should Audit Subflows?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ba1fb18e-2393-4dc4-8ec6-57a5133589df",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d22bf38c5df9daeb6872ea9d2d5f8f8421979a250a9c783ff1a7b5d41d819222"
+  },
+  "id": "SVkPUpbmew0jNaw8",
+  "tags": [],
+  "_source": {
+    "repo": "https://github.com/christinec-dev/n8n-Audit-Workflow",
+    "file": "n8n Workflow Auditor.json"
+  }
+}
