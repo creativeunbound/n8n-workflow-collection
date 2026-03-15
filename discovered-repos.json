@@ -45,6 +45,15 @@
     "url": "https://github.com/christinec-dev/n8n-Audit-Workflow"
   },
   {
+    "description": "\ud83d\udd25 The largest open-source collection of n8n workflow templates \u2014 8,697+ ready-to-import workflows across 25 categories, 236 integrations, and 11 use cases.",
+    "language": "Astro",
+    "name": "awesome-n8n-templates",
+    "pushedAt": "2026-03-13T05:49:49Z",
+    "stargazersCount": 13,
+    "updatedAt": "2026-03-15T13:35:28Z",
+    "url": "https://github.com/ScraperNode/awesome-n8n-templates"
+  },
+  {
     "description": "End to end AI agent that generates cinematic ASMR style short videos using GPT-4, Seedance, Fal AI, and Blotato and uploads them automatically to TikTok, YouTube, Instagram, and more.",
     "language": "",
     "name": "Generate-AI-Viral-Videos-with-Seedance-and-Upload-to-TikTok-YouTube-Instagram",
@@ -124,6 +133,15 @@
     "stargazersCount": 3,
     "updatedAt": "2026-03-09T00:17:33Z",
     "url": "https://github.com/PentagonRBX/n8n-skills"
+  },
+  {
+    "description": "A Multi Agent Memory MCP That Connect Agents Across Systems and Machines",
+    "language": "JavaScript",
+    "name": "multi-agent-memory",
+    "pushedAt": "2026-03-15T00:36:29Z",
+    "stargazersCount": 3,
+    "updatedAt": "2026-03-15T00:36:33Z",
+    "url": "https://github.com/ZenSystemAI/multi-agent-memory"
   },
   {
     "description": "42 n8n workflows connecting Craft docs with AI, RAG, analytics, and more",
@@ -898,5 +916,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-01-05T10:27:51Z",
     "url": "https://github.com/weblineindia/n8n-Monitor-and-alert-stalled-deals-in-Zoho-CRM-with-Gemini-AI-Gmail"
+  },
+  {
+    "description": "MCP server that lets AI agents search, explore, and download n8n workflow templates",
+    "language": "JavaScript",
+    "name": "n8n-template-explorer-mcp",
+    "pushedAt": "2026-03-09T09:12:44Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-09T09:12:48Z",
+    "url": "https://github.com/notsointresting/n8n-template-explorer-mcp"
   }
 ]
