@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-10T19:31:35.999957",
+  "updated_at": "2026-03-16T19:56:35.301578",
   "total_workflows": 27,
   "workflows": [
     {
@@ -11,20 +11,20 @@
       "file": "workflows/github/8fc780eee787.json",
       "node_count": 57,
       "integrations": [
-        "splitInBatches",
-        "webhook",
-        "@n8n/n8n-nodes-langchain.outputParserStructured",
-        "httpRequest",
-        "wait",
-        "if",
-        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-        "stickyNote",
-        "splitOut",
-        "youTube",
+        "googleDocs",
         "@n8n/n8n-nodes-langchain.chainLlm",
-        "set",
+        "youTube",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
         "twitter",
-        "googleDocs"
+        "httpRequest",
+        "set",
+        "splitOut",
+        "stickyNote",
+        "webhook",
+        "wait",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "if",
+        "splitInBatches"
       ],
       "complexity": "advanced"
     },
@@ -37,17 +37,17 @@
       "file": "workflows/github/5c50be53f620.json",
       "node_count": 36,
       "integrations": [
-        "@n8n/n8n-nodes-langchain.outputParserStructured",
         "code",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "convertToFile",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
         "httpRequest",
         "set",
-        "convertToFile",
-        "stickyNote",
-        "perplexity",
-        "airtable",
-        "@n8n/n8n-nodes-langchain.chainLlm",
         "webhook",
-        "@n8n/n8n-nodes-langchain.lmChatAnthropic"
+        "airtable",
+        "perplexity",
+        "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "stickyNote"
       ],
       "complexity": "advanced"
     },
@@ -61,17 +61,17 @@
       "node_count": 36,
       "integrations": [
         "code",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "manualTrigger",
         "httpRequest",
+        "set",
         "aggregate",
         "if",
-        "merge",
-        "stickyNote",
-        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "manualTrigger",
-        "@n8n/n8n-nodes-langchain.chainLlm",
-        "set",
         "n8n",
-        "noOp"
+        "merge",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "noOp",
+        "stickyNote"
       ],
       "complexity": "advanced"
     },
@@ -84,22 +84,22 @@
       "file": "workflows/github/5aecba0f6074.json",
       "node_count": 30,
       "integrations": [
-        "@n8n/n8n-nodes-langchain.agent",
-        "gmailTool",
-        "telegramTrigger",
-        "googleSheetsTool",
-        "if",
-        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-        "stickyNote",
-        "gmail",
-        "@n8n/n8n-nodes-langchain.textClassifier",
-        "googleCalendarTool",
-        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-        "gmailTrigger",
         "@n8n/n8n-nodes-langchain.chainLlm",
-        "telegram",
+        "gmailTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
         "dateTimeTool",
-        "noOp"
+        "telegram",
+        "@n8n/n8n-nodes-langchain.textClassifier",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "googleSheetsTool",
+        "gmail",
+        "googleCalendarTool",
+        "telegramTrigger",
+        "gmailTool",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "if",
+        "noOp",
+        "stickyNote"
       ],
       "complexity": "advanced"
     },
@@ -112,14 +112,14 @@
       "file": "workflows/github/877449847863.json",
       "node_count": 25,
       "integrations": [
-        "htmlExtract",
-        "emailSend",
-        "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
         "code",
-        "httpRequest",
-        "merge",
         "@n8n/n8n-nodes-langchain.chainLlm",
+        "httpRequest",
         "webhook",
+        "htmlExtract",
+        "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+        "merge",
+        "emailSend",
         "html"
       ],
       "complexity": "advanced"
@@ -133,16 +133,16 @@
       "file": "workflows/github/d7afc016c10d.json",
       "node_count": 20,
       "integrations": [
-        "googleSheets",
+        "filter",
         "code",
+        "manualTrigger",
+        "scheduleTrigger",
+        "itemLists",
+        "googleSheets",
         "httpRequest",
         "set",
         "if",
-        "stickyNote",
-        "scheduleTrigger",
-        "manualTrigger",
-        "filter",
-        "itemLists"
+        "stickyNote"
       ],
       "complexity": "advanced"
     },
@@ -155,13 +155,13 @@
       "file": "workflows/github/4b6fba74da62.json",
       "node_count": 16,
       "integrations": [
-        "telegramTrigger",
-        "merge",
-        "stickyNote",
-        "openAi",
-        "switch",
         "set",
-        "telegram"
+        "telegram",
+        "switch",
+        "telegramTrigger",
+        "openAi",
+        "merge",
+        "stickyNote"
       ],
       "complexity": "advanced"
     },
@@ -174,13 +174,13 @@
       "file": "workflows/github/928cfdf755c6.json",
       "node_count": 16,
       "integrations": [
-        "respondToWebhook",
         "form",
-        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-        "stickyNote",
         "@n8n/n8n-nodes-langchain.chainLlm",
+        "formTrigger",
         "webhook",
-        "formTrigger"
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "respondToWebhook",
+        "stickyNote"
       ],
       "complexity": "advanced"
     },
@@ -193,18 +193,18 @@
       "file": "workflows/github/2498824e6f37.json",
       "node_count": 15,
       "integrations": [
+        "form",
         "@n8n/n8n-nodes-langchain.agent",
         "httpRequest",
-        "gmailTool",
+        "formTrigger",
+        "if",
         "googleSheetsTool",
         "markdown",
+        "gmailTool",
         "@n8n/n8n-nodes-langchain.informationExtractor",
-        "if",
-        "noOp",
-        "stickyNote",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "form",
-        "formTrigger"
+        "noOp",
+        "stickyNote"
       ],
       "complexity": "intermediate"
     },
@@ -218,16 +218,16 @@
       "node_count": 14,
       "integrations": [
         "@n8n/n8n-nodes-langchain.embeddingsCohere",
-        "readWriteFile",
-        "@n8n/n8n-nodes-langchain.lmChatGroq",
-        "@n8n/n8n-nodes-langchain.retrieverVectorStore",
-        "stickyNote",
         "manualTrigger",
-        "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+        "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
         "@n8n/n8n-nodes-langchain.chainRetrievalQa",
         "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+        "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+        "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+        "@n8n/n8n-nodes-langchain.lmChatGroq",
         "@n8n/n8n-nodes-langchain.chatTrigger",
-        "@n8n/n8n-nodes-langchain.vectorStoreInMemory"
+        "readWriteFile",
+        "stickyNote"
       ],
       "complexity": "intermediate"
     },
@@ -240,14 +240,14 @@
       "file": "workflows/github/95f328a4516f.json",
       "node_count": 14,
       "integrations": [
-        "@n8n/n8n-nodes-langchain.agent",
-        "respondToWebhook",
         "code",
+        "@n8n/n8n-nodes-langchain.agent",
         "set",
-        "@n8n/n8n-nodes-langchain.openAi",
+        "webhook",
         "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "respondToWebhook",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "webhook"
+        "@n8n/n8n-nodes-langchain.openAi"
       ],
       "complexity": "intermediate"
     },
@@ -260,17 +260,17 @@
       "file": "workflows/github/766ca99b4fd9.json",
       "node_count": 13,
       "integrations": [
-        "splitInBatches",
-        "@n8n/n8n-nodes-langchain.agent",
+        "filter",
+        "manualTrigger",
         "googleSheets",
-        "@n8n/n8n-nodes-langchain.informationExtractor",
+        "@n8n/n8n-nodes-langchain.agent",
         "n8n-nodes-craftmypdf.craftMyPdf",
+        "set",
         "stickyNote",
         "gmail",
+        "@n8n/n8n-nodes-langchain.informationExtractor",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "manualTrigger",
-        "filter",
-        "set"
+        "splitInBatches"
       ],
       "complexity": "intermediate"
     },
@@ -319,8 +319,8 @@
       "file": "workflows/github/0fb2f998c3c7.json",
       "node_count": 8,
       "integrations": [
-        "httpRequestTool",
         "jiraTool",
+        "httpRequestTool",
         "@n8n/n8n-nodes-langchain.mcpTrigger"
       ],
       "complexity": "intermediate"
@@ -395,8 +395,8 @@
       "node_count": 5,
       "integrations": [
         "@n8n/n8n-nodes-langchain.agent",
-        "@n8n/n8n-nodes-langchain.toolSerpApi",
         "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "@n8n/n8n-nodes-langchain.toolSerpApi",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
         "@n8n/n8n-nodes-langchain.chatTrigger"
       ],
@@ -411,9 +411,9 @@
       "file": "workflows/github/b9733adca152.json",
       "node_count": 4,
       "integrations": [
+        "httpRequest",
         "manualTrigger",
-        "s3",
-        "httpRequest"
+        "s3"
       ],
       "complexity": "beginner"
     },
@@ -450,9 +450,9 @@
       "file": "workflows/github/07331fa10396.json",
       "node_count": 3,
       "integrations": [
-        "manualTrigger",
         "renameKeys",
-        "set"
+        "set",
+        "manualTrigger"
       ],
       "complexity": "beginner"
     },
@@ -465,9 +465,9 @@
       "file": "workflows/github/be73bbdc52f0.json",
       "node_count": 3,
       "integrations": [
-        "manualTrigger",
+        "xml",
         "set",
-        "xml"
+        "manualTrigger"
       ],
       "complexity": "beginner"
     }
