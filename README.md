@@ -1,32 +1,32 @@
 # n8n Workflow Collection
 
-Automated collection of 27 n8n workflows from the official API and community GitHub repositories.
+Automated collection of 126 n8n workflows from the official API and community GitHub repositories.
 
-**Last Updated:** 2026-03-16 19:56 UTC
+**Last Updated:** 2026-03-17 19:48 UTC
 
 ## Collection Stats
 
-- **Total Workflows:** 27
+- **Total Workflows:** 126
   - From n8n Official API: 10
-  - From GitHub Repos: 17
+  - From GitHub Repos: 116
 
 - **By Complexity:**
-  - Beginner (1-5 nodes): 6
-  - Intermediate (6-15 nodes): 13
-  - Advanced (16+ nodes): 8
+  - Beginner (1-5 nodes): 57
+  - Intermediate (6-15 nodes): 41
+  - Advanced (16+ nodes): 28
 
 ## Top Integrations
 
-- **stickyNote**: 10 workflows
-- **set**: 9 workflows
-- **httpRequest**: 7 workflows
-- **manualTrigger**: 7 workflows
-- **@n8n/n8n-nodes-langchain.chainLlm**: 6 workflows
-- **webhook**: 5 workflows
-- **if**: 5 workflows
-- **code**: 5 workflows
-- **@n8n/n8n-nodes-langchain.lmChatOpenAi**: 5 workflows
-- **@n8n/n8n-nodes-langchain.agent**: 5 workflows
+- **stickyNote**: 51 workflows
+- **manualTrigger**: 43 workflows
+- **set**: 40 workflows
+- **httpRequest**: 31 workflows
+- **if**: 23 workflows
+- **code**: 23 workflows
+- **@n8n/n8n-nodes-langchain.agent**: 16 workflows
+- **@n8n/n8n-nodes-langchain.lmChatOpenAi**: 12 workflows
+- **@n8n/n8n-nodes-langchain.mcpTrigger**: 12 workflows
+- **webhook**: 11 workflows
 
 
 ## Browse Workflows

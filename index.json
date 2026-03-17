@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-03-16T19:56:35.301578",
-  "total_workflows": 27,
+  "updated_at": "2026-03-17T19:48:04.489508",
+  "total_workflows": 126,
   "workflows": [
     {
       "id": "8fc780eee787",
@@ -11,20 +11,87 @@
       "file": "workflows/github/8fc780eee787.json",
       "node_count": 57,
       "integrations": [
-        "googleDocs",
-        "@n8n/n8n-nodes-langchain.chainLlm",
         "youTube",
-        "@n8n/n8n-nodes-langchain.outputParserStructured",
-        "twitter",
-        "httpRequest",
         "set",
-        "splitOut",
-        "stickyNote",
-        "webhook",
-        "wait",
         "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "httpRequest",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "webhook",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "splitInBatches",
+        "googleDocs",
+        "twitter",
+        "wait",
+        "stickyNote",
         "if",
-        "splitInBatches"
+        "splitOut"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "d72ba092a8ea",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "TG-Bot-Module-Checkbox-v2-db-sell-full",
+      "description": "",
+      "file": "workflows/github/d72ba092a8ea.json",
+      "node_count": 46,
+      "integrations": [
+        "switch",
+        "summarize",
+        "set",
+        "postgres",
+        "code",
+        "telegramTrigger",
+        "stickyNote",
+        "if",
+        "telegram"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "e4f32de33d87",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "MailChimp_Automation",
+      "description": "",
+      "file": "workflows/github/e4f32de33d87.json",
+      "node_count": 43,
+      "integrations": [
+        "httpRequest",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "code",
+        "scheduleTrigger",
+        "merge",
+        "set",
+        "telegramTrigger",
+        "stickyNote",
+        "telegram",
+        "splitOut",
+        "aggregate",
+        "gmail",
+        "@n8n/n8n-nodes-langchain.openAi",
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "@tavily/n8n-nodes-tavily.tavilyTool",
+        "@n8n/n8n-nodes-langchain.textClassifier",
+        "if",
+        "mailchimp",
+        "@n8n/n8n-nodes-langchain.agent"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "b6d1e3a5cf74",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Listen API: Podcast Search, Directory, and Insights API MCP Server",
+      "description": "",
+      "file": "workflows/github/b6d1e3a5cf74.json",
+      "node_count": 36,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "httpRequestTool"
       ],
       "complexity": "advanced"
     },
@@ -37,16 +104,16 @@
       "file": "workflows/github/5c50be53f620.json",
       "node_count": 36,
       "integrations": [
-        "code",
-        "@n8n/n8n-nodes-langchain.chainLlm",
-        "convertToFile",
-        "@n8n/n8n-nodes-langchain.outputParserStructured",
-        "httpRequest",
         "set",
-        "webhook",
         "airtable",
-        "perplexity",
+        "httpRequest",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "webhook",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "code",
         "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+        "convertToFile",
+        "perplexity",
         "stickyNote"
       ],
       "complexity": "advanced"
@@ -60,18 +127,110 @@
       "file": "workflows/github/acd2faa4a1c9.json",
       "node_count": 36,
       "integrations": [
-        "code",
-        "@n8n/n8n-nodes-langchain.chainLlm",
+        "set",
+        "n8n",
         "manualTrigger",
         "httpRequest",
-        "set",
-        "aggregate",
-        "if",
-        "n8n",
-        "merge",
+        "@n8n/n8n-nodes-langchain.chainLlm",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "noOp",
-        "stickyNote"
+        "code",
+        "merge",
+        "stickyNote",
+        "if",
+        "aggregate",
+        "noOp"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "181063c9de3c",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "FamilyFlow Assistant",
+      "description": "",
+      "file": "workflows/github/181063c9de3c.json",
+      "node_count": 36,
+      "integrations": [
+        "gmail",
+        "set",
+        "emailSend",
+        "start",
+        "code",
+        "telegramTrigger",
+        "cron",
+        "stickyNote",
+        "if",
+        "telegram"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "a13b116984f2",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "TG-Bot-Module-Quiz-v4-db-sell-full",
+      "description": "",
+      "file": "workflows/github/a13b116984f2.json",
+      "node_count": 36,
+      "integrations": [
+        "switch",
+        "summarize",
+        "set",
+        "postgres",
+        "code",
+        "telegramTrigger",
+        "sort",
+        "merge",
+        "wait",
+        "stickyNote",
+        "if",
+        "telegram"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "47529680f1e3",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/47529680f1e3.json",
+      "node_count": 32,
+      "integrations": [
+        "set",
+        "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+        "httpRequest",
+        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+        "scheduleTrigger",
+        "merge",
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+        "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+        "aggregate"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "dc37418abf3c",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/dc37418abf3c.json",
+      "node_count": 30,
+      "integrations": [
+        "set",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "form",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "wordpress",
+        "formTrigger",
+        "if",
+        "stickyNote",
+        "googleSheets",
+        "splitOut"
       ],
       "complexity": "advanced"
     },
@@ -84,22 +243,145 @@
       "file": "workflows/github/5aecba0f6074.json",
       "node_count": 30,
       "integrations": [
-        "@n8n/n8n-nodes-langchain.chainLlm",
-        "gmailTrigger",
-        "@n8n/n8n-nodes-langchain.agent",
-        "dateTimeTool",
-        "telegram",
-        "@n8n/n8n-nodes-langchain.textClassifier",
-        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-        "googleSheetsTool",
         "gmail",
-        "googleCalendarTool",
-        "telegramTrigger",
-        "gmailTool",
         "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "googleCalendarTool",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "telegramTrigger",
+        "dateTimeTool",
+        "googleSheetsTool",
+        "gmailTrigger",
+        "@n8n/n8n-nodes-langchain.textClassifier",
+        "gmailTool",
         "if",
-        "noOp",
+        "telegram",
+        "stickyNote",
+        "noOp"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "380781c1f5a7",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/380781c1f5a7.json",
+      "node_count": 29,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "code",
+        "splitInBatches",
+        "extractFromFile",
+        "googleDriveTrigger",
+        "set",
+        "@n8n/n8n-nodes-langchain.vectorStorePGVector",
+        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+        "stickyNote",
+        "splitOut",
+        "postgres",
+        "googleDrive",
+        "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "executeWorkflowTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+        "@n8n/n8n-nodes-langchain.memoryPostgresChat"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "87244c3d9036",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/87244c3d9036.json",
+      "node_count": 28,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "set",
+        "rssFeedReadTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
+        "twitter",
+        "filter",
+        "discord",
+        "stickyNote",
+        "telegram"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "cb5495dc72c1",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/cb5495dc72c1.json",
+      "node_count": 27,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.openAi",
+        "httpRequest",
+        "googleDrive",
+        "code",
+        "merge",
+        "convertToFile",
+        "formTrigger",
         "stickyNote"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "2d76148f15a5",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Social Media Tutorial",
+      "description": "",
+      "file": "workflows/github/2d76148f15a5.json",
+      "node_count": 26,
+      "integrations": [
+        "set",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "form",
+        "@n8n/n8n-nodes-langchain.agent",
+        "httpRequest",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "code",
+        "stickyNote",
+        "twitter",
+        "merge",
+        "formTrigger",
+        "facebookGraphApi",
+        "aggregate",
+        "linkedIn"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "c31a2443efb9",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "(Tung) OCR invoice extract to spreadsheet copy",
+      "description": "",
+      "file": "workflows/github/c31a2443efb9.json",
+      "node_count": 25,
+      "integrations": [
+        "set",
+        "googleDriveTrigger",
+        "httpRequest",
+        "googleDrive",
+        "code",
+        "telegramTrigger",
+        "splitInBatches",
+        "gmailTrigger",
+        "if",
+        "wait",
+        "stickyNote",
+        "extractFromFile",
+        "googleSheets"
       ],
       "complexity": "advanced"
     },
@@ -112,15 +394,108 @@
       "file": "workflows/github/877449847863.json",
       "node_count": 25,
       "integrations": [
-        "code",
-        "@n8n/n8n-nodes-langchain.chainLlm",
-        "httpRequest",
-        "webhook",
         "htmlExtract",
+        "emailSend",
+        "httpRequest",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "webhook",
+        "code",
         "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
         "merge",
-        "emailSend",
         "html"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "c431c3460214",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/c431c3460214.json",
+      "node_count": 22,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "manualTrigger",
+        "httpRequest",
+        "limit",
+        "@n8n/n8n-nodes-langchain.vectorStoreMilvus",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+        "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+        "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+        "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+        "html",
+        "splitOut"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "d5b87334bd3a",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Whatsapp Automation Fix",
+      "description": "",
+      "file": "workflows/github/d5b87334bd3a.json",
+      "node_count": 22,
+      "integrations": [
+        "gmail",
+        "set",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "whatsApp",
+        "whatsAppTrigger",
+        "stickyNote",
+        "if",
+        "noOp"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "9635133a6797",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/9635133a6797.json",
+      "node_count": 22,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "nextCloudTool"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "5a0343b8b991",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "BambooHR Tool MCP Server",
+      "description": "",
+      "file": "workflows/github/5a0343b8b991.json",
+      "node_count": 21,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "bambooHrTool"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "728fcceedc5e",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/728fcceedc5e.json",
+      "node_count": 20,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "microsoftToDoTool"
       ],
       "complexity": "advanced"
     },
@@ -133,16 +508,51 @@
       "file": "workflows/github/d7afc016c10d.json",
       "node_count": 20,
       "integrations": [
-        "filter",
-        "code",
-        "manualTrigger",
-        "scheduleTrigger",
-        "itemLists",
-        "googleSheets",
-        "httpRequest",
         "set",
+        "manualTrigger",
+        "httpRequest",
+        "code",
+        "scheduleTrigger",
+        "filter",
         "if",
-        "stickyNote"
+        "stickyNote",
+        "googleSheets",
+        "itemLists"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "854c894f6e1b",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Raindrop Tool MCP Server",
+      "description": "",
+      "file": "workflows/github/854c894f6e1b.json",
+      "node_count": 19,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "raindropTool"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "591c1c63b160",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "YouTube Shorts Automation Agent - The Game-Changer in YouTube Shorts Automation",
+      "description": "",
+      "file": "workflows/github/591c1c63b160.json",
+      "node_count": 18,
+      "integrations": [
+        "youTube",
+        "httpRequest",
+        "code",
+        "splitInBatches",
+        "formTrigger",
+        "wait",
+        "stickyNote",
+        "splitOut"
       ],
       "complexity": "advanced"
     },
@@ -155,13 +565,13 @@
       "file": "workflows/github/4b6fba74da62.json",
       "node_count": 16,
       "integrations": [
-        "set",
-        "telegram",
         "switch",
+        "set",
         "telegramTrigger",
         "openAi",
         "merge",
-        "stickyNote"
+        "stickyNote",
+        "telegram"
       ],
       "complexity": "advanced"
     },
@@ -174,13 +584,28 @@
       "file": "workflows/github/928cfdf755c6.json",
       "node_count": 16,
       "integrations": [
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
         "form",
         "@n8n/n8n-nodes-langchain.chainLlm",
-        "formTrigger",
         "webhook",
-        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-        "respondToWebhook",
-        "stickyNote"
+        "formTrigger",
+        "stickyNote",
+        "respondToWebhook"
+      ],
+      "complexity": "advanced"
+    },
+    {
+      "id": "64db4d2338f3",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/64db4d2338f3.json",
+      "node_count": 16,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "microsoftSharePointTool"
       ],
       "complexity": "advanced"
     },
@@ -196,15 +621,90 @@
         "form",
         "@n8n/n8n-nodes-langchain.agent",
         "httpRequest",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "googleSheetsTool",
         "formTrigger",
         "if",
-        "googleSheetsTool",
-        "markdown",
         "gmailTool",
+        "markdown",
         "@n8n/n8n-nodes-langchain.informationExtractor",
-        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "noOp",
+        "stickyNote",
+        "noOp"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "b66bc2eb086d",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/b66bc2eb086d.json",
+      "node_count": 15,
+      "integrations": [
+        "set",
+        "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "httpRequest",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "code",
+        "scheduleTrigger",
+        "stickyNote",
+        "telegram"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "2ce602f5d275",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/2ce602f5d275.json",
+      "node_count": 14,
+      "integrations": [
+        "switch",
+        "executeWorkflowTrigger",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "@n8n/n8n-nodes-langchain.toolWorkflow",
+        "executeCommandTool",
+        "stickyNote",
+        "executeCommand"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "02b205ce954a",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/02b205ce954a.json",
+      "node_count": 14,
+      "integrations": [
+        "switch",
+        "executeWorkflowTrigger",
+        "set",
+        "summarize",
+        "httpRequest",
+        "splitInBatches",
+        "executeWorkflow",
         "stickyNote"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "3d8c41158b72",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Webex by Cisco Tool MCP Server",
+      "description": "",
+      "file": "workflows/github/3d8c41158b72.json",
+      "node_count": 14,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "ciscoWebexTool"
       ],
       "complexity": "intermediate"
     },
@@ -217,16 +717,16 @@
       "file": "workflows/github/51dba04879b0.json",
       "node_count": 14,
       "integrations": [
-        "@n8n/n8n-nodes-langchain.embeddingsCohere",
-        "manualTrigger",
-        "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
-        "@n8n/n8n-nodes-langchain.chainRetrievalQa",
-        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
-        "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
-        "@n8n/n8n-nodes-langchain.retrieverVectorStore",
-        "@n8n/n8n-nodes-langchain.lmChatGroq",
         "@n8n/n8n-nodes-langchain.chatTrigger",
         "readWriteFile",
+        "manualTrigger",
+        "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+        "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+        "@n8n/n8n-nodes-langchain.embeddingsCohere",
+        "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+        "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "@n8n/n8n-nodes-langchain.retrieverVectorStore",
+        "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
         "stickyNote"
       ],
       "complexity": "intermediate"
@@ -240,14 +740,14 @@
       "file": "workflows/github/95f328a4516f.json",
       "node_count": 14,
       "integrations": [
-        "code",
-        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.openAi",
         "set",
-        "webhook",
         "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-        "respondToWebhook",
+        "@n8n/n8n-nodes-langchain.agent",
+        "webhook",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "@n8n/n8n-nodes-langchain.openAi"
+        "code",
+        "respondToWebhook"
       ],
       "complexity": "intermediate"
     },
@@ -260,17 +760,183 @@
       "file": "workflows/github/766ca99b4fd9.json",
       "node_count": 13,
       "integrations": [
-        "filter",
-        "manualTrigger",
-        "googleSheets",
-        "@n8n/n8n-nodes-langchain.agent",
-        "n8n-nodes-craftmypdf.craftMyPdf",
-        "set",
-        "stickyNote",
         "gmail",
-        "@n8n/n8n-nodes-langchain.informationExtractor",
+        "set",
+        "manualTrigger",
+        "@n8n/n8n-nodes-langchain.agent",
         "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "splitInBatches"
+        "splitInBatches",
+        "filter",
+        "n8n-nodes-craftmypdf.craftMyPdf",
+        "stickyNote",
+        "googleSheets",
+        "@n8n/n8n-nodes-langchain.informationExtractor"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "11f840691bec",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Kitemaker Tool MCP Server",
+      "description": "",
+      "file": "workflows/github/11f840691bec.json",
+      "node_count": 13,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "kitemakerTool"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "66e0f407b93e",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/66e0f407b93e.json",
+      "node_count": 13,
+      "integrations": [
+        "notion",
+        "webhook",
+        "interval",
+        "notionTrigger",
+        "signl4",
+        "function"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "a0bbf2784930",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/a0bbf2784930.json",
+      "node_count": 12,
+      "integrations": [
+        "set",
+        "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+        "@n8n/n8n-nodes-langchain.agent",
+        "webhook",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+        "respondToWebhook"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "841570b1c68f",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "ABANDONED CART RECOVERY EMAIL",
+      "description": "",
+      "file": "workflows/github/841570b1c68f.json",
+      "node_count": 12,
+      "integrations": [
+        "set",
+        "emailSend",
+        "shopify",
+        "shopifyTrigger",
+        "wait",
+        "stickyNote",
+        "if"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "04d536b5d6a5",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/04d536b5d6a5.json",
+      "node_count": 11,
+      "integrations": [
+        "set",
+        "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "@n8n/n8n-nodes-langchain.chainLlm",
+        "code",
+        "dateTime",
+        "calTrigger",
+        "googleSheets",
+        "googleCalendar"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "8c1524d6cc30",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Google Cloud Firestore Tool MCP Server",
+      "description": "",
+      "file": "workflows/github/8c1524d6cc30.json",
+      "node_count": 11,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "googleFirebaseCloudFirestoreTool"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "58ac25c273c3",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/58ac25c273c3.json",
+      "node_count": 11,
+      "integrations": [
+        "gmail",
+        "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "@n8n/n8n-nodes-langchain.embeddingsOllama",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOllama",
+        "gmailTrigger",
+        "@n8n/n8n-nodes-langchain.textClassifier",
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.lmOllama"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "f9bb758e06ef",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/f9bb758e06ef.json",
+      "node_count": 11,
+      "integrations": [
+        "httpRequest",
+        "github",
+        "merge",
+        "cron",
+        "function"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "9db30668ea5a",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Real Estate Daily Deals",
+      "description": "",
+      "file": "workflows/github/9db30668ea5a.json",
+      "node_count": 11,
+      "integrations": [
+        "gmail",
+        "set",
+        "httpRequest",
+        "code",
+        "scheduleTrigger",
+        "stickyNote",
+        "googleSheets",
+        "splitOut"
       ],
       "complexity": "intermediate"
     },
@@ -287,6 +953,39 @@
       "complexity": "intermediate"
     },
     {
+      "id": "e3944fef2800",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "[eBay] Deal API MCP Server",
+      "description": "",
+      "file": "workflows/github/e3944fef2800.json",
+      "node_count": 10,
+      "integrations": [
+        "stickyNote",
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "httpRequestTool"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "93bbfa945f34",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/93bbfa945f34.json",
+      "node_count": 10,
+      "integrations": [
+        "set",
+        "httpRequest",
+        "webhook",
+        "code",
+        "stickyNote",
+        "respondToWebhook"
+      ],
+      "complexity": "intermediate"
+    },
+    {
       "id": "8440967495d0",
       "source": "n8n_api",
       "title": "N8N Documentation Expert Chatbot with OpenAI RAG Pipeline",
@@ -296,6 +995,121 @@
       "file": "workflows/api/8440967495d0.json",
       "node_count": 9,
       "integrations": [],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "66b8ef898d1f",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/66b8ef898d1f.json",
+      "node_count": 9,
+      "integrations": [
+        "httpRequest",
+        "webhook",
+        "code",
+        "scheduleTrigger",
+        "stickyNote",
+        "if",
+        "noOp"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "8f55cd5a6268",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/8f55cd5a6268.json",
+      "node_count": 9,
+      "integrations": [
+        "gmail",
+        "set",
+        "trello",
+        "harvest",
+        "shopifyTrigger",
+        "if",
+        "zohoCrm",
+        "mailchimp"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "1ad8c432cceb",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/1ad8c432cceb.json",
+      "node_count": 9,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "notionTool",
+        "stickyNote"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "d1326db61c03",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/d1326db61c03.json",
+      "node_count": 9,
+      "integrations": [
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "airtableTool",
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "stickyNote"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "7e5cca72572a",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "ETL pipeline",
+      "description": "",
+      "file": "workflows/github/7e5cca72572a.json",
+      "node_count": 9,
+      "integrations": [
+        "set",
+        "googleCloudNaturalLanguage",
+        "postgres",
+        "mongoDb",
+        "twitter",
+        "slack",
+        "cron",
+        "if",
+        "noOp"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "00ad203f0e8a",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "SIGNL4 Alert",
+      "description": "",
+      "file": "workflows/github/00ad203f0e8a.json",
+      "node_count": 9,
+      "integrations": [
+        "writeBinaryFile",
+        "moveBinaryData",
+        "signl4",
+        "cron",
+        "function",
+        "if",
+        "readBinaryFile"
+      ],
       "complexity": "intermediate"
     },
     {
@@ -319,9 +1133,9 @@
       "file": "workflows/github/0fb2f998c3c7.json",
       "node_count": 8,
       "integrations": [
-        "jiraTool",
         "httpRequestTool",
-        "@n8n/n8n-nodes-langchain.mcpTrigger"
+        "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "jiraTool"
       ],
       "complexity": "intermediate"
     },
@@ -335,6 +1149,41 @@
       "file": "workflows/api/d96283b7ed70.json",
       "node_count": 7,
       "integrations": [],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "d2f42f3d48e5",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/d2f42f3d48e5.json",
+      "node_count": 7,
+      "integrations": [
+        "typeformTrigger",
+        "gmail",
+        "set",
+        "hubspot",
+        "if",
+        "noOp"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "07e294c754ef",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "DocSumo Invoice Parser",
+      "description": "",
+      "file": "workflows/github/07e294c754ef.json",
+      "node_count": 7,
+      "integrations": [
+        "httpRequest",
+        "code",
+        "convertToFile",
+        "formTrigger",
+        "stickyNote"
+      ],
       "complexity": "intermediate"
     },
     {
@@ -386,6 +1235,87 @@
       "complexity": "intermediate"
     },
     {
+      "id": "dc0dbcc6d017",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Moving metrics from Google Sheets to Orbit",
+      "description": "",
+      "file": "workflows/github/dc0dbcc6d017.json",
+      "node_count": 6,
+      "integrations": [
+        "orbit",
+        "merge",
+        "googleSheets"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "8ad78698aafd",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Translate to Another Language",
+      "description": "",
+      "file": "workflows/github/8ad78698aafd.json",
+      "node_count": 6,
+      "integrations": [
+        "deepL",
+        "@n8n/n8n-nodes-langchain.chatTrigger",
+        "stickyNote",
+        "noOp"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "98805ba30a69",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "JSON String Validator via Webhook",
+      "description": "",
+      "file": "workflows/github/98805ba30a69.json",
+      "node_count": 6,
+      "integrations": [
+        "stickyNote",
+        "webhook",
+        "code",
+        "respondToWebhook"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "028fb5761d23",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "QR code generation via form submission",
+      "description": "",
+      "file": "workflows/github/028fb5761d23.json",
+      "node_count": 6,
+      "integrations": [
+        "form",
+        "formTrigger",
+        "stickyNote",
+        "httpRequest"
+      ],
+      "complexity": "intermediate"
+    },
+    {
+      "id": "eb2c519fa437",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "post to mattermost v2",
+      "description": "",
+      "file": "workflows/github/eb2c519fa437.json",
+      "node_count": 6,
+      "integrations": [
+        "httpRequest",
+        "rssFeedRead",
+        "cron",
+        "function",
+        "if",
+        "noOp"
+      ],
+      "complexity": "intermediate"
+    },
+    {
       "id": "20fe2af5682b",
       "source": "github",
       "source_repo": "https://github.com/nusquama/n8nworkflows.xyz",
@@ -394,11 +1324,290 @@
       "file": "workflows/github/20fe2af5682b.json",
       "node_count": 5,
       "integrations": [
-        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.chatTrigger",
         "@n8n/n8n-nodes-langchain.memoryBufferWindow",
         "@n8n/n8n-nodes-langchain.toolSerpApi",
-        "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-        "@n8n/n8n-nodes-langchain.chatTrigger"
+        "@n8n/n8n-nodes-langchain.agent",
+        "@n8n/n8n-nodes-langchain.lmChatOpenAi"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "c940ce995b36",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Zip multiple files",
+      "description": "",
+      "file": "workflows/github/c940ce995b36.json",
+      "node_count": 5,
+      "integrations": [
+        "executeWorkflowTrigger",
+        "set",
+        "compression",
+        "code",
+        "stickyNote"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "4d83ebfa4f3e",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/4d83ebfa4f3e.json",
+      "node_count": 5,
+      "integrations": [
+        "function",
+        "if",
+        "set",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "089f0fec9221",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/089f0fec9221.json",
+      "node_count": 5,
+      "integrations": [
+        "httpRequest",
+        "compression",
+        "manualTrigger",
+        "dropbox"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "f6227626d978",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/f6227626d978.json",
+      "node_count": 5,
+      "integrations": [
+        "writeBinaryFile",
+        "manualTrigger",
+        "moveBinaryData",
+        "spreadsheetFile",
+        "readBinaryFile"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "e7257046feeb",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/e7257046feeb.json",
+      "node_count": 5,
+      "integrations": [
+        "stickyNote",
+        "set",
+        "scheduleTrigger",
+        "httpRequest"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "b1fae779c09a",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Get the logo, icon, and information of a company and store it in Airtable",
+      "description": "",
+      "file": "workflows/github/b1fae779c09a.json",
+      "node_count": 5,
+      "integrations": [
+        "Brandfetch",
+        "set",
+        "airtable",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "295bdbd14d36",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/295bdbd14d36.json",
+      "node_count": 5,
+      "integrations": [
+        "set",
+        "telegramTrigger",
+        "github",
+        "if",
+        "noOp"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "88326eb18f5b",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/88326eb18f5b.json",
+      "node_count": 4,
+      "integrations": [
+        "googleSheets",
+        "cron",
+        "mautic"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "557b2c4531ee",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Store the data received from the CocktailDB API in JSON",
+      "description": "",
+      "file": "workflows/github/557b2c4531ee.json",
+      "node_count": 4,
+      "integrations": [
+        "moveBinaryData",
+        "writeBinaryFile",
+        "manualTrigger",
+        "httpRequest"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "3ba0fed281a7",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Create, update, and get activity in Strava",
+      "description": "",
+      "file": "workflows/github/3ba0fed281a7.json",
+      "node_count": 4,
+      "integrations": [
+        "strava",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "89ef60d99df4",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Create and update a channel, and send a message on Twist",
+      "description": "",
+      "file": "workflows/github/89ef60d99df4.json",
+      "node_count": 4,
+      "integrations": [
+        "twist",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "56edc27b9747",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/56edc27b9747.json",
+      "node_count": 4,
+      "integrations": [
+        "set",
+        "mqtt",
+        "cron",
+        "httpRequest"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "9f9a95a5e7fc",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Get Company by Name",
+      "description": "",
+      "file": "workflows/github/9f9a95a5e7fc.json",
+      "node_count": 4,
+      "integrations": [
+        "functionItem",
+        "if",
+        "uproc",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "9cf5917e1abd",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Store the output of a phantom in Airtable",
+      "description": "",
+      "file": "workflows/github/9cf5917e1abd.json",
+      "node_count": 4,
+      "integrations": [
+        "phantombuster",
+        "set",
+        "airtable",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "d5bad966e47f",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "URL Pinger",
+      "description": "",
+      "file": "workflows/github/d5bad966e47f.json",
+      "node_count": 4,
+      "integrations": [
+        "set",
+        "scheduleTrigger",
+        "splitOut",
+        "httpRequest"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "c4061a189bd5",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Add subscriber to form, create tag and subscriber to the tag",
+      "description": "",
+      "file": "workflows/github/c4061a189bd5.json",
+      "node_count": 4,
+      "integrations": [
+        "convertKit",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "5876d1d1c1dd",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/5876d1d1c1dd.json",
+      "node_count": 4,
+      "integrations": [
+        "webflow",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "e0fc043802b4",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/e0fc043802b4.json",
+      "node_count": 4,
+      "integrations": [
+        "wise"
       ],
       "complexity": "beginner"
     },
@@ -411,9 +1620,39 @@
       "file": "workflows/github/b9733adca152.json",
       "node_count": 4,
       "integrations": [
-        "httpRequest",
+        "s3",
         "manualTrigger",
-        "s3"
+        "httpRequest"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "10e8c5e665ad",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/10e8c5e665ad.json",
+      "node_count": 4,
+      "integrations": [
+        "htmlExtract",
+        "manualTrigger",
+        "httpRequest"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "7e44fcd89e41",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "simple-encryption",
+      "description": "",
+      "file": "workflows/github/7e44fcd89e41.json",
+      "node_count": 4,
+      "integrations": [
+        "executeWorkflowTrigger",
+        "code",
+        "if"
       ],
       "complexity": "beginner"
     },
@@ -450,7 +1689,37 @@
       "file": "workflows/github/07331fa10396.json",
       "node_count": 3,
       "integrations": [
+        "set",
         "renameKeys",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "a0ef5e2b708c",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/a0ef5e2b708c.json",
+      "node_count": 3,
+      "integrations": [
+        "awsTranscribe",
+        "awsS3",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "56b7f360f916",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/56b7f360f916.json",
+      "node_count": 3,
+      "integrations": [
+        "mongoDb",
         "set",
         "manualTrigger"
       ],
@@ -465,9 +1734,415 @@
       "file": "workflows/github/be73bbdc52f0.json",
       "node_count": 3,
       "integrations": [
-        "xml",
         "set",
+        "xml",
         "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "6fabf99ca333",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Create a post and update the post in WordPress",
+      "description": "",
+      "file": "workflows/github/6fabf99ca333.json",
+      "node_count": 3,
+      "integrations": [
+        "wordpress",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "b742b35251c0",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Get all the stories starting with `release` and publish them",
+      "description": "",
+      "file": "workflows/github/b742b35251c0.json",
+      "node_count": 3,
+      "integrations": [
+        "storyblok",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "bf2ab18bb039",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Insert data into a new row for a table in Coda",
+      "description": "",
+      "file": "workflows/github/bf2ab18bb039.json",
+      "node_count": 3,
+      "integrations": [
+        "set",
+        "coda",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "8d33ef091b1f",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Create a release and get all releases",
+      "description": "",
+      "file": "workflows/github/8d33ef091b1f.json",
+      "node_count": 3,
+      "integrations": [
+        "sentryIo",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "5fe7e7cf958f",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/5fe7e7cf958f.json",
+      "node_count": 3,
+      "integrations": [
+        "mattermost",
+        "errorTrigger",
+        "twilio"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "c54faf4fdb11",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/c54faf4fdb11.json",
+      "node_count": 3,
+      "integrations": [
+        "linkedIn",
+        "manualTrigger",
+        "httpRequest"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "3cbfbdd23fd9",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Send a message on Mattermost when an order is created in WooCommerce",
+      "description": "",
+      "file": "workflows/github/3cbfbdd23fd9.json",
+      "node_count": 2,
+      "integrations": [
+        "mattermost",
+        "wooCommerceTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "07745c51a5c8",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/07745c51a5c8.json",
+      "node_count": 2,
+      "integrations": [
+        "rundeck",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "7de020f64e6c",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Get information about a company with UpLead",
+      "description": "",
+      "file": "workflows/github/7de020f64e6c.json",
+      "node_count": 2,
+      "integrations": [
+        "manualTrigger",
+        "uplead"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "3e5d6c8a11fe",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/3e5d6c8a11fe.json",
+      "node_count": 2,
+      "integrations": [
+        "webhook",
+        "googleSheets"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "0aec6ed2b107",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Create a contact in Drift",
+      "description": "",
+      "file": "workflows/github/0aec6ed2b107.json",
+      "node_count": 2,
+      "integrations": [
+        "drift",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "0770217820d9",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Get details of a forum in Disqus",
+      "description": "",
+      "file": "workflows/github/0770217820d9.json",
+      "node_count": 2,
+      "integrations": [
+        "disqus",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "dcad3455aceb",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Mailchimp",
+      "description": "",
+      "file": "workflows/github/dcad3455aceb.json",
+      "node_count": 2,
+      "integrations": [
+        "manualTrigger",
+        "mailchimp"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "cbf6934fbfa3",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Create a new customer in Chargebee",
+      "description": "",
+      "file": "workflows/github/cbf6934fbfa3.json",
+      "node_count": 2,
+      "integrations": [
+        "chargebee",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "9fc05dca971a",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/9fc05dca971a.json",
+      "node_count": 2,
+      "integrations": [
+        "shopify",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "94c3255aba5f",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/94c3255aba5f.json",
+      "node_count": 2,
+      "integrations": [
+        "hunter",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "abbae8a879d4",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/abbae8a879d4.json",
+      "node_count": 2,
+      "integrations": [
+        "keap",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "1de6f94f4e46",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Send a private message on Zulip",
+      "description": "",
+      "file": "workflows/github/1de6f94f4e46.json",
+      "node_count": 2,
+      "integrations": [
+        "zulip",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "b1a4aec46a47",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Add a event to Calender",
+      "description": "",
+      "file": "workflows/github/b1a4aec46a47.json",
+      "node_count": 2,
+      "integrations": [
+        "googleCalendar",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "a8e833408dab",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Send an SMS using the Mocean node",
+      "description": "",
+      "file": "workflows/github/a8e833408dab.json",
+      "node_count": 2,
+      "integrations": [
+        "mocean",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "9ac58b39a77c",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/9ac58b39a77c.json",
+      "node_count": 2,
+      "integrations": [
+        "calendlyTrigger",
+        "notion"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "315dd2c2f45d",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/315dd2c2f45d.json",
+      "node_count": 2,
+      "integrations": [
+        "invoiceNinja",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "0cdb476d3dc0",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Send an SMS when a workflow fails",
+      "description": "",
+      "file": "workflows/github/0cdb476d3dc0.json",
+      "node_count": 2,
+      "integrations": [
+        "errorTrigger",
+        "twilio"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "32736e45af4a",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/32736e45af4a.json",
+      "node_count": 2,
+      "integrations": [
+        "helpScout",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "b4b41574aae0",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Sending an SMS with MessageBird",
+      "description": "",
+      "file": "workflows/github/b4b41574aae0.json",
+      "node_count": 2,
+      "integrations": [
+        "messageBird",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "310601fb9a50",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Look up a person using their email in Clearbit",
+      "description": "",
+      "file": "workflows/github/310601fb9a50.json",
+      "node_count": 2,
+      "integrations": [
+        "clearbit",
+        "manualTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "8750ebc6919f",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Receive updates when an event occurs in TheHive",
+      "description": "",
+      "file": "workflows/github/8750ebc6919f.json",
+      "node_count": 1,
+      "integrations": [
+        "theHiveTrigger"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "41d45f500e03",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Untitled",
+      "description": "",
+      "file": "workflows/github/41d45f500e03.json",
+      "node_count": 1,
+      "integrations": [
+        "emailReadImap"
+      ],
+      "complexity": "beginner"
+    },
+    {
+      "id": "dff7056fca68",
+      "source": "github",
+      "source_repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+      "title": "Receive updates when a new list is created in Affinity",
+      "description": "",
+      "file": "workflows/github/dff7056fca68.json",
+      "node_count": 1,
+      "integrations": [
+        "affinityTrigger"
       ],
       "complexity": "beginner"
     }
