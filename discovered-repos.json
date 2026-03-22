@@ -279,6 +279,15 @@
     "url": "https://github.com/weblineindia/n8n-Generate-personalized-deal-content-recommendations-with-Zoho-CRM-GPT-4o-mini-Gmail"
   },
   {
+    "description": "\ud83d\ude80 Automate validation of mobile app deep links in GitHub PRs, providing live feedback with a Markdown summary for effective testing and quality assurance.",
+    "language": "",
+    "name": "n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing",
+    "pushedAt": "2026-03-22T18:54:07Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-03-22T18:54:10Z",
+    "url": "https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -925,5 +934,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-03-09T09:12:48Z",
     "url": "https://github.com/notsointresting/n8n-template-explorer-mcp"
+  },
+  {
+    "description": "Use n8n for free and run it locally on your device!",
+    "language": "",
+    "name": "run-n8n-locally",
+    "pushedAt": "2025-10-26T14:48:04Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-10-26T12:09:04Z",
+    "url": "https://github.com/appunits/run-n8n-locally"
   }
 ]
