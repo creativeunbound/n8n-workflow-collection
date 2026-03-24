@@ -1,0 +1,47 @@
+{
+  "name": "A workflow with the Twilio node",
+  "nodes": [
+    {
+      "name": "On clicking 'execute'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        250,
+        300
+      ],
+      "parameters": {},
+      "typeVersion": 1
+    },
+    {
+      "name": "Twilio",
+      "type": "n8n-nodes-base.twilio",
+      "position": [
+        430,
+        300
+      ],
+      "parameters": {},
+      "credentials": {
+        "twilioApi": ""
+      },
+      "typeVersion": 1
+    }
+  ],
+  "active": false,
+  "settings": {},
+  "connections": {
+    "On clicking 'execute'": {
+      "main": [
+        [
+          {
+            "node": "Twilio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "_source": {
+    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+    "file": "templates/social-media/401-send-an-smswhatsapp-message-with-twilio/workflow.json"
+  }
+}
