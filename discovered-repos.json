@@ -943,5 +943,41 @@
     "stargazersCount": 0,
     "updatedAt": "2025-10-26T12:09:04Z",
     "url": "https://github.com/appunits/run-n8n-locally"
+  },
+  {
+    "description": "Local n8n workflow for AI-assisted LinkedIn post drafting, approval, and publishing using RSS, Google Sheets, and Gemini.",
+    "language": "",
+    "name": "linkedin-post-automation-n8n",
+    "pushedAt": "2026-03-25T00:51:25Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-25T00:51:29Z",
+    "url": "https://github.com/sumukh30/linkedin-post-automation-n8n"
+  },
+  {
+    "description": "Infra Docker: n8n + Flowise + Evolution API no Ubuntu MATE 24.04",
+    "language": "Makefile",
+    "name": "stack-aia-ubuntu-n8n",
+    "pushedAt": "2025-10-02T15:29:21Z",
+    "stargazersCount": 0,
+    "updatedAt": "2025-10-02T15:29:15Z",
+    "url": "https://github.com/ivjuniorbr/stack-aia-ubuntu-n8n"
+  },
+  {
+    "description": "\ud83d\ude80 Generate tailored deal content recommendations using Zoho CRM, GPT-4o-mini, and Gmail for smarter sales follow-ups.",
+    "language": "",
+    "name": "n8n-Generate-personalized-deal-content-recommendations-with-Zoho-CRM-GPT-4o-mini-Gmail",
+    "pushedAt": "2026-03-29T19:29:49Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-29T19:29:52Z",
+    "url": "https://github.com/Okaykar/n8n-Generate-personalized-deal-content-recommendations-with-Zoho-CRM-GPT-4o-mini-Gmail"
+  },
+  {
+    "description": "TriggerStack \u2014 Lead Gen Agency Toolkit for n8n. 4 workflows that scrape 5 platforms, enrich leads with real emails & socials, send cold email sequences, and track deals in a CRM pipeline. $0/month tools. Built for n8n 2.10.3+.",
+    "language": "HTML",
+    "name": "triggerstack",
+    "pushedAt": "2026-03-24T11:58:50Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-24T11:58:53Z",
+    "url": "https://github.com/triggerstack-ops/triggerstack"
   }
 ]
