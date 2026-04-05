@@ -27,6 +27,15 @@
     "url": "https://github.com/EuleMitKeule/webhook-conversation"
   },
   {
+    "description": "A Multi Agent Memory MCP That Connect Agents Across Systems and Machines",
+    "language": "JavaScript",
+    "name": "Zengram",
+    "pushedAt": "2026-04-04T21:42:50Z",
+    "stargazersCount": 20,
+    "updatedAt": "2026-04-04T21:42:53Z",
+    "url": "https://github.com/ZenSystemAI/Zengram"
+  },
+  {
     "description": "Curated, production\u2011ready collection of 2,000+ n8n workflows across 350+ integrations\u2014featuring a zero\u2011setup searchable web UI, local API, and turnkey Docker/Compose/Kubernetes deployment.",
     "language": "Python",
     "name": "n8n-workflows",
@@ -286,6 +295,15 @@
     "stargazersCount": 1,
     "updatedAt": "2026-03-22T18:54:10Z",
     "url": "https://github.com/Phonezaw901/n8n-Validate-mobile-app-deep-links-in-GitHub-PRs-with-automated-testing"
+  },
+  {
+    "description": "A curated list of ready-to-deploy AI assets, AI prompts, automation workflows, Notion templates, and custom GPTs for small business owners and solopreneurs",
+    "language": "",
+    "name": "awesome-ai-assets-for-business",
+    "pushedAt": "2026-04-01T06:15:11Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-04-01T06:18:03Z",
+    "url": "https://github.com/webtailorco/awesome-ai-assets-for-business"
   },
   {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
@@ -979,5 +997,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-03-24T11:58:53Z",
     "url": "https://github.com/triggerstack-ops/triggerstack"
+  },
+  {
+    "description": "AI-powered autonomous workflow builder for n8n. Describe a task in plain language - get a production-ready workflow. Powered by Claude Code + n8n-mcp.",
+    "language": "Shell",
+    "name": "n8n-autopilot",
+    "pushedAt": "2026-03-30T21:50:53Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-03-30T21:50:56Z",
+    "url": "https://github.com/natiixnt/n8n-autopilot"
   }
 ]
