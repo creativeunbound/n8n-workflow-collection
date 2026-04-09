@@ -31,6 +31,9 @@ jobs:
       - name: Update index
         run: python3 scripts/update_index.py
 
+      - name: Generate descriptions
+        run: python3 scripts/generate_descriptions.py
+
       - name: Commit workflows
         run: |
           git config user.name github-actions
