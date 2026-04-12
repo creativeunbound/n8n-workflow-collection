@@ -189,6 +189,15 @@
     "url": "https://github.com/maigenlang/n8n-conversation"
   },
   {
+    "description": "Fledge: hardened macOS platform for autonomous AI agents. Security-first n8n orchestration from hello world to production.",
+    "language": "Shell",
+    "name": "openclaw-mac",
+    "pushedAt": "2026-04-08T02:23:55Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-04-08T02:23:58Z",
+    "url": "https://github.com/traylorre/openclaw-mac"
+  },
+  {
     "description": "n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models",
     "language": "TypeScript",
     "name": "n8n-nodes-nvidia-nim",
@@ -1006,5 +1015,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-03-30T21:50:56Z",
     "url": "https://github.com/natiixnt/n8n-autopilot"
+  },
+  {
+    "description": "RPE Flooring Operations Engine \u2014 dashboards, n8n workflows, client deploys (AJ Flooring, etc.)",
+    "language": "HTML",
+    "name": "rpe-systems",
+    "pushedAt": "2026-04-09T13:37:47Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-04-09T13:39:20Z",
+    "url": "https://github.com/scubarichard/rpe-systems"
   }
 ]
