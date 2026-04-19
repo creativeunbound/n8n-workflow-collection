@@ -1024,5 +1024,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-04-09T13:39:20Z",
     "url": "https://github.com/scubarichard/rpe-systems"
+  },
+  {
+    "description": "Build n8n workflows from natural language \u2014 works with Claude Code, Codex, Cursor, Windsurf, Copilot. Includes 8 expert skills, MCP server integration, validation, and push/pull sync.",
+    "language": "JavaScript",
+    "name": "n8n-ai-builder",
+    "pushedAt": "2026-04-16T00:19:23Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-04-16T00:19:26Z",
+    "url": "https://github.com/muid-nihal/n8n-ai-builder"
   }
 ]
