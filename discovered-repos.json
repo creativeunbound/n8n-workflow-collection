@@ -1033,5 +1033,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-04-16T00:19:26Z",
     "url": "https://github.com/muid-nihal/n8n-ai-builder"
+  },
+  {
+    "description": "Production-grade NeuroMCP orchestration engine that unifies n8n workflows with agentic LLM ecosystems, delivering secure, deterministic, and scalable automation. Features context-aware execution, multi-transport support, structured observability, & fault-tolerant design, powering AI-native, resilient, & high-performance enterprise infrastructure.",
+    "language": "Python",
+    "name": "neuro-mcp-unified-orchestration-engine",
+    "pushedAt": "2026-04-25T18:46:51Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-04-25T18:46:55Z",
+    "url": "https://github.com/bitsandbrainsai/neuro-mcp-unified-orchestration-engine"
   }
 ]
