@@ -2,7 +2,7 @@
 
 Automated collection of 511 n8n workflows from the official API and community GitHub repositories.
 
-**Last Updated:** 2026-04-27 20:10 UTC
+**Last Updated:** 2026-04-28 20:09 UTC
 
 ## Collection Stats
 
