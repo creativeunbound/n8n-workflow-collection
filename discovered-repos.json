@@ -198,6 +198,15 @@
     "url": "https://github.com/traylorre/openclaw-mac"
   },
   {
+    "description": "Production-pattern hardened n8n workflow templates with cross-session memory. Voice agents, customer support, personal assistants. Multi-provider (OpenAI default, Anthropic alternative). Powered by StudioMeyer Memory.",
+    "language": "Python",
+    "name": "n8n-templates",
+    "pushedAt": "2026-05-02T19:56:14Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-05-02T19:56:18Z",
+    "url": "https://github.com/studiomeyer-io/n8n-templates"
+  },
+  {
     "description": "n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models",
     "language": "TypeScript",
     "name": "n8n-nodes-nvidia-nim",
@@ -313,6 +322,15 @@
     "stargazersCount": 1,
     "updatedAt": "2026-04-01T06:18:03Z",
     "url": "https://github.com/webtailorco/awesome-ai-assets-for-business"
+  },
+  {
+    "description": "Sanitized n8n workflow library: lead intake, enrichment, post-call processing, webhook security middleware.",
+    "language": "JavaScript",
+    "name": "n8n",
+    "pushedAt": "2026-05-03T19:52:03Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-05-03T17:34:56Z",
+    "url": "https://github.com/wranngle/n8n"
   },
   {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
@@ -1042,5 +1060,23 @@
     "stargazersCount": 0,
     "updatedAt": "2026-04-25T18:46:55Z",
     "url": "https://github.com/bitsandbrainsai/neuro-mcp-unified-orchestration-engine"
+  },
+  {
+    "description": "Full-stack developer portfolio \u2014 industrial automation, algorithmic trading, crypto bots, AI content pipelines, cybersecurity labs, and n8n workflow templates.",
+    "language": "TypeScript",
+    "name": "markus-portfolio",
+    "pushedAt": "2026-04-21T16:55:55Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-04-21T16:55:59Z",
+    "url": "https://github.com/Markus864/markus-portfolio"
+  },
+  {
+    "description": "Production-grade Unified MCP Server architected to bridge enterprise n8n automation with agentic LLM ecosystems. Engineered for high-scale reliability with structured logging, multi-transport support (SSE/STDIO), and context-aware orchestration. Accelerating AI-native business infrastructure via secure, deterministic, and scalable workflow control.",
+    "language": "Python",
+    "name": "n8n-unified-mcp-server",
+    "pushedAt": "2026-04-20T00:18:06Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-04-20T01:27:10Z",
+    "url": "https://github.com/anshwysmcbel2710/n8n-unified-mcp-server"
   }
 ]
