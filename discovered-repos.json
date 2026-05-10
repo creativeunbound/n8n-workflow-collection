@@ -333,6 +333,15 @@
     "url": "https://github.com/wranngle/n8n"
   },
   {
+    "description": "Enterprise-grade AI Workflows, No-Code Integrations & Autonomous Tools for n8n. Transform your routine into fully autonomous systems.",
+    "language": "",
+    "name": "Limited-Time-Offer",
+    "pushedAt": "2026-05-07T16:56:55Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-05-07T16:57:00Z",
+    "url": "https://github.com/nar0ka/Limited-Time-Offer"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -1078,5 +1087,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-04-20T01:27:10Z",
     "url": "https://github.com/anshwysmcbel2710/n8n-unified-mcp-server"
+  },
+  {
+    "description": "Production n8n workflows. Hardened patterns, multi-provider LLM, no memory required. For cross-session memory see studiomeyer-io/n8n-templates.",
+    "language": "Python",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-05-09T18:42:15Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-09T18:42:19Z",
+    "url": "https://github.com/studiomeyer-io/n8n-workflows"
   }
 ]
