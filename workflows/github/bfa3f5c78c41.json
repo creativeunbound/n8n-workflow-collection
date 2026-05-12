@@ -1,43 +1,40 @@
 {
-  "id": "59",
-  "name": "Send an SMS using the Mocean node",
   "nodes": [
     {
       "name": "On clicking 'execute'",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        590,
-        260
+        250,
+        300
       ],
       "parameters": {},
       "typeVersion": 1
     },
     {
-      "name": "Mocean",
-      "type": "n8n-nodes-base.mocean",
+      "name": "Freshdesk",
+      "type": "n8n-nodes-base.freshdesk",
       "position": [
-        790,
-        260
+        450,
+        300
       ],
       "parameters": {
-        "to": "",
-        "from": "",
-        "message": ""
+        "status": "open",
+        "options": {},
+        "requester": "email",
+        "requesterIdentificationValue": "user@example.com"
       },
       "credentials": {
-        "moceanApi": "mocean"
+        "freshdeskApi": "freshdesk-api"
       },
       "typeVersion": 1
     }
   ],
-  "active": false,
-  "settings": {},
   "connections": {
     "On clicking 'execute'": {
       "main": [
         [
           {
-            "node": "Mocean",
+            "node": "Freshdesk",
             "type": "main",
             "index": 0
           }
@@ -46,7 +43,7 @@
     }
   },
   "_source": {
-    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/personal-productivity/667-send-an-sms-using-the-mocean-node/workflow.json"
+    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
+    "file": "workflows/Create a new Freshdesk ticket-448/create_a_new_freshdesk_ticket.json"
   }
 }

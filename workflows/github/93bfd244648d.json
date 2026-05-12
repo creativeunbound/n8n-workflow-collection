@@ -4,21 +4,26 @@
       "name": "On clicking 'execute'",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        270,
-        320
+        250,
+        300
       ],
       "parameters": {},
       "typeVersion": 1
     },
     {
-      "name": "Read Binary Files",
-      "type": "n8n-nodes-base.readBinaryFiles",
+      "name": "Keap",
+      "type": "n8n-nodes-base.keap",
       "position": [
-        470,
-        320
+        450,
+        300
       ],
       "parameters": {
-        "fileSelector": "/data/lol/*.jpg"
+        "options": {},
+        "resource": "contact",
+        "operation": "getAll"
+      },
+      "credentials": {
+        "keapOAuth2Api": "keap_creds"
       },
       "typeVersion": 1
     }
@@ -28,7 +33,7 @@
       "main": [
         [
           {
-            "node": "Read Binary Files",
+            "node": "Keap",
             "type": "main",
             "index": 0
           }
@@ -37,7 +42,7 @@
     }
   },
   "_source": {
-    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/file-management/578-read-multiple-files-from-disk/workflow.json"
+    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
+    "file": "workflows/Get all contacts from Keap-553/get_all_contacts_from_keap.json"
   }
 }

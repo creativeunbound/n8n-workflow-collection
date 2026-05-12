@@ -20,7 +20,7 @@
   ],
   "connections": {},
   "_source": {
-    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/personal-productivity/587-receive-email-updates-via-imap/workflow.json"
+    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
+    "file": "workflows/Receive email updates via IMAP-587/receive_email_updates_via_imap.json"
   }
 }

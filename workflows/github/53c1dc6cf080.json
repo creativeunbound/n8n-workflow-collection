@@ -26,7 +26,7 @@
   ],
   "connections": {},
   "_source": {
-    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/social-media/516-catch-mailchimp-subscribe-events/workflow.json"
+    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
+    "file": "workflows/Catch MailChimp subscribe events-516/catch_mailchimp_subscribe_events.json"
   }
 }

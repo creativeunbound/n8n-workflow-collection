@@ -1,4 +1,6 @@
 {
+  "id": "128",
+  "name": "Create a company in Salesmate",
   "nodes": [
     {
       "name": "On clicking 'execute'",
@@ -11,29 +13,32 @@
       "typeVersion": 1
     },
     {
-      "name": "Keap",
-      "type": "n8n-nodes-base.keap",
+      "name": "Salesmate",
+      "type": "n8n-nodes-base.salesmate",
       "position": [
         450,
         300
       ],
       "parameters": {
-        "options": {},
-        "resource": "contact",
-        "operation": "getAll"
+        "name": "",
+        "owner": "",
+        "resource": "company",
+        "additionalFields": {}
       },
       "credentials": {
-        "keapOAuth2Api": "keap_creds"
+        "salesmateApi": ""
       },
       "typeVersion": 1
     }
   ],
+  "active": false,
+  "settings": {},
   "connections": {
     "On clicking 'execute'": {
       "main": [
         [
           {
-            "node": "Keap",
+            "node": "Salesmate",
             "type": "main",
             "index": 0
           }
@@ -43,6 +48,6 @@
   },
   "_source": {
     "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/crm/553-get-all-contacts-from-keap/workflow.json"
+    "file": "templates/crm/500-create-a-company-in-salesmate/workflow.json"
   }
 }

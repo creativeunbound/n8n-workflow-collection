@@ -1,11 +1,11 @@
 {
-  "id": "0LibV64IZUrnrxXp",
+  "id": "wrwHlSeU1EaZKJ5H",
   "meta": null,
-  "name": "topupsapi MCP Server",
+  "name": "Mobility API MCP Server",
   "tags": [],
   "nodes": [
     {
-      "id": "55990118-1b22-4e07-a900-5b13d4eed6b2",
+      "id": "9407e467-6a00-4ee9-8b4d-3b651956dc78",
       "name": "Setup Instructions",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -14,13 +14,13 @@
       ],
       "parameters": {
         "color": 4,
-        "height": 1020,
+        "height": 1060,
         "content": "### \u2699\ufe0f Setup Instructions\n\n1. **Import Workflow**: \nLoad this workflow into your n8n instance\n\n2. **Authentication**: \nNo authentication required\n\n3. **Activate Workflow**:\nEnable the workflow to start the MCP server\n\n4. **Get MCP URL**: \nCopy the webhook URL from the MCP trigger\n\n5. **Connect AI Agent**:\nUse the MCP URL in your AI agent configuration\n\n\n### \ud83d\udca1 Usage Notes\n\u2022 Parameters are auto-populated by AI using $fromAI() expressions\n\u2022 With 2 API endpoints available as tools\n\u2022 Responses maintain original API structure\n\n\n### \ud83d\udee0\ufe0f Customization\n\u2022 Add data transformation nodes if needed\n\u2022 Implement custom error handling\n\u2022 Add logging or monitoring nodes\n\n\u2022 Modify parameter defaults in any HTTP request node as needed\n\n### \ud83d\udcac Need Help?\nPing me on [discord](https://discord.me/cfomodz) for integration guidance and custom automations. Check the [n8n documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.toolmcp/) for more information."
       },
       "typeVersion": 1
     },
     {
-      "id": "9e35f053-2c1e-4a0f-bdd6-f75a7a6d4407",
+      "id": "89c15181-ecd8-429f-87f2-7cd17c562743",
       "name": "Workflow Overview",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -29,27 +29,27 @@
       ],
       "parameters": {
         "width": 420,
-        "height": 660,
-        "content": "## \ud83d\udee0\ufe0f topupsapi MCP Server \u2705 2 operations\n\n### About\nPolls is a simple API allowing consumers to view polls and vote in them.\n\n### \ud83d\udd27 How it Works\n\nThis workflow converts the topupsapi API into an MCP-compatible interface for AI agents.\n\n\u2022 **MCP Trigger**: Serves as your server endpoint for AI agent requests\n\u2022 **HTTP Request Nodes**: Handle API calls to https://polls.apiblueprint.org\n\u2022 **AI Expressions**: Automatically populate parameters via `$fromAI()` placeholders\n\u2022 **Native Integration**: Returns responses directly to the AI agent\n\n\n### \ud83d\udccb Available Operations (2 endpoints)\n\n**Questions (2 operations)**\nList, Create\n\n"
+        "height": 920,
+        "content": "## \ud83d\udee0\ufe0f Mobility MCP Server \u2705 2 operations\n\n### About\nTransit API can be used to obtain time-aggregated data representing moving the people between various spatial points within the Czech Republic. Having A - 'from' and B - 'to' points, the API can return count of people traveling from A to B or people that are from A and traveling to B, etc. The mobility data is based on moving mobile stations in O2 mobile network.\n\n### \ud83d\udd27 How it Works\n\nThis workflow converts the Mobility API into an MCP-compatible interface for AI agents.\n\n\u2022 **MCP Trigger**: Serves as your server endpoint for AI agent requests\n\u2022 **HTTP Request Nodes**: Handle API calls to https://developer.o2.cz/mobility/sandbox/api\n\u2022 **AI Expressions**: Automatically populate parameters via `$fromAI()` placeholders\n\u2022 **Native Integration**: Returns responses directly to the AI agent\n\n\n### \ud83d\udccb Available Operations (2 endpoints)\n\n**Info (1 operations)**\nRetrieve Application Info\n\n**Transit (1 operations)**\nCalculate Transit Route\n\n"
       },
       "typeVersion": 1
     },
     {
-      "id": "3eaa18e2-330a-4a60-b31a-cdfec5931e02",
-      "name": "topupsapi MCP Server",
+      "id": "f4cab50f-b19e-4163-afbe-9b55b7daf8cf",
+      "name": "Mobility MCP Server",
       "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
       "position": [
         -620,
         -240
       ],
-      "webhookId": "f3198a6d-54c2-4086-beb1-a7e96a218ac2",
+      "webhookId": "21eed299-3f0f-4e27-8bc0-ecaf82e26f3f",
       "parameters": {
-        "path": "topupsapi-mcp"
+        "path": "mobility-mcp"
       },
       "typeVersion": 1
     },
     {
-      "id": "bf81835f-788d-4739-814a-602e99aca8f6",
+      "id": "4455f27d-e0cc-41b7-b0b0-30517ec3ed01",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -58,53 +58,72 @@
       ],
       "parameters": {
         "color": 2,
-        "width": 500,
+        "width": 300,
         "height": 200,
-        "content": "## Questions"
+        "content": "## Info"
       },
       "typeVersion": 1
     },
     {
-      "id": "aab984e6-fb74-4bbb-93f7-e44b8266e6d3",
-      "name": "Get Questions 1",
+      "id": "7fba4163-260d-44c7-a8c9-47aff6c419c1",
+      "name": "Retrieve Application Info",
       "type": "n8n-nodes-base.httpRequestTool",
       "position": [
         -520,
         -60
       ],
       "parameters": {
-        "url": "=https://polls.apiblueprint.org/questions",
+        "url": "=https://developer.o2.cz/mobility/sandbox/api/info",
         "options": {},
-        "toolDescription": "List All Questions"
+        "toolDescription": "Information about versions of application and data."
       },
       "typeVersion": 4.2
     },
     {
-      "id": "d77c0d2d-61ee-4b47-bbc1-c52ac1b9243d",
-      "name": "Create Question 1",
-      "type": "n8n-nodes-base.httpRequestTool",
+      "id": "116eae59-6430-486b-a86e-c340f6609253",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -320,
-        -60
+        -660,
+        140
       ],
       "parameters": {
-        "url": "=https://polls.apiblueprint.org/questions",
-        "method": "POST",
+        "color": 3,
+        "width": 300,
+        "height": 200,
+        "content": "## Transit"
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "dae3261a-7800-4c66-afd2-aabdae79b7d8",
+      "name": "Calculate Transit Route",
+      "type": "n8n-nodes-base.httpRequestTool",
+      "position": [
+        -520,
+        180
+      ],
+      "parameters": {
+        "url": "=https://developer.o2.cz/mobility/sandbox/api/transit/{{ $fromAI('from', 'source basic residential unit', 'string') }}/{{ $fromAI('to', 'destination basic residential unit', 'string') }}",
         "options": {},
-        "sendBody": true,
-        "bodyParameters": {
+        "sendQuery": true,
+        "queryParameters": {
           "parameters": [
             {
-              "name": "choices",
-              "value": "={{ $fromAI('choices', 'Choices', 'json') }}"
+              "name": "fromType",
+              "value": "={{ $fromAI('fromType', 'occurence type in the source basic residential unit (1 - transit, 2 - visit, 0 - both)', 'string') }}"
             },
             {
-              "name": "question",
-              "value": "={{ $fromAI('question', 'Question', 'string') }}"
+              "name": "toType",
+              "value": "={{ $fromAI('toType', 'occurence type in the destination basic residential unit (1 - transit, 2 - visit, 0 - both)', 'string') }}"
+            },
+            {
+              "name": "uniques",
+              "value": "={{ $fromAI('uniques', 'all or only uniques (0 - all, 1 - uniques)', 'string') }}"
             }
           ]
         },
-        "toolDescription": "Create a New Question\n\nParameters:\n- Body parameters:\n  \u2022 choices (optional)\n  \u2022 question (optional)"
+        "toolDescription": "Transit between basic residential units\n\nParameters:\n- Path parameters:\n  \u2022 from (required) - Source basic residential unit\n  \u2022 to (required) - Destination basic residential unit\n- Query parameters:\n  \u2022 fromType (optional) - Occurence type in the source basic residential unit (1 - transit, 2 - visit, 0 - both)\n  \u2022 toType (optional) - Occurence type in the destination basic residential unit (1 - transit, 2 - visit, 0 - both)\n  \u2022 uniques (required) - All or only uniques (0 - all, 1 - uniques)"
       },
       "typeVersion": 4.2
     }
@@ -157,38 +176,38 @@
           }
         ]
       },
-      "createdAt": "2025-07-03T05:53:29.186Z",
+      "createdAt": "2025-07-03T17:14:12.273Z",
       "projectId": "G5fce9xGuBAsWBXe",
-      "updatedAt": "2025-07-03T05:53:29.186Z",
-      "workflowId": "0LibV64IZUrnrxXp"
+      "updatedAt": "2025-07-03T17:14:12.273Z",
+      "workflowId": "wrwHlSeU1EaZKJ5H"
     }
   ],
   "pinData": {},
   "settings": {
     "timezone": "America/New_York"
   },
-  "createdAt": "2025-07-03T05:53:29.179Z",
-  "updatedAt": "2025-07-03T16:27:49.000Z",
-  "versionId": "014dc378-05d5-484e-afa1-b31babffe632",
+  "createdAt": "2025-07-03T17:14:12.272Z",
+  "updatedAt": "2025-07-03T17:17:18.000Z",
+  "versionId": "26d0fe26-ccf2-432e-bbe2-375132f8f358",
   "isArchived": false,
   "staticData": null,
   "connections": {
-    "Get Questions 1": {
+    "Calculate Transit Route": {
       "ai_tool": [
         [
           {
-            "node": "topupsapi MCP Server",
+            "node": "Mobility MCP Server",
             "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     },
-    "Create Question 1": {
+    "Retrieve Application Info": {
       "ai_tool": [
         [
           {
-            "node": "topupsapi MCP Server",
+            "node": "Mobility MCP Server",
             "type": "ai_tool",
             "index": 0
           }
@@ -198,7 +217,7 @@
   },
   "triggerCount": 0,
   "_source": {
-    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
-    "file": "workflows/topupsapi MCP Server-5641/topupsapi_mcp_server.json"
+    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+    "file": "templates/engineering/5651-mobility-api-mcp-server/workflow.json"
   }
 }

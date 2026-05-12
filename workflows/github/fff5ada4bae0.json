@@ -82,7 +82,7 @@
     }
   },
   "_source": {
-    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/devops/643-get-all-releases-in-sentry/workflow.json"
+    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
+    "file": "workflows/Get all releases in Sentry-643/get_all_releases_in_sentry.json"
   }
 }
