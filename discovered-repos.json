@@ -1096,5 +1096,23 @@
     "stargazersCount": 0,
     "updatedAt": "2026-05-09T18:42:19Z",
     "url": "https://github.com/studiomeyer-io/n8n-workflows"
+  },
+  {
+    "description": "Production-ready n8n workflows for automation, AI agents, CRM, backups, integrations, and productivity.",
+    "language": "",
+    "name": "awesome-n8n-workflows",
+    "pushedAt": "2026-05-14T07:02:07Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-14T07:02:11Z",
+    "url": "https://github.com/ShahzaibAnwar/awesome-n8n-workflows"
+  },
+  {
+    "description": "AI Workflow Automation Kit for n8n \u2014 8 production-ready OpenAI-powered business workflow templates with docs, prompts, and examples",
+    "language": "",
+    "name": "n8n-ai-workflow-kit",
+    "pushedAt": "2026-05-14T14:41:34Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-14T14:41:39Z",
+    "url": "https://github.com/humayun-sarfraz/n8n-ai-workflow-kit"
   }
 ]
