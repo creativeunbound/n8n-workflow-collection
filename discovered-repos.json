@@ -1114,5 +1114,50 @@
     "stargazersCount": 0,
     "updatedAt": "2026-05-14T14:41:39Z",
     "url": "https://github.com/humayun-sarfraz/n8n-ai-workflow-kit"
+  },
+  {
+    "description": "TR: n8n i\u00e7in geli\u015fmi\u015f AI ajanlar\u0131 ve otomasyon workflow'lar\u0131. EN: Advanced n8n AI agents, automation workflows and production-ready templates.",
+    "language": "",
+    "name": "n8n-ai-otomations",
+    "pushedAt": "2026-05-20T19:33:24Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-20T19:33:29Z",
+    "url": "https://github.com/tahsinmert/n8n-ai-otomations"
+  },
+  {
+    "description": "Repository for B.Future Challenge project work \"HermIA\"",
+    "language": "TypeScript",
+    "name": "hermia",
+    "pushedAt": "2026-01-31T21:35:20Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-01-31T21:35:24Z",
+    "url": "https://github.com/valeriooconte/hermia"
+  },
+  {
+    "description": "An automated N8N workflow system designed to analyze and provide structured feedback on student resumes and LinkedIn profiles. he system uses AI-powered analysis to ensure students meet professional standards and best practices for tech career applications.",
+    "language": "",
+    "name": "n8n-resume-and-linkedin-correction",
+    "pushedAt": "2026-02-09T14:33:16Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-02-09T14:34:56Z",
+    "url": "https://github.com/Programadores-do-amanha-PDA/n8n-resume-and-linkedin-correction"
+  },
+  {
+    "description": "Live in Production Loyalty System middleware (Tilda \u2194 iikoCard) built with n8n. Features: API Proxy layer, Idempotency, Global Error Handling, Custom JS Frontend, and SQL Analytics.",
+    "language": "",
+    "name": "n8n-automation-integrations-showcase",
+    "pushedAt": "2026-04-13T14:43:31Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-04-13T21:43:10Z",
+    "url": "https://github.com/gulnaz-bakinova/n8n-automation-integrations-showcase"
+  },
+  {
+    "description": "Curated n8n workflow library with 202 automation templates, import guides, QA tooling, and commercial readiness docs.",
+    "language": "JavaScript",
+    "name": "n8n-automation-workflow-library",
+    "pushedAt": "2026-05-18T13:02:34Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-18T13:03:24Z",
+    "url": "https://github.com/tahsinmert/n8n-automation-workflow-library"
   }
 ]
