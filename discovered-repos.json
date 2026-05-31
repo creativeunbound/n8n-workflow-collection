@@ -342,6 +342,15 @@
     "url": "https://github.com/nar0ka/Limited-Time-Offer"
   },
   {
+    "description": "MCP server for n8n workflow management -- view, create, sync, and manage n8n workflows via AI assistants",
+    "language": "TypeScript",
+    "name": "n8n-manager-mcp",
+    "pushedAt": "2026-05-31T13:07:47Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-05-31T13:07:51Z",
+    "url": "https://github.com/ellmos-ai/n8n-manager-mcp"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -1159,5 +1168,41 @@
     "stargazersCount": 0,
     "updatedAt": "2026-05-18T13:03:24Z",
     "url": "https://github.com/tahsinmert/n8n-automation-workflow-library"
+  },
+  {
+    "description": "6,400+ free, production-ready n8n automation workflows. The largest open-source n8n template library - self-hosted, AI-powered, and community-driven.",
+    "language": "Python",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-05-26T22:24:37Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-26T22:29:19Z",
+    "url": "https://github.com/aboalrejal-ai/n8n-workflows"
+  },
+  {
+    "description": "20 free production-grade n8n automation workflows + 5-page setup PDFs. Lead Gen, AEO, Ops, E-com, Vertical. By Waseem Nasir / SkynetLabs.",
+    "language": "HTML",
+    "name": "skynet-automation-pack",
+    "pushedAt": "2026-05-17T16:48:20Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-29T09:05:47Z",
+    "url": "https://github.com/waseemnasir2k26/skynet-automation-pack"
+  },
+  {
+    "description": "StudioDDx \u2014 Premium AI prompt packs, system prompts, n8n workflows, and automation scripts on Gumroad",
+    "language": "HTML",
+    "name": "studioddx-landing",
+    "pushedAt": "2026-05-31T16:06:50Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-31T16:07:07Z",
+    "url": "https://github.com/ruca-radio/studioddx-landing"
+  },
+  {
+    "description": "A collection of reusable n8n workflow templates for automation, integrations, and business workflows.",
+    "language": "",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-05-26T04:35:01Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-26T04:35:04Z",
+    "url": "https://github.com/Rumman90/n8n-workflows"
   }
 ]
