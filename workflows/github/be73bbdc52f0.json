@@ -1,11 +1,13 @@
 {
+  "id": "3",
+  "name": "XML Conversion",
   "nodes": [
     {
       "name": "On clicking 'execute'",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
         250,
-        320
+        300
       ],
       "parameters": {},
       "typeVersion": 1
@@ -14,48 +16,48 @@
       "name": "Set",
       "type": "n8n-nodes-base.set",
       "position": [
-        450,
-        320
+        510,
+        300
       ],
       "parameters": {
         "values": {
           "string": [
             {
-              "name": "key",
-              "value": "somevalue"
+              "name": "xml",
+              "value": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <ORDERS05>   <IDOC BEGIN=\"1\">     <EDI_DC40 SEGMENT=\"1\">       <TABNAM>EDI_DC40</TABNAM>     </EDI_DC40>   </IDOC> </ORDERS05>"
             }
           ]
         },
-        "options": {}
+        "keepOnlySet": true
       },
       "typeVersion": 1
     },
     {
-      "name": "Rename Keys",
-      "type": "n8n-nodes-base.renameKeys",
+      "name": "XML",
+      "type": "n8n-nodes-base.xml",
       "position": [
-        650,
-        320
+        740,
+        300
       ],
       "parameters": {
-        "keys": {
-          "key": [
-            {
-              "newKey": "newkey",
-              "currentKey": "key"
-            }
-          ]
-        }
+        "options": {
+          "attrkey": "$",
+          "mergeAttrs": false,
+          "explicitRoot": true
+        },
+        "dataPropertyName": "xml"
       },
       "typeVersion": 1
     }
   ],
+  "active": false,
+  "settings": {},
   "connections": {
     "Set": {
       "main": [
         [
           {
-            "node": "Rename Keys",
+            "node": "XML",
             "type": "main",
             "index": 0
           }
@@ -75,7 +77,7 @@
     }
   },
   "_source": {
-    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/engineering/582-rename-a-key-in-n8n/workflow.json"
+    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
+    "file": "workflows/Convert XML to JSON-160/convert_xml_to_json.json"
   }
 }

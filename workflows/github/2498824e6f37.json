@@ -449,7 +449,7 @@
     }
   },
   "_source": {
-    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/ai-and-llm/7889-job-applying-agent/workflow.json"
+    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
+    "file": "workflows/Job Applying Agent-7889/job_applying_agent.json"
   }
 }

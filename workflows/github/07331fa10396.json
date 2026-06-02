@@ -1,13 +1,11 @@
 {
-  "id": "3",
-  "name": "XML Conversion",
   "nodes": [
     {
       "name": "On clicking 'execute'",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
         250,
-        300
+        320
       ],
       "parameters": {},
       "typeVersion": 1
@@ -16,48 +14,48 @@
       "name": "Set",
       "type": "n8n-nodes-base.set",
       "position": [
-        510,
-        300
+        450,
+        320
       ],
       "parameters": {
         "values": {
           "string": [
             {
-              "name": "xml",
-              "value": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <ORDERS05>   <IDOC BEGIN=\"1\">     <EDI_DC40 SEGMENT=\"1\">       <TABNAM>EDI_DC40</TABNAM>     </EDI_DC40>   </IDOC> </ORDERS05>"
+              "name": "key",
+              "value": "somevalue"
             }
           ]
         },
-        "keepOnlySet": true
+        "options": {}
       },
       "typeVersion": 1
     },
     {
-      "name": "XML",
-      "type": "n8n-nodes-base.xml",
+      "name": "Rename Keys",
+      "type": "n8n-nodes-base.renameKeys",
       "position": [
-        740,
-        300
+        650,
+        320
       ],
       "parameters": {
-        "options": {
-          "attrkey": "$",
-          "mergeAttrs": false,
-          "explicitRoot": true
-        },
-        "dataPropertyName": "xml"
+        "keys": {
+          "key": [
+            {
+              "newKey": "newkey",
+              "currentKey": "key"
+            }
+          ]
+        }
       },
       "typeVersion": 1
     }
   ],
-  "active": false,
-  "settings": {},
   "connections": {
     "Set": {
       "main": [
         [
           {
-            "node": "XML",
+            "node": "Rename Keys",
             "type": "main",
             "index": 0
           }
@@ -77,7 +75,7 @@
     }
   },
   "_source": {
-    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/document-extraction/160-convert-xml-to-json/workflow.json"
+    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
+    "file": "workflows/Rename a key in n8n-582/rename_a_key_in_n8n.json"
   }
 }
