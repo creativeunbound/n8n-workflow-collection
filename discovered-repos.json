@@ -351,6 +351,15 @@
     "url": "https://github.com/ellmos-ai/n8n-manager-mcp"
   },
   {
+    "description": "Local-first n8n workflow manager with visual graph viewer, REST API, CLI, and multi-server sync",
+    "language": "Python",
+    "name": "n8n-workflow-manager",
+    "pushedAt": "2026-06-07T11:51:44Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-06-07T11:51:59Z",
+    "url": "https://github.com/ellmos-ai/n8n-workflow-manager"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
