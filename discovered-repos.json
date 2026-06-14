@@ -207,6 +207,15 @@
     "url": "https://github.com/studiomeyer-io/n8n-templates"
   },
   {
+    "description": "M\u1ee5c ti\u00eau c\u1ee7a n8nworkflows.vn l\u00e0 mang \u0111\u1ebfn m\u1ed9t kho workflow n8n th\u00e2n thi\u1ec7n h\u01a1n cho c\u1ed9ng \u0111\u1ed3ng ng\u01b0\u1eddi d\u00f9ng Vi\u1ec7t Nam, \u0111\u1ed3ng th\u1eddi ti\u1ebfp t\u1ee5c duy tr\u00ec tinh th\u1ea7n chia s\u1ebb v\u00e0 \u0111\u00f3ng g\u00f3p c\u1ee7a d\u1ef1 \u00e1n g\u1ed1c.",
+    "language": "",
+    "name": "n8nworkflows.vn",
+    "pushedAt": "2026-06-11T04:22:15Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-06-11T04:38:04Z",
+    "url": "https://github.com/tkdlk12527/n8nworkflows.vn"
+  },
+  {
     "description": "n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models",
     "language": "TypeScript",
     "name": "n8n-nodes-nvidia-nim",
@@ -1213,5 +1222,23 @@
     "stargazersCount": 0,
     "updatedAt": "2026-05-26T04:35:04Z",
     "url": "https://github.com/Rumman90/n8n-workflows"
+  },
+  {
+    "description": "AI-powered support ticket assistant using Freshdesk, n8n, and OpenAI.",
+    "language": "",
+    "name": "ai-ticket-resolution-assistant",
+    "pushedAt": "2026-06-10T17:14:06Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-06-10T17:15:45Z",
+    "url": "https://github.com/naveenx0303/ai-ticket-resolution-assistant"
+  },
+  {
+    "description": "",
+    "language": "TypeScript",
+    "name": "n8nlogger",
+    "pushedAt": "2026-06-01T23:50:23Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-06-02T00:42:45Z",
+    "url": "https://github.com/kuwe77/n8nlogger"
   }
 ]
