@@ -369,6 +369,15 @@
     "url": "https://github.com/ellmos-ai/n8n-workflow-manager"
   },
   {
+    "description": "The AI Stackk: plain-English AI education, n8n workflow templates, and practical AI automation resources for beginners.",
+    "language": "",
+    "name": "TheAIStackk",
+    "pushedAt": "2026-06-16T16:34:07Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-06-16T16:34:12Z",
+    "url": "https://github.com/satmakuru222/TheAIStackk"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -1240,5 +1249,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-06-02T00:42:45Z",
     "url": "https://github.com/kuwe77/n8nlogger"
+  },
+  {
+    "description": "Automating and Scheduling LinkedIn Posts using n8n.",
+    "language": "",
+    "name": "business_post_pipeline",
+    "pushedAt": "2026-06-20T10:28:39Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-06-20T10:53:58Z",
+    "url": "https://github.com/utkarsh-ankit/business_post_pipeline"
   }
 ]
