@@ -153,6 +153,15 @@
     "url": "https://github.com/ZenSystemAI/multi-agent-memory"
   },
   {
+    "description": "Local-first CLI and Claude Code plugin for generating, validating, sanitizing, documenting, and scaffolding n8n workflow JSON.",
+    "language": "TypeScript",
+    "name": "flowforge-n8n",
+    "pushedAt": "2026-07-05T06:58:50Z",
+    "stargazersCount": 3,
+    "updatedAt": "2026-07-05T06:58:54Z",
+    "url": "https://github.com/mOHAD44DSFASF/flowforge-n8n"
+  },
+  {
     "description": "42 n8n workflows connecting Craft docs with AI, RAG, analytics, and more",
     "language": "",
     "name": "n8n-workflows-craft",
@@ -214,6 +223,15 @@
     "stargazersCount": 2,
     "updatedAt": "2026-06-11T04:38:04Z",
     "url": "https://github.com/tkdlk12527/n8nworkflows.vn"
+  },
+  {
+    "description": "24 ready-to-import n8n workflows that seal every AI decision with a cryptographically signed Signatrust Decision Receipt (Ed25519). Audit-ready AI automation for finance, support, HR, healthcare & governance.",
+    "language": "Python",
+    "name": "n8n-signatrust-workflows",
+    "pushedAt": "2026-06-30T16:45:36Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-07-05T03:26:40Z",
+    "url": "https://github.com/abokenan444/n8n-signatrust-workflows"
   },
   {
     "description": "n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models",
@@ -376,6 +394,15 @@
     "stargazersCount": 1,
     "updatedAt": "2026-06-16T16:34:12Z",
     "url": "https://github.com/satmakuru222/TheAIStackk"
+  },
+  {
+    "description": "A collection of open-source n8n workflows for system administration and automation.",
+    "language": "",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-06-28T21:31:46Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-06-28T21:31:50Z",
+    "url": "https://github.com/dasgltd/n8n-workflows"
   },
   {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
