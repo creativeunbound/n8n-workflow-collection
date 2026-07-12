@@ -1285,5 +1285,23 @@
     "stargazersCount": 0,
     "updatedAt": "2026-06-20T10:53:58Z",
     "url": "https://github.com/utkarsh-ankit/business_post_pipeline"
+  },
+  {
+    "description": "40 production-grade n8n automation workflows \u2014 each import-tested in a live n8n instance. AI agents, sales, DevOps, marketing & more.",
+    "language": "Python",
+    "name": "n8n-automations",
+    "pushedAt": "2026-07-12T06:04:08Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-12T01:23:40Z",
+    "url": "https://github.com/mlvpatel/n8n-automations"
+  },
+  {
+    "description": "Collection of n8n workflows for various business needs.",
+    "language": "",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-07-09T12:12:26Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-09T12:12:46Z",
+    "url": "https://github.com/tfest-dev/n8n-workflows"
   }
 ]
