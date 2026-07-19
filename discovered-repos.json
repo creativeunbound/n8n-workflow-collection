@@ -405,6 +405,24 @@
     "url": "https://github.com/dasgltd/n8n-workflows"
   },
   {
+    "description": "n8n community nodes for the Frame.io V4 API (Adobe): projects, folders, files, uploads, comments, shares, version stacks and webhook triggers",
+    "language": "TypeScript",
+    "name": "n8n-nodes-frameio-v4",
+    "pushedAt": "2026-07-17T09:03:17Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-07-17T11:50:22Z",
+    "url": "https://github.com/BenNotix/n8n-nodes-frameio-v4"
+  },
+  {
+    "description": "workflow library for n8n: install, govern, diff, lint, and drift-check sanitized lead-intake and post-call workflows",
+    "language": "JavaScript",
+    "name": "n8n_showcase",
+    "pushedAt": "2026-07-14T01:40:06Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-07-14T01:39:05Z",
+    "url": "https://github.com/wranngle/n8n_showcase"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
