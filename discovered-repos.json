@@ -1321,5 +1321,32 @@
     "stargazersCount": 0,
     "updatedAt": "2026-07-09T12:12:46Z",
     "url": "https://github.com/tfest-dev/n8n-workflows"
+  },
+  {
+    "description": "A collection of custom n8n workflows",
+    "language": "",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-07-23T04:09:50Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-23T04:09:53Z",
+    "url": "https://github.com/christopherjnelson/n8n-workflows"
+  },
+  {
+    "description": "Savant Azurian MVP is a cloud-native enterprise AI assistant on Azure, combining FastAPI, Azure AI Foundry, Azure AI Search, PostgreSQL, Blob Storage, and n8n to deliver conversational AI, document RAG, PDF processing, and workflow automation.",
+    "language": "Python",
+    "name": "savant-azurian-mvp",
+    "pushedAt": "2026-07-26T15:30:38Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-26T15:41:55Z",
+    "url": "https://github.com/boussecsou/savant-azurian-mvp"
+  },
+  {
+    "description": "Agentic OS is a high-performance platform for deploying autonomous, 24/7 AI agents. Built with React, Tailwind CSS, Vite, and Express, it features an agent marketplace, interactive ROI calculator, real-time analytics, and secure Nodemailer-integrated pricing forms.",
+    "language": "",
+    "name": "Agentic-Operation-System",
+    "pushedAt": "2026-05-20T03:21:56Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-20T03:22:00Z",
+    "url": "https://github.com/Gacruxweb/Agentic-Operation-System"
   }
 ]
