@@ -234,6 +234,15 @@
     "url": "https://github.com/abokenan444/n8n-signatrust-workflows"
   },
   {
+    "description": "",
+    "language": "Svelte",
+    "name": "chatflowgate-ui",
+    "pushedAt": "2026-08-02T06:54:33Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-08-02T06:54:59Z",
+    "url": "https://github.com/johndavedecano/chatflowgate-ui"
+  },
+  {
     "description": "n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models",
     "language": "TypeScript",
     "name": "n8n-nodes-nvidia-nim",
@@ -1348,5 +1357,23 @@
     "stargazersCount": 0,
     "updatedAt": "2026-05-20T03:22:00Z",
     "url": "https://github.com/Gacruxweb/Agentic-Operation-System"
+  },
+  {
+    "description": "Production-grade AI email automation agent \u2014 46 nodes, dual-AI (Gemini + Groq), OCR, sentiment detection, prompt injection protection & confidence-based auto-replies. Built with n8n.",
+    "language": "",
+    "name": "universal-email-agent-n8n",
+    "pushedAt": "2026-07-31T23:18:42Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-31T23:19:08Z",
+    "url": "https://github.com/muhammadantor/universal-email-agent-n8n"
+  },
+  {
+    "description": "AI-powered n8n procurement price benchmarking workflow that compares internal purchasing costs with historical data and Google News trends, analyzes pricing risk using Groq Llama 3.3, sends Slack alerts, and logs reports to Google Sheets. Automate procurement analytics, supplier negotiations, and cost optimization.",
+    "language": "",
+    "name": "n8n-Benchmark-procurement-prices-and-flag-overpricing-with-Google-Sheets-Groq-and-Slack",
+    "pushedAt": "2026-07-31T10:51:01Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-31T11:29:12Z",
+    "url": "https://github.com/weblineindia/n8n-Benchmark-procurement-prices-and-flag-overpricing-with-Google-Sheets-Groq-and-Slack"
   }
 ]
