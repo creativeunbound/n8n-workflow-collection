@@ -432,6 +432,15 @@
     "url": "https://github.com/wranngle/n8n_showcase"
   },
   {
+    "description": "AI Automation Engineer turning business workflows into smart systems  n8n, LLM integrations, computer vision & full-stack web. Currently building end to end AI agents for real clients.",
+    "language": "Jupyter Notebook",
+    "name": "rosey321-code",
+    "pushedAt": "2026-08-04T18:15:14Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-08-04T19:06:29Z",
+    "url": "https://github.com/rosey321-code/rosey321-code"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -1375,5 +1384,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-07-31T11:29:12Z",
     "url": "https://github.com/weblineindia/n8n-Benchmark-procurement-prices-and-flag-overpricing-with-Google-Sheets-Groq-and-Slack"
+  },
+  {
+    "description": "Workflow sources are generated with TypeScript and Bun. The n8n-workflow package provides the n8n workflow types; no Node.js runtime is required.",
+    "language": "JavaScript",
+    "name": "n8n-automations",
+    "pushedAt": "2026-08-07T17:32:47Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-07T17:32:32Z",
+    "url": "https://github.com/sametcn99/n8n-automations"
   }
 ]
