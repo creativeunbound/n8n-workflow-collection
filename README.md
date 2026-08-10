@@ -1,19 +1,19 @@
 # n8n Workflow Collection
 
-Automated collection of 786 n8n workflows from the official API and community GitHub repositories.
+Automated collection of 788 n8n workflows from the official API and community GitHub repositories.
 
-**Last Updated:** 2026-08-04 20:17 UTC
+**Last Updated:** 2026-08-10 19:57 UTC
 
 ## Collection Stats
 
-- **Total Workflows:** 786
-  - From n8n Official API: 20
+- **Total Workflows:** 788
+  - From n8n Official API: 22
   - From GitHub Repos: 766
 
 - **By Complexity:**
-  - Beginner (1-5 nodes): 214
+  - Beginner (1-5 nodes): 215
   - Intermediate (6-15 nodes): 279
-  - Advanced (16+ nodes): 293
+  - Advanced (16+ nodes): 294
 
 ## Top Integrations
 
