@@ -75,7 +75,7 @@
     }
   },
   "_source": {
-    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
-    "file": "workflows/Rename a key in n8n-582/rename_a_key_in_n8n.json"
+    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
+    "file": "templates/engineering/582-rename-a-key-in-n8n/workflow.json"
   }
 }
