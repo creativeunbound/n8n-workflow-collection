@@ -117,6 +117,15 @@
     "url": "https://github.com/yomazini/telegram-automation-bot-framework"
   },
   {
+    "description": "Curated catalog of production-ready n8n AI agent templates. Shared docs (architecture, security, output conventions) used by every template repo.",
+    "language": "",
+    "name": "n8n-ai-agents",
+    "pushedAt": "2026-08-16T14:10:32Z",
+    "stargazersCount": 4,
+    "updatedAt": "2026-08-16T14:14:46Z",
+    "url": "https://github.com/MinaSaad1/n8n-ai-agents"
+  },
+  {
     "description": "An AI-powered personal assistant built with n8n that combines autonomous agents, vector memory, and real-time integrations. Manages your calendar, tasks, and personal knowledge through natural language via Telegram, with automated daily readiness reports based on recovery data. It contains a vast number of modular tools for implementation.",
     "language": "",
     "name": "n8n-workflows",
@@ -439,6 +448,24 @@
     "stargazersCount": 1,
     "updatedAt": "2026-08-04T19:06:29Z",
     "url": "https://github.com/rosey321-code/rosey321-code"
+  },
+  {
+    "description": "Backup your n8n Workflows to a Dropbox folder",
+    "language": "",
+    "name": "n8n-backup-dropbox",
+    "pushedAt": "2026-08-15T21:18:08Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-08-16T10:09:25Z",
+    "url": "https://github.com/hschneider/n8n-backup-dropbox"
+  },
+  {
+    "description": "AI Company n8n Automation System \u2014 32 specialized AI agents orchestrated via Telegram. Org hierarchy, content pipeline, business operations.",
+    "language": "Python",
+    "name": "Kaium",
+    "pushedAt": "2026-08-15T18:09:11Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-08-15T18:09:42Z",
+    "url": "https://github.com/creativeai7intellizone-hub/Kaium"
   },
   {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
@@ -1393,5 +1420,41 @@
     "stargazersCount": 0,
     "updatedAt": "2026-08-07T17:32:32Z",
     "url": "https://github.com/sametcn99/n8n-automations"
+  },
+  {
+    "description": "AI \u5185\u5bb9\u5de5\u5382 | 5 \u6761\u751f\u4ea7\u7ea7 n8n \u5de5\u4f5c\u6d41\uff0c402 \u8282\u70b9\uff1a\u6570\u5b57\u4eba\u53e3\u64ad\u89c6\u9891\u751f\u6210\uff08Sora 2 Pro + MiniMax TTS + FFmpeg\uff09+ \u70ed\u70b9\u8f6c\u56fe\u6587\u5361\u7247\uff08\u53ef\u7075 Kling / \u8c46\u5305 Seedream\uff09\uff0c\u98de\u4e66\u591a\u7ef4\u8868\u683c\u5f53\u5206\u5e03\u5f0f\u4efb\u52a1\u961f\u5217\u3002\u5f02\u6b65\u63d0\u4ea4-\u8f6e\u8be2-\u91cd\u8bd5\u67b6\u6784\uff0c\u4e2d\u82f1\u53cc\u8bed\u6587\u6863\u3002",
+    "language": "",
+    "name": "n8n-ai-content-factory",
+    "pushedAt": "2026-08-14T03:29:07Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-14T03:29:11Z",
+    "url": "https://github.com/gaoorange/n8n-ai-content-factory"
+  },
+  {
+    "description": "Open-source WhatsApp e-commerce AI sales agent built with Node.js, React, n8n, Google Sheets, and WhatsApp Cloud API. Includes product search, inventory checks, order management, payment workflows, admin dashboard, and security.",
+    "language": "HTML",
+    "name": "whatsapp-ecommerce-ai-agent",
+    "pushedAt": "2026-08-15T09:57:18Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-15T09:57:34Z",
+    "url": "https://github.com/TeamRSBDigital/whatsapp-ecommerce-ai-agent"
+  },
+  {
+    "description": "Three runnable n8n workflows for agencies \u2014 lead intake normalisation, CRM dedupe, and appointment reminders. No credentials needed; import and run.",
+    "language": "JavaScript",
+    "name": "n8n-agency-demos",
+    "pushedAt": "2026-08-15T15:52:16Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-15T15:52:28Z",
+    "url": "https://github.com/ihthicodes/n8n-agency-demos"
+  },
+  {
+    "description": "Tested n8n workflow recipes for retries, idempotency, exact-match quoting, approval gates, and safe recovery.",
+    "language": "Shell",
+    "name": "n8n-automation-recipes",
+    "pushedAt": "2026-08-14T21:41:41Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-14T21:38:57Z",
+    "url": "https://github.com/rains-hori/n8n-automation-recipes"
   }
 ]
