@@ -468,6 +468,15 @@
     "url": "https://github.com/creativeai7intellizone-hub/Kaium"
   },
   {
+    "description": "N8n workflow that captures signups via form, logs leads to Google Sheets, and sends AI-personalized welcome emails using Groq + Gmail.",
+    "language": "",
+    "name": "AI-Lead-Capture-Onboarding",
+    "pushedAt": "2026-08-19T03:58:45Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-08-19T04:05:46Z",
+    "url": "https://github.com/zakir-maswani/AI-Lead-Capture-Onboarding"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -1456,5 +1465,14 @@
     "stargazersCount": 0,
     "updatedAt": "2026-08-14T21:38:57Z",
     "url": "https://github.com/rains-hori/n8n-automation-recipes"
+  },
+  {
+    "description": "GitOps n8n workflow sync: auto-import from git on Docker start, publish & Telegram fix.",
+    "language": "JavaScript",
+    "name": "n8n-auto-import",
+    "pushedAt": "2026-08-22T09:16:11Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-22T09:16:18Z",
+    "url": "https://github.com/olegfour3/n8n-auto-import"
   }
 ]
