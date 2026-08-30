@@ -1474,5 +1474,140 @@
     "stargazersCount": 0,
     "updatedAt": "2026-08-22T09:16:18Z",
     "url": "https://github.com/olegfour3/n8n-auto-import"
+  },
+  {
+    "description": "This is an automated content system that creates an image and text post 3 times a day and posts it on LinkedIn",
+    "language": "",
+    "name": "n8n-autonomous-content-generator",
+    "pushedAt": "2026-08-26T11:17:38Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-26T12:36:14Z",
+    "url": "https://github.com/Ginger161/n8n-autonomous-content-generator"
+  },
+  {
+    "description": "Safe-by-default n8n workflows for TradingView paper validation and read-only PipSync summaries.",
+    "language": "JavaScript",
+    "name": "pipsync-n8n-templates",
+    "pushedAt": "2026-08-25T17:53:37Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-25T17:56:16Z",
+    "url": "https://github.com/pipsyncio/pipsync-n8n-templates"
+  },
+  {
+    "description": "Self-hosted n8n workflow that auto-labels Gmail with Google Gemini \u2014 Zero Inbox without deleting anything.",
+    "language": "JavaScript",
+    "name": "Gmail-Labeler",
+    "pushedAt": "2026-08-16T22:51:04Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-16T22:51:13Z",
+    "url": "https://github.com/davidtoltesy/Gmail-Labeler"
+  },
+  {
+    "description": "Seller-side wholesaling automation: 7 n8n workflows, 341 nodes. Distressed-property scrape, skip trace, TCPA-compliant outreach, 20+ intent reply classifier.",
+    "language": "",
+    "name": "real-estate-acquisition-workflows",
+    "pushedAt": "2026-07-22T20:37:32Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-28T00:03:17Z",
+    "url": "https://github.com/rafiulislam4246/real-estate-acquisition-workflows"
+  },
+  {
+    "description": "Buyer-side wholesaling automation: 10 n8n workflows, 127 nodes. Deal scoring, multi-dimensional buyer matching, tiered distribution, follow-up, lifecycle.",
+    "language": "",
+    "name": "real-estate-disposition-workflows",
+    "pushedAt": "2026-07-21T22:43:35Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-28T00:03:18Z",
+    "url": "https://github.com/rafiulislam4246/real-estate-disposition-workflows"
+  },
+  {
+    "description": "AI-assisted n8n workflow for passive website security monitoring, risk scoring, Gemini reporting, and automated Gmail alerts.",
+    "language": "",
+    "name": "jovanops-security-pulse",
+    "pushedAt": "2026-07-21T16:21:53Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-30T17:02:07Z",
+    "url": "https://github.com/JovanOps/jovanops-security-pulse"
+  },
+  {
+    "description": "Production AI Messenger bot for Facebook \u2014 dual-AI-brain n8n workflow with Gemini + Groq fallback, auto language detection, and smart lead escalation.",
+    "language": "",
+    "name": "ai-facebook-messenger-bot-n8n",
+    "pushedAt": "2026-08-08T22:49:34Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-08T22:49:38Z",
+    "url": "https://github.com/muhammadantor/ai-facebook-messenger-bot-n8n"
+  },
+  {
+    "description": "self-hosted autonomous AI-Agent systems that are secure, transparent, and cost-efficient.",
+    "language": "",
+    "name": "n8n-with-autonomous-agent-platform-demo",
+    "pushedAt": "2026-07-26T19:13:21Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-26T22:39:11Z",
+    "url": "https://github.com/MustiSquare/n8n-with-autonomous-agent-platform-demo"
+  },
+  {
+    "description": "Critical GitHub issue is classified and sent to Slack/Google Sheets",
+    "language": "",
+    "name": "daily-briefing-poc",
+    "pushedAt": "2026-07-24T16:08:38Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-24T16:19:26Z",
+    "url": "https://github.com/DevPartner/daily-briefing-poc"
+  },
+  {
+    "description": "A collection of self-hosted n8n deployment setups, infrastructure examples, and reusable workflows.",
+    "language": "",
+    "name": "n8n-selfhosting-workflows",
+    "pushedAt": "2026-05-05T09:12:07Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-05T09:12:12Z",
+    "url": "https://github.com/muralimopidevi/n8n-selfhosting-workflows"
+  },
+  {
+    "description": "Ready-to-import n8n workflow templates for social media automation with Posta \u2014 schedule, LinkedIn carousels, launch campaigns, YouTube promotion across 8 networks.",
+    "language": "",
+    "name": "posta-n8n-workflows",
+    "pushedAt": "2026-06-30T06:54:54Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-06-30T06:54:58Z",
+    "url": "https://github.com/STGime/posta-n8n-workflows"
+  },
+  {
+    "description": "Workflow n8n gratuiti in italiano per PMI: lead dal sito, solleciti pagamenti, rassegna email AI. Pronti da importare.",
+    "language": "",
+    "name": "automazioni-pmi-italia",
+    "pushedAt": "2026-07-15T16:30:11Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-07-15T16:31:32Z",
+    "url": "https://github.com/Airvision2026/automazioni-pmi-italia"
+  },
+  {
+    "description": "Enterprise-grade Agent Skill suite for designing, building, and validating production-ready n8n workflows using Antigravity & Agentic AI IDEs. Includes 12 skill modules, a 131-rule automated Python validator, complete node/expression reference catalogs, and 8 ready-to-import workflow templates.",
+    "language": "Python",
+    "name": "N8N-Workflow-Builder-Agent-skills-N8N",
+    "pushedAt": "2026-08-30T08:58:07Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-30T08:58:17Z",
+    "url": "https://github.com/abbibo/N8N-Workflow-Builder-Agent-skills-N8N"
+  },
+  {
+    "description": "Convert Markdown to PDF inside n8n using Puppeteer - A Medhira community package",
+    "language": "TypeScript",
+    "name": "n8n-nodes-medhira",
+    "pushedAt": "2026-05-29T11:19:57Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-05-29T11:20:01Z",
+    "url": "https://github.com/HELLOMEDHIRA/n8n-nodes-medhira"
+  },
+  {
+    "description": "n8n templates API on Apify: search the n8n workflow library, rank by views, and export importable n8n workflow JSON.",
+    "language": "Python",
+    "name": "Apify-N8n-Templates-API",
+    "pushedAt": "2026-08-18T13:22:38Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-18T13:28:46Z",
+    "url": "https://github.com/johnisanerd/Apify-N8n-Templates-API"
   }
 ]
