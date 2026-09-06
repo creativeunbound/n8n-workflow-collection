@@ -252,6 +252,15 @@
     "url": "https://github.com/johndavedecano/chatflowgate-ui"
   },
   {
+    "description": "Scrape job listings from Claude \u2014 no code \u2014 by connecting the Orgupdate Actors to Claude through the Apify MCP server.",
+    "language": "",
+    "name": "Apify-Claude-AI",
+    "pushedAt": "2026-09-05T06:24:23Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-09-05T10:48:16Z",
+    "url": "https://github.com/orgupdate/Apify-Claude-AI"
+  },
+  {
     "description": "n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models",
     "language": "TypeScript",
     "name": "n8n-nodes-nvidia-nim",
@@ -475,6 +484,51 @@
     "stargazersCount": 1,
     "updatedAt": "2026-08-19T04:05:46Z",
     "url": "https://github.com/zakir-maswani/AI-Lead-Capture-Onboarding"
+  },
+  {
+    "description": "Hands on workflows and certificate from n8n's official Quickstart course. Covers triggers, HTTP requests, data transformation, error handling, and building an AI agent in n8n. Documented for other learners to study and reuse.",
+    "language": "",
+    "name": "n8n-quickstart-certificate",
+    "pushedAt": "2026-08-31T09:03:26Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-08-31T09:08:35Z",
+    "url": "https://github.com/MuhammadFaraz-AI/n8n-quickstart-certificate"
+  },
+  {
+    "description": "Drop-in n8n sub-workflows that put a spend cap, iteration budget, error-rate circuit breaker and manual kill switch in front of any AI-agent workflow. A cap in a prompt is a suggestion; a cap in a database is a control. Postgres-backed, importable JSON.",
+    "language": "Python",
+    "name": "n8n-circuit-breaker-pack",
+    "pushedAt": "2026-09-01T09:06:10Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-09-01T14:49:54Z",
+    "url": "https://github.com/waseemnasir2k26/n8n-circuit-breaker-pack"
+  },
+  {
+    "description": "16 production-shaped n8n workflows that turn social activity into qualified CRM leads, built for agency owners. Capture, enrich, score, engage, report - every outbound path gated by a shared safety-rails sub-workflow: kill switch, suppression, consent, rate limit, spend cap. CRM-agnostic adapter pattern.",
+    "language": "JavaScript",
+    "name": "n8n-social-leadgen-pack",
+    "pushedAt": "2026-09-01T10:26:40Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-09-01T14:45:49Z",
+    "url": "https://github.com/waseemnasir2k26/n8n-social-leadgen-pack"
+  },
+  {
+    "description": "n8n workflows for e-commerce SEO ops: uptime/content audits, monthly reporting + keyword cannibalization detection, and AI-answer-engine (GEO) visibility tracking.",
+    "language": "",
+    "name": "n8n-seo-monitor-suite",
+    "pushedAt": "2026-09-06T08:25:02Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-09-06T12:36:46Z",
+    "url": "https://github.com/DmitriiDmallSick/n8n-seo-monitor-suite"
+  },
+  {
+    "description": "n8n automation for eBay Product Research using MCP to analyze multi-SKU sales data across multiple time periods and update Google Sheets.",
+    "language": "",
+    "name": "ebay-product-research-automation",
+    "pushedAt": "2026-09-02T11:17:45Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-09-03T03:38:25Z",
+    "url": "https://github.com/ZainSaed/ebay-product-research-automation"
   },
   {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
@@ -1609,5 +1663,50 @@
     "stargazersCount": 0,
     "updatedAt": "2026-08-18T13:28:46Z",
     "url": "https://github.com/johnisanerd/Apify-N8n-Templates-API"
+  },
+  {
+    "description": "Minimal, high-converting lead capture form built with vanilla HTML, CSS, and JavaScript. Submits to an n8n webhook pipeline for automated scoring, CRM sync, and instant notifications. Includes honeypot spam protection, full UTM attribution, client-side validation, and duplicate email handling. ",
+    "language": "HTML",
+    "name": "inbound-lead-intelligence-form",
+    "pushedAt": "2026-09-06T09:15:29Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-06T09:19:00Z",
+    "url": "https://github.com/NelsonEm9/inbound-lead-intelligence-form"
+  },
+  {
+    "description": "25 einsatzfertige n8n-Workflows auf Deutsch \u2014 mit Pr\u00fcflogik, DSGVO- und EU-AI-Act-Hinweisen. Automatisch auf Importierbarkeit validiert.",
+    "language": "Python",
+    "name": "n8n-workflows-de",
+    "pushedAt": "2026-09-05T20:09:41Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-05T20:09:45Z",
+    "url": "https://github.com/diekiagentur/n8n-workflows-de"
+  },
+  {
+    "description": "Ready-to-use n8n workflows \u2014 tested automations, import and go. Download at https://negozio.91.99.198.106.sslip.io/",
+    "language": "",
+    "name": "n8n-workflow-packs",
+    "pushedAt": "2026-08-19T04:45:57Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-08-19T04:46:04Z",
+    "url": "https://github.com/DeusAcc/n8n-workflow-packs"
+  },
+  {
+    "description": "Curated collection of 350+ production-ready n8n automation workflow templates. AI agents, RAG, LLMs, Telegram bots, email automation, DevOps & more.",
+    "language": "Python",
+    "name": "N8N-Templates",
+    "pushedAt": "2026-09-04T22:05:39Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-04T22:05:42Z",
+    "url": "https://github.com/ahmedfawzyjr/N8N-Templates"
+  },
+  {
+    "description": "Sync n8n workflows to GitHub for version history, review, backup, and GitOps-style change management.",
+    "language": "TypeScript",
+    "name": "GitFlow",
+    "pushedAt": "2026-09-01T21:13:59Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-01T21:14:05Z",
+    "url": "https://github.com/ArcReactorKC/GitFlow"
   }
 ]
