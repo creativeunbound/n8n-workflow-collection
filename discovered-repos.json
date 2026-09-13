@@ -171,6 +171,15 @@
     "url": "https://github.com/mOHAD44DSFASF/flowforge-n8n"
   },
   {
+    "description": "",
+    "language": "TypeScript",
+    "name": "n8n-challenges",
+    "pushedAt": "2026-09-13T11:12:59Z",
+    "stargazersCount": 3,
+    "updatedAt": "2026-09-13T11:13:02Z",
+    "url": "https://github.com/itspoma/n8n-challenges"
+  },
+  {
     "description": "42 n8n workflows connecting Craft docs with AI, RAG, analytics, and more",
     "language": "",
     "name": "n8n-workflows-craft",
@@ -259,6 +268,15 @@
     "stargazersCount": 2,
     "updatedAt": "2026-09-05T10:48:16Z",
     "url": "https://github.com/orgupdate/Apify-Claude-AI"
+  },
+  {
+    "description": "M\u1ee5c ti\u00eau c\u1ee7a n8nworkflows.vn l\u00e0 mang \u0111\u1ebfn m\u1ed9t kho workflow n8n th\u00e2n thi\u1ec7n h\u01a1n cho c\u1ed9ng \u0111\u1ed3ng ng\u01b0\u1eddi d\u00f9ng Vi\u1ec7t Nam, \u0111\u1ed3ng th\u1eddi ti\u1ebfp t\u1ee5c duy tr\u00ec tinh th\u1ea7n chia s\u1ebb v\u00e0 \u0111\u00f3ng g\u00f3p c\u1ee7a d\u1ef1 \u00e1n g\u1ed1c.",
+    "language": "",
+    "name": "n8nworkflows.vn",
+    "pushedAt": "2026-08-26T15:37:18Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-08-26T15:40:08Z",
+    "url": "https://github.com/nathando-ai/n8nworkflows.vn"
   },
   {
     "description": "n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models",
@@ -529,6 +547,15 @@
     "stargazersCount": 1,
     "updatedAt": "2026-09-03T03:38:25Z",
     "url": "https://github.com/ZainSaed/ebay-product-research-automation"
+  },
+  {
+    "description": "AI-powered customer feedback workflow built with n8n, with QA testing, regression validation, and duplicate-record prevention.",
+    "language": "",
+    "name": "n8n-customer-feedback-ai-agent",
+    "pushedAt": "2026-08-24T11:13:19Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-09-08T15:21:44Z",
+    "url": "https://github.com/lipika-chaliha/n8n-customer-feedback-ai-agent"
   },
   {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
@@ -1708,5 +1735,23 @@
     "stargazersCount": 0,
     "updatedAt": "2026-09-01T21:14:05Z",
     "url": "https://github.com/ArcReactorKC/GitFlow"
+  },
+  {
+    "description": "Eight production n8n workflow automations with full documentation: AI customer service, sales pipeline, recruitment, job search, competitor monitoring and financial alerting.",
+    "language": "JavaScript",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-09-10T18:14:42Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-10T18:26:11Z",
+    "url": "https://github.com/engmohamedy100-byte/n8n-workflows"
+  },
+  {
+    "description": "Curated collection of 350+ production-ready n8n automation workflow templates for AI agents, RAG pipelines, LLM orchestration, chatbots, and enterprise DevOps workflows.",
+    "language": "Python",
+    "name": "n8n-templates",
+    "pushedAt": "2026-09-11T18:23:10Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-11T18:23:14Z",
+    "url": "https://github.com/ahmedfawzyjr/n8n-templates"
   }
 ]
