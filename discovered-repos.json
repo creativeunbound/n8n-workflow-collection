@@ -558,6 +558,24 @@
     "url": "https://github.com/lipika-chaliha/n8n-customer-feedback-ai-agent"
   },
   {
+    "description": "\ud83d\ude80 Production-ready n8n templates & JSON workflows featuring DeepSeek AI Agents, Flux Image Gen, WhatsApp bots, RAG pipelines, and automated lead generation.",
+    "language": "",
+    "name": "free-n8n-templates-and-workflows",
+    "pushedAt": "2026-09-17T10:01:25Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-09-17T10:05:05Z",
+    "url": "https://github.com/eyup-ops/free-n8n-templates-and-workflows"
+  },
+  {
+    "description": "This repository contains my personal collection of n8n workflow automations, ranging from AI agents, customer support, Telegram bots, Google Workspace automation, webhooks, REST APIs, databases, and business process automation. Each workflow is designed to demonstrate practical automation patterns, clean architecture, and real-world implementation.",
+    "language": "",
+    "name": "n8n-workflow-portfolio",
+    "pushedAt": "2026-09-14T09:32:27Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-09-15T06:51:09Z",
+    "url": "https://github.com/fahrilalfariziii/n8n-workflow-portfolio"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -1753,5 +1771,41 @@
     "stargazersCount": 0,
     "updatedAt": "2026-09-11T18:23:14Z",
     "url": "https://github.com/ahmedfawzyjr/n8n-templates"
+  },
+  {
+    "description": "Production n8n workflows from real client builds \u2014 email triage, lead routing, CRM sync, social publishing. Import the JSON, swap the credentials, run it.",
+    "language": "HTML",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-09-18T13:53:12Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-18T13:53:16Z",
+    "url": "https://github.com/waseemnasir2k26/n8n-workflows"
+  },
+  {
+    "description": "A complete WhatsApp automation system for order processing using n8n workflows, Node.js, and WhatsApp Business API.",
+    "language": "JavaScript",
+    "name": "n8n-whatsapp-automation",
+    "pushedAt": "2026-09-17T17:40:35Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-17T17:43:27Z",
+    "url": "https://github.com/OwenBlake111/n8n-whatsapp-automation"
+  },
+  {
+    "description": "6,400+ free, production-ready n8n automation workflows. The largest open-source n8n template library - self-hosted, AI-powered, and community-driven.",
+    "language": "Python",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-07-27T16:31:31Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-02T18:57:10Z",
+    "url": "https://github.com/aboalrejalai/n8n-workflows"
+  },
+  {
+    "description": "a complete automated company systems",
+    "language": "",
+    "name": "ComapanyFlow",
+    "pushedAt": "2026-09-19T22:35:39Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-19T22:40:10Z",
+    "url": "https://github.com/Abdalrahman-Musa/ComapanyFlow"
   }
 ]
