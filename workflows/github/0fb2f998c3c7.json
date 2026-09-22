@@ -183,7 +183,7 @@
     }
   },
   "_source": {
-    "repo": "https://github.com/ScraperNode/awesome-n8n-templates",
-    "file": "templates/project-management/3939-jira-mcp-server/workflow.json"
+    "repo": "https://github.com/nusquama/n8nworkflows.xyz",
+    "file": "workflows/Jira MCP Server-3939/jira_mcp_server.json"
   }
 }
