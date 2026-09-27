@@ -576,6 +576,24 @@
     "url": "https://github.com/fahrilalfariziii/n8n-workflow-portfolio"
   },
   {
+    "description": "AI-powered n8n workflow for researching, verifying, ranking and publishing news content across LinkedIn, Facebook and X.",
+    "language": "",
+    "name": "ai-news-social-media-automation",
+    "pushedAt": "2026-09-21T10:11:45Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-09-21T10:14:24Z",
+    "url": "https://github.com/Nyamwangeo/ai-news-social-media-automation"
+  },
+  {
+    "description": "Forward MS-Teams Messages To Better Chat Programs",
+    "language": "JavaScript",
+    "name": "teams-forwarder",
+    "pushedAt": "2026-09-21T14:33:05Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-09-21T14:33:10Z",
+    "url": "https://github.com/teams-forwarder/teams-forwarder"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -1807,5 +1825,32 @@
     "stargazersCount": 0,
     "updatedAt": "2026-09-19T22:40:10Z",
     "url": "https://github.com/Abdalrahman-Musa/ComapanyFlow"
+  },
+  {
+    "description": "An n8n workflow that combines current weather from Weatherbit with a random joke and sends a daily email through Gmail.",
+    "language": "",
+    "name": "n8n-daily-weather-joke-email",
+    "pushedAt": "2026-09-20T01:23:49Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-23T01:26:40Z",
+    "url": "https://github.com/hafiz-abubakar-dev/n8n-daily-weather-joke-email"
+  },
+  {
+    "description": "Production-ready n8n workflow templates for CRM, ads & ITSM automation \u2014 Freshworks, IdeaSoft, WhatsApp, Google Ads, OpenAI | by Innovix Digital",
+    "language": "",
+    "name": "n8n-workflows",
+    "pushedAt": "2026-09-24T11:22:20Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-24T11:22:26Z",
+    "url": "https://github.com/Innovix-Yazilim-San-Tic-A-S/n8n-workflows"
+  },
+  {
+    "description": "Flujos de n8n de muestra: avisos de subvenciones (BDNS), licitaciones p\u00fablicas (PLACSP) y partes de viajeros (SES.HOSPEDAJES)",
+    "language": "",
+    "name": "n8n-automatizaciones",
+    "pushedAt": "2026-09-25T20:19:30Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-09-25T20:19:34Z",
+    "url": "https://github.com/Albyftv/n8n-automatizaciones"
   }
 ]
