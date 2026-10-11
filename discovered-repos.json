@@ -612,6 +612,24 @@
     "url": "https://github.com/oussch702/n8n-workflows-for-business"
   },
   {
+    "description": "6 free, tested n8n workflow templates: late rent & late fee alerts, lease renewal reminders, n8n error alerts, weekly workflow security audit, new-release alert, bank CSV to Schedule C/E. No AI keys needed.",
+    "language": "JavaScript",
+    "name": "n8n-workflow-templates",
+    "pushedAt": "2026-10-09T17:36:17Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-10-09T17:39:06Z",
+    "url": "https://github.com/onyxaholguin-cyber/n8n-workflow-templates"
+  },
+  {
+    "description": "Self-hosted Telegram voice assistant with n8n, Ollama and Speaches",
+    "language": "",
+    "name": "telegram-voice-assistant-n8n",
+    "pushedAt": "2026-10-11T10:20:59Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-10-11T11:21:23Z",
+    "url": "https://github.com/amanullahykhan/telegram-voice-assistant-n8n"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -1924,5 +1942,50 @@
     "stargazersCount": 0,
     "updatedAt": "2026-08-07T11:20:29Z",
     "url": "https://github.com/Akshit496/n8n-lovable-ai-chatbot"
+  },
+  {
+    "description": "Free n8n workflow templates: Prozorro tender digest with AI summaries, invoice photo or PDF to Google Sheets, Nova Poshta parcel status to Telegram",
+    "language": "JavaScript",
+    "name": "n8n-templates",
+    "pushedAt": "2026-10-07T00:47:48Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-07T00:47:53Z",
+    "url": "https://github.com/myradostudio/n8n-templates"
+  },
+  {
+    "description": "N8N workflow automation templates for AI agents, lead capture and scoring, appointment booking, automated reminders, and business process automation.",
+    "language": "HTML",
+    "name": "n8n-automations",
+    "pushedAt": "2026-10-10T08:53:46Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-10T08:56:36Z",
+    "url": "https://github.com/AbdullahSoftDev/n8n-automations"
+  },
+  {
+    "description": "AI-powered lead qualification and appointment automation built with n8n, OpenAI, Google Sheets, Gmail and Calendly.",
+    "language": "",
+    "name": "ai-lead-to-appointment-automation",
+    "pushedAt": "2026-10-07T22:36:53Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-07T22:40:31Z",
+    "url": "https://github.com/izharkhokhar/ai-lead-to-appointment-automation"
+  },
+  {
+    "description": "n8n community node for ChatRail: send WhatsApp messages and start workflows on WhatsApp events, from a number you already own",
+    "language": "TypeScript",
+    "name": "chatrail-n8n",
+    "pushedAt": "2026-10-07T21:15:45Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-08T19:07:27Z",
+    "url": "https://github.com/chatrail/chatrail-n8n"
+  },
+  {
+    "description": "n8n workflow: LLM-based lead qualification & routing \u2014 AI scoring, CRM upsert, Telegram alerts, structured error handling",
+    "language": "",
+    "name": "ai-lead-workflow",
+    "pushedAt": "2026-10-08T13:32:19Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-08T13:32:55Z",
+    "url": "https://github.com/tenderog/ai-lead-workflow"
   }
 ]
