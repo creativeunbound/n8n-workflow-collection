@@ -180,6 +180,15 @@
     "url": "https://github.com/itspoma/n8n-challenges"
   },
   {
+    "description": "A curated collection of free n8n workflow templates with clear setup steps and original creator attribution.",
+    "language": "JavaScript",
+    "name": "N8N-SUPER-TEMPLATES",
+    "pushedAt": "2026-10-19T21:44:01Z",
+    "stargazersCount": 3,
+    "updatedAt": "2026-10-22T11:39:17Z",
+    "url": "https://github.com/brianmurutu/N8N-SUPER-TEMPLATES"
+  },
+  {
     "description": "42 n8n workflows connecting Craft docs with AI, RAG, analytics, and more",
     "language": "",
     "name": "n8n-workflows-craft",
@@ -2068,5 +2077,23 @@
     "stargazersCount": 0,
     "updatedAt": "2026-10-14T11:12:00Z",
     "url": "https://github.com/LanexBuilds/lanexbuilds.github.io"
+  },
+  {
+    "description": "Production-ready n8n (.json) and Make.com automation blueprints for B2B domain enrichment, ATS hiring triggers, Shopify price alerts, and technical SEO audits.",
+    "language": "JavaScript",
+    "name": "n8n-b2b-cold-email-automation-workflows",
+    "pushedAt": "2026-10-25T07:16:40Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-25T07:16:44Z",
+    "url": "https://github.com/ocakciomursel-pixel/n8n-b2b-cold-email-automation-workflows"
+  },
+  {
+    "description": "There is one person behind Small Hours. A team of AI agents built these five free n8n workflows for small service businesses that quote jobs by email: quote requests, booking, a weekly summary, review requests and payment reminders, on Google Sheets and Gmail. Tested with real Google accounts.",
+    "language": "",
+    "name": "n8n-quote-templates",
+    "pushedAt": "2026-10-17T13:10:34Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-17T13:10:37Z",
+    "url": "https://github.com/smallhourstools/n8n-quote-templates"
   }
 ]
