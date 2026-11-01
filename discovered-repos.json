@@ -684,6 +684,15 @@
     "url": "https://github.com/affix/offensive-n8n"
   },
   {
+    "description": "n8n Workflow Templates \u2014 The collection focuses on useful automations for AI support, finance, operations, sales, hospitality, and hiring.",
+    "language": "HTML",
+    "name": "n8n-templates",
+    "pushedAt": "2026-10-27T04:20:46Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-10-27T04:20:47Z",
+    "url": "https://github.com/nirav-gajera/n8n-templates"
+  },
+  {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
     "language": "",
     "name": "n8n-Automate-vulnerability-triage-from-Snyk-with-Jira-Slack-Airtable-integration",
@@ -2095,5 +2104,41 @@
     "stargazersCount": 0,
     "updatedAt": "2026-10-17T13:10:37Z",
     "url": "https://github.com/smallhourstools/n8n-quote-templates"
+  },
+  {
+    "description": "\u201cFree n8n workflow downloads: tested, importable JSON templates with no credentials needed.\u201d",
+    "language": "JavaScript",
+    "name": "n8n-free-workflow-templates",
+    "pushedAt": "2026-10-27T05:12:09Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-27T05:12:13Z",
+    "url": "https://github.com/operantsolo-com/n8n-free-workflow-templates"
+  },
+  {
+    "description": "Generate client handover docs from n8n workflows: inventory, per-workflow pages and diagrams, with secrets redacted and a fail-closed final gate. Zero dependencies, works from exported JSON or the n8n API.",
+    "language": "JavaScript",
+    "name": "n8n-handover-docs",
+    "pushedAt": "2026-10-27T02:10:47Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-27T02:10:49Z",
+    "url": "https://github.com/waseemnasir2k26/n8n-handover-docs"
+  },
+  {
+    "description": "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0442\u0440\u0435\u043a\u0435\u0440 \u0440\u0430\u0441\u0445\u043e\u0434\u043e\u0432 \u0432 Notion \u0447\u0435\u0440\u0435\u0437 Telegram \u0438 n8n \u0441 \u043f\u0430\u0440\u0441\u0438\u043d\u0433\u043e\u043c \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0439 \u043d\u0430 DeepSeek API.",
+    "language": "",
+    "name": "n8n-deepseek-expense-tracker",
+    "pushedAt": "2026-10-31T04:05:48Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-11-01T04:57:24Z",
+    "url": "https://github.com/TanakaKodzhi/n8n-deepseek-expense-tracker"
+  },
+  {
+    "description": "10 free, tested n8n workflow templates: AI email replies, Telegram AI bot, lead capture and scoring, uptime and error alerts, GitHub backups. MIT.",
+    "language": "",
+    "name": "n8n-workflow-templates",
+    "pushedAt": "2026-10-29T04:32:35Z",
+    "stargazersCount": 0,
+    "updatedAt": "2026-10-29T04:35:55Z",
+    "url": "https://github.com/serverservdotcom/n8n-workflow-templates"
   }
 ]
