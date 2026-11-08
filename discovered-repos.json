@@ -126,6 +126,15 @@
     "url": "https://github.com/MinaSaad1/n8n-ai-agents"
   },
   {
+    "description": "55 free, runnable n8n workflows for web scraping: Google Maps leads with emails, Amazon and Shopify price tracking, Zillow listings, Indeed jobs, TikTok, Reddit and Google Trends data. Each one runs a public Apify Actor, cleans and dedupes the rows and can append them to Google Sheets.",
+    "language": "",
+    "name": "scraping-n8n-workflows",
+    "pushedAt": "2026-11-08T20:36:08Z",
+    "stargazersCount": 4,
+    "updatedAt": "2026-11-08T20:36:12Z",
+    "url": "https://github.com/bolvein-firex/scraping-n8n-workflows"
+  },
+  {
     "description": "An AI-powered personal assistant built with n8n that combines autonomous agents, vector memory, and real-time integrations. Manages your calendar, tasks, and personal knowledge through natural language via Telegram, with automated daily readiness reports based on recovery data. It contains a vast number of modular tools for implementation.",
     "language": "",
     "name": "n8n-workflows",
@@ -691,6 +700,15 @@
     "stargazersCount": 1,
     "updatedAt": "2026-10-27T04:20:47Z",
     "url": "https://github.com/nirav-gajera/n8n-templates"
+  },
+  {
+    "description": "30 Production B2B MCP Servers, 36 n8n Workflows, x402 Solana USDC Gateway & OpenAPI 3.1 Suite for SEC EDGAR, SAM.gov, EU TED, UK FCA/Companies House, Sanctions AML, OSHA, SSL CT, GLEIF & Brazil BCB/Tax",
+    "language": "Python",
+    "name": "b2b-quant-mcp-n8n-suite",
+    "pushedAt": "2026-11-05T22:01:06Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-11-05T22:01:11Z",
+    "url": "https://github.com/jesleytassili-glitch/b2b-quant-mcp-n8n-suite"
   },
   {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
