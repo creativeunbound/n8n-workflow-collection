@@ -135,6 +135,15 @@
     "url": "https://github.com/bolvein-firex/scraping-n8n-workflows"
   },
   {
+    "description": "I made some N8N Workflows and I'll sharing with you",
+    "language": "",
+    "name": "n8n-Workflows",
+    "pushedAt": "2026-11-11T12:30:14Z",
+    "stargazersCount": 4,
+    "updatedAt": "2026-11-11T12:30:18Z",
+    "url": "https://github.com/Borna-Etminan/n8n-Workflows"
+  },
+  {
     "description": "An AI-powered personal assistant built with n8n that combines autonomous agents, vector memory, and real-time integrations. Manages your calendar, tasks, and personal knowledge through natural language via Telegram, with automated daily readiness reports based on recovery data. It contains a vast number of modular tools for implementation.",
     "language": "",
     "name": "n8n-workflows",
@@ -709,6 +718,33 @@
     "stargazersCount": 1,
     "updatedAt": "2026-11-05T22:01:11Z",
     "url": "https://github.com/jesleytassili-glitch/b2b-quant-mcp-n8n-suite"
+  },
+  {
+    "description": "Handpicked workflow templates and AI automations for n8n and Open Flow.",
+    "language": "",
+    "name": "awesome-workflow-templates",
+    "pushedAt": "2026-11-15T08:34:37Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-11-12T15:47:42Z",
+    "url": "https://github.com/oomol-lab/awesome-workflow-templates"
+  },
+  {
+    "description": "N8n AI Agent Templates - workflow automation repository designed to provide pre-built integration nodes and intelligent agent pipelines for the n8n platform. Developers and system administrators utilize these templates to connect large language models, automate complex business processes, and streamline data exchanges across external web services.",
+    "language": "Rust",
+    "name": "n8n-ai-agent-templates",
+    "pushedAt": "2026-11-10T19:46:19Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-11-10T21:56:52Z",
+    "url": "https://github.com/TorrentEnvoy/n8n-ai-agent-templates"
+  },
+  {
+    "description": "Autonomous Warm Signal SDR and Deal Debrief Studio. Surfaces buying intent across LinkedIn & X, executes 2-pass sales call extraction, and syncs a 4-tab CRM with n8n automations powered by DeepSeek V4.1 Flash.",
+    "language": "TypeScript",
+    "name": "Pond-Signal-Desk",
+    "pushedAt": "2026-11-06T20:34:17Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-11-11T13:30:09Z",
+    "url": "https://github.com/Pizzylee001/Pond-Signal-Desk"
   },
   {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
