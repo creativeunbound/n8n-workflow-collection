@@ -306,6 +306,24 @@
     "url": "https://github.com/nathando-ai/n8nworkflows.vn"
   },
   {
+    "description": "Official TopAI Sovereign Workflows for n8n: Clean Web-to-Markdown RAG scraper, TokenSlimmer (-70% LLM cost cutter), and SEPA VoP IBAN validator with sub-30ms Anycast edge execution.",
+    "language": "",
+    "name": "topai-n8n-workflows",
+    "pushedAt": "2026-11-21T08:50:02Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-11-21T08:50:05Z",
+    "url": "https://github.com/topaisaas-dev/topai-n8n-workflows"
+  },
+  {
+    "description": "n8n AI agent that triages inbound requests with Claude: CRM updates, Slack alerts with suggested replies, and human review for unclear cases.",
+    "language": "",
+    "name": "n8n-ai-lead-triage",
+    "pushedAt": "2026-11-18T21:02:26Z",
+    "stargazersCount": 2,
+    "updatedAt": "2026-11-18T21:59:34Z",
+    "url": "https://github.com/felixw-ctrl/n8n-ai-lead-triage"
+  },
+  {
     "description": "n8n community node for NVIDIA NIM - Chat completions and image analysis with NVIDIA AI models",
     "language": "TypeScript",
     "name": "n8n-nodes-nvidia-nim",
@@ -745,6 +763,42 @@
     "stargazersCount": 1,
     "updatedAt": "2026-11-11T13:30:09Z",
     "url": "https://github.com/Pizzylee001/Pond-Signal-Desk"
+  },
+  {
+    "description": "Sub-5ms Real-Time Disposable Email Detection, MX Shield, Typo Correction & B2B Lead Verification Engine for SaaS Signups, Anti-Fraud & CRM Cleanliness (Cloudflare Workers)",
+    "language": "TypeScript",
+    "name": "disposable-email-shield-api",
+    "pushedAt": "2026-11-21T08:51:55Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-11-21T08:51:59Z",
+    "url": "https://github.com/topaisaas-dev/disposable-email-shield-api"
+  },
+  {
+    "description": "32 ready-to-import n8n AI agent workflows: 12 starter, 10 advanced and 10 enterprise agents (AP approvals, vendor risk, month-end close, HR/IT helpdesk, deal desk, contract review, SOC 2 security, exec BI).",
+    "language": "Python",
+    "name": "n8n-ai-agents",
+    "pushedAt": "2026-11-16T08:15:45Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-11-16T11:06:03Z",
+    "url": "https://github.com/jrnoorbaloch/n8n-ai-agents"
+  },
+  {
+    "description": "Production n8n AI Automation Blueprints (Auto-Responder, Lead Qualifier, Content Repurposer)",
+    "language": "",
+    "name": "workflowforge-free-blueprints",
+    "pushedAt": "2026-11-16T10:26:30Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-11-17T16:52:45Z",
+    "url": "https://github.com/notionmaster001-max/workflowforge-free-blueprints"
+  },
+  {
+    "description": "Version, test and deploy your n8n workflows to every environment and client, from one Git repo.",
+    "language": "TypeScript",
+    "name": "boilerlift",
+    "pushedAt": "2026-11-22T10:40:42Z",
+    "stargazersCount": 1,
+    "updatedAt": "2026-11-19T18:43:50Z",
+    "url": "https://github.com/laurentvandelle/boilerlift"
   },
   {
     "description": "Stay ahead of security risk by streamlining vulnerability triage end to end. This n8n workflow automation ingests Snyk findings, prioritizes issues, logs details in Airtable, creates Jira tickets and notifies teams in Slack. A practical n8n workflow template for faster remediation and security visibility.",
